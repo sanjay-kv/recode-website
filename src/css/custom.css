@@ -1,0 +1,83 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+@import "tailwindcss";
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (min-width: 997px) {
+  .nav-emoji {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1205px) {
+  .nav-emoji {
+    display: inline-block;
+  }
+}
+
+.dropdown_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.dropbtn {
+  width: 110px;
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #4e8da0db;
+  margin: 2px;
+}
+
+.nav__icons img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.dropdown-content {
+  position: relative;
+  min-width: 180px;
+}
+.dropdown-content a:hover {
+  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(252, 176, 69, 0.285) 50%,
+    rgba(253, 29, 29, 0.33) 100%
+  );
+  border-radius: 50% 40%;
+}
