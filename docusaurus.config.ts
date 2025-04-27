@@ -219,51 +219,139 @@ const config: Config = {
       ],
       // hideOnScroll: true,
     },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Tutorial",
-              to: "/docs/intro",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-    },
+    // footer: {
+    //   style: "dark",
+    //   links: [
+    //     {
+    //       title: " ",
+    //       items: [
+    //         {
+    //           html: `
+    //               <div class="footer_info--container">
+    //                 <img src="/img/logo.png" alt="Footer logo" />
+    //                 <span>
+    //                 Our mission at RecodeHive  is clear: to provide accessible and comprehensive educational resources to learners of all levels, from beginners to advanced professionals.
+    //                 </span>
+    //               </div>
+    //             `,
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Resources",
+    //       items: [
+    //         {
+    //           label: "Tutorials",
+    //           to: "/docs",
+    //         },
+    //         {
+    //           label: "Courses",
+    //           to: "/courses",
+    //         },
+    //         {
+    //           label: "DSA Problems",
+    //           to: "#",
+    //         },
+    //         {
+    //           label: "DSA Solutions",
+    //           to: "#",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Company",
+    //       items: [
+    //         {
+    //           label: "About",
+    //           to: "/about/",
+    //         },
+    //         {
+    //           label: "Contact",
+    //           to: "/contact/",
+    //         },
+    //         {
+    //           label: "Careers",
+    //           to: "/careers/",
+    //         },
+    //         {
+    //           label: "Team",
+    //           to: "/community/team/",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Terms/Conditions",
+    //       items: [
+    //         {
+    //           label: "Privacy Policy",
+    //           to: "/privacy-policy/",
+    //         },
+    //         {
+    //           label: "Terms of Service",
+    //           to: "/terms-service/",
+    //         },
+    //         {
+    //           label: "Code of Conduct",
+    //           to: "/code-of-conduct",
+    //         },
+    //         {
+    //           label: "Cookie Policy",
+    //           to: "/cookie-policy",
+    //         },
+
+    //         {
+    //           label: "License",
+    //           to: "/License/",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Quick Links",
+    //       items: [
+    //         {
+    //           label: "Blog",
+    //           to: "/blog",
+    //         },
+    //         {
+    //           label: "Community",
+    //           to: "/community/",
+    //         },
+    //         {
+    //           label: "GitHub",
+    //           href: "https://github.com/codeharborhub",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Social Media",
+    //       items: [
+    //         {
+    //           label: "LinkedIn",
+    //           href: "https://www.linkedin.com/company/codeharborhub/",
+    //         },
+    //         {
+    //           label: "YouTube",
+    //           href: "https://www.youtube.com/",
+    //           icon: "faYoutube",
+    //         },
+    //         {
+    //           label: "Discord",
+    //           href: "https://discord.gg/c53FQn3pRv",
+    //         },
+    //         {
+    //           label: "Twitter(X)",
+    //           href: "https://twitter.com/CodesWithAjay",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   logo: {
+    //     alt: "Powered by CodeHarborHub | Product Hunt",
+    //     src: "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464236&theme=light",
+    //     href: "https://www.producthunt.com/posts/codeharborhub",
+    //   },
+    //   copyright: `Copyright © ${new Date().getFullYear()} CodeHarborHub, Made by <a href="https://github.com/Ajay-Dhangar/">Ajay Dhangar</a>`,
+    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
