@@ -11,7 +11,7 @@ ActiveTeamRow
 
 ## Owner and Founder {#owner}
 
-CodeHarborHub was founded by [Ajay Dhangar](https://www.linkedin.com/in/ajay-dhangar/). Ajay is a software engineer and educator with a passion for teaching and mentoring. He is dedicated to providing accessible and comprehensive educational resources to learners of all levels, from beginners to advanced professionals.
+Recode Hive was founded by [Sanjay Viswanathan](https://www.linkedin.com/in/sanjay-k-v/). Sanjay is a software engineer and educator with a passion for teaching and mentoring. He is dedicated to providing accessible and comprehensive educational resources to learners of all levels, from beginners to advanced professionals.
 
 <ActiveTeamRow />
 

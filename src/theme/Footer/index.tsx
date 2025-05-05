@@ -322,7 +322,7 @@ const Footer: React.FC = () => {
                     to="https://github.com/ajay-dhangar"
                     className="footer-link text-yellow-500 hover:text-[--ifm-color-primary] text-base relative hover:no-underline"
                   >
-                    Ajay Dhangar
+                    Sanjay Viswanathan
                   </Link>
                 </p>
               </div>
