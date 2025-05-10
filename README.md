@@ -4,16 +4,18 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> 
  
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<a href="https://github.com/recodehive/Opensource-practice/stargazers"><img src="https://img.shields.io/github/stars/recodehive/Opensource-practice" alt="Stars Badge"/></a>
-<a href="https://github.com/recodehive/Opensource-practice/network/members"><img src="https://img.shields.io/github/forks/recodehive/Opensource-practice" alt="Forks Badge"/></a> 
-<a href="https://github.com/recodehive/Opensource-practice/pulls"><img src="https://img.shields.io/github/issues-pr/recodehive/Opensource-practice" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/recodehive/Opensource-practice/issues"><img src="https://img.shields.io/github/issues/recodehive/Opensource-practice" alt="Issues Badge"/></a>
-<a href="https://github.com/recodehive/Opensource-practice/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/recodehive/Opensource-practice?color=2b9348"></a>
-<a href="https://github.com/recodehive/Opensource-practice/blob/master/LICENSE"><img src="https://img.shields.io/github/license/recodehive/Opensource-practice?color=2b9348" alt="License Badge"/></a>
+<a href="https://github.com/recodehive/recode-website/stargazers"><img src="https://img.shields.io/github/stars/recodehive/recode-website" alt="Stars Badge"/></a>
+<a href="https://github.com/recodehive/recode-website/network/members"><img src="https://img.shields.io/github/forks/recodehive/recode-website" alt="Forks Badge"/></a> 
+<a href="https://github.com/recodehive/recode-website/pulls"><img src="https://img.shields.io/github/issues-pr/recodehive/recode-website" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/recodehive/recode-website/issues"><img src="https://img.shields.io/github/issues/recodehive/recode-website" alt="Issues Badge"/></a>
+<a href="https://github.com/recodehive/recode-website/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/recodehive/recode-website?color=2b9348"></a>
+<a href="https://github.com/recodehive/recode-website/blob/master/LICENSE"><img src="https://img.shields.io/github/license/recodehive/recode-website?color=2b9348" alt="License Badge"/></a>
 [![](https://visitcount.itsvg.in/api?id=Opensource-practice&label=Profile%20Views&color=0&icon=5&pretty=true)](https://visitcount.itsvg.in)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-This is the all in one place for documentation help regarding the postman challenge.
+This is the all in one place for documentation help regarding How to contribute.
 </div>
+
+https://github.com/recodehive/recode-website
 
 Repository for you to raise a Pull Request to **practice** open-source ! 🎉
 
