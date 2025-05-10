@@ -35,7 +35,7 @@ const HeaderContent = () => {
         className="gradient__text" // CSS class for gradient text
       >
         <ParticlesComponent/> {/* Render ParticlesComponent */}
-        Level Up Skills with <br></br>RecodeHive  {/* Text content */}
+        Level Up Skills with <br></br>Recode Hive  {/* Text content */}
       </motion.h1>
 
       {/* Description paragraph with animated entrance */}
