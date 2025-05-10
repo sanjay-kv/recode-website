@@ -38,9 +38,9 @@ const OurSponsors: React.FC = () => {
         <div className="sponsor-header">
           <h1 className="TitleText">Our Sponsors</h1>
           <p>
-            Help CodeHarborHub grow and support open-source projects by donating
-            today. Your contribution enables us to share valuable resources and
-            knowledge on our website.
+            Fuel the Hive community to our ecosystem and support open-source projects by donating
+            today. <br></br>Your contribution help us to create valuable resource and
+            knowledge base on our website.
             <br />
             Thank you for your support!
           </p>
@@ -69,19 +69,13 @@ const OurSponsors: React.FC = () => {
         )}
         <div className="support-links">
           <iframe
-            src="https://github.com/sponsors/Ajay-Dhangar/button"
-            title="Sponsor Ajay-Dhangar"
+            src="https://github.com/sponsors/sanjay-kv/button"
+            title="Sponsor Sanjay Viswanathan on GitHub"
             height="32"
             width="114"
             style={{ border: 0, borderRadius: "6px" }}
            />
-          <a
-            href="https://www.patreon.com/ajay_dhangar"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Support on Patreon
-          </a>
+
         </div>
       </div>
     </Layout>
