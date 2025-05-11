@@ -79,14 +79,12 @@ GitHub Simplfy all the command line interface of Git and make it more GUI friend
 
         | Category | 	Description |
         | --- |  -------------------- |
-        | Issues | Retrieve data from tables |
-        | Discussions |  |
-        | Pull requests |  |
-        | Notifications |  |
-        | Labels |  |
-        | Actions |  |
-        | Forks |  |
-        | Projects |  |
+        | Issues | The place where new suggestions or development ideas can be added. |
+        | Discussions | Place where a community discussion can happen |
+        | Pull requests | PR - Once the user worked on the issue, they can develop the feature and ask to merge |
+        | Labels | Feature to categorise the issue, like bug, deadline, feature |
+        | Actions | To automate the entire process of repatitive task on GitHub |
+        | Forks | Cloning the original repo to your name |
 
 
 The fork is a personal copy of the repo which is already present or uploaded in GitHub by a different user. Once you fork and make changes to the repository the changes will happen to your forked repo, not the real one.
