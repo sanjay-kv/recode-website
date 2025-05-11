@@ -89,7 +89,7 @@ const config: Config = {
                 <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
                 <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
                 <a href="/docs/category/GitHub/" class="nav__icons" > <img src="/icons/github.svg" title="GitHub" alt="GitHub" /> </a>
-                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="HTML" /> </a>
+                <a href="/docs/category/Nextjs/" class="nav__icons" > <img src="/icons/Nextjs.svg" title="Nextjs" alt="Nextjs" /> </a>
 
               </div>
             </div>`,
@@ -105,7 +105,8 @@ const config: Config = {
               value: `<div class="grid grid-cols-3 gap-4">
               <a class="border-r col-span-1" href="/courses/"> Courses </a>
               <div class="grid grid-cols-4 col-span-2">
-                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="HTML" /> </a>
+                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="git" /> </a>
+                <a href="https://www.youtube.com/watch?v=O1ahDsq8DU0&list=PLrLTYhoDFx-k62rLLajSB-jeqKwLkDrkF&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/postman.svg" alt="Postman" /> </a>
 
               </div>
             </div>`,
@@ -139,8 +140,32 @@ const config: Config = {
           position: "left",
         },
         {
-          to: "/our-sponsors/",
-          html: '<span class="nav-emoji">💰</span> Donate',
+          type: "dropdown",
+          html: '<span class="nav-emoji">👩🏻‍💻</span> Devfolio',
+          position: "left",
+          items: [
+            {
+              label: "💻GitHub Profiles",
+              to: "/projects/",
+            },
+            {
+              label: "🎖️ GitHub Badges",
+              to: "/ebooks/",
+            },
+
+            {
+              label: "💾 Portfolio",
+              to: "/roadmap/",
+            },
+            {
+              label: "⚙️ Tools",
+              to: "/our-sponsors/",
+            },
+            // {
+            //   label: "📺 Broadcast",
+            //   to: "https://codeharborhub-broadcast-web.vercel.app/",
+            // },
+          ],
         },
         {
           to: "/blogs",
@@ -164,10 +189,10 @@ const config: Config = {
               label: "🛣️ Roadmap",
               to: "/roadmap/",
             },
-            // {
-            //   label: "🧑‍💻 Live Editor",
-            //   to: "/LiveEditor/",
-            // },
+            {
+              label: "💰 Donate",
+              to: "/our-sponsors/",
+            },
             // {
             //   label: "📺 Broadcast",
             //   to: "https://codeharborhub-broadcast-web.vercel.app/",
