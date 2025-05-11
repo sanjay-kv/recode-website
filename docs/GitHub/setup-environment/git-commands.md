@@ -311,7 +311,7 @@ By managing these resources efficiently, web developers can create engaging and 
 
 
 <AdsComponent />
-
+<iframe width="880" height="480" src="https://www.youtube.com/embed/jE8nqWSbUQs?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63" title="Understanding the GitHub Flow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ## Conclusion
 
 In conclusion, I hope you enjoyed reading this article on “Git Cheat Sheet. 50 Git commands |Git Tutorials”. In the next post, We will continue the Git/Github courses with more added materials and set up of git in your system. Signing off Sanjay Kv
