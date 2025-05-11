@@ -193,10 +193,14 @@ const config: Config = {
               label: "💰 Donate",
               to: "/our-sponsors/",
             },
-            // {
-            //   label: "📺 Broadcast",
-            //   to: "https://codeharborhub-broadcast-web.vercel.app/",
-            // },
+            {
+              label: "📺 Broadcast",
+              to: "https://www.youtube.com/recodehive",
+            },
+            {
+              label: "🎙️ Podcast",
+              to: "https://open.spotify.com/show/6oPJ7ZBlN7y34yiSMguIda",
+            },            
           ],
         },
         // {
