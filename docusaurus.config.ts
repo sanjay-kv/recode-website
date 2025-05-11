@@ -89,6 +89,7 @@ const config: Config = {
                 <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
                 <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
                 <a href="/docs/category/GitHub/" class="nav__icons" > <img src="/icons/github.svg" title="GitHub" alt="GitHub" /> </a>
+                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="HTML" /> </a>
 
               </div>
             </div>`,
