@@ -1,8 +1,9 @@
 "use client";
 
-import { CheckCircle, ChevronRight, Quote } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 export interface OurProjectsData {
   tag: string;
@@ -52,7 +53,7 @@ const HeadingComponent: React.FC<HeadingComponentProps> = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full ">
       {/* left part */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
@@ -68,7 +69,7 @@ const HeadingComponent: React.FC<HeadingComponentProps> = ({
         </div>
       </motion.div>
       {/* right part */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -85,7 +86,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({ items }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
@@ -96,11 +97,10 @@ const SelectComponent: React.FC<SelectComponentProps> = ({ items }) => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className={`text-white cursor-pointer ${
-              activeItem === index
+            className={`text-white cursor-pointer ${activeItem === index
                 ? "bg-gradient-to-r from-blue-600 to-purple-600"
                 : "bg-gray-800 hover:bg-gray-700"
-            } p-2 md:p-6 rounded-2xl md:rounded-r-full w-40 md:w-4/5 relative transition-all duration-300 ease-in-out`}
+              } p-2 md:p-6 rounded-2xl md:rounded-r-full w-40 md:w-4/5 relative transition-all duration-300 ease-in-out`}
             key={index}
             onClick={() => setActiveItem(index)}
           >
@@ -111,7 +111,10 @@ const SelectComponent: React.FC<SelectComponentProps> = ({ items }) => {
           </motion.div>
         ))}
       </div>
-      <motion.div 
+      <motion.a
+        href="https://github.com/recodehive/Opensource-practice"
+        target="_blank"
+        rel="noopener noreferrer"
         initial={false}
         animate={{ scale: isHovered ? 1.02 : 1 }}
         onHoverStart={() => setIsHovered(true)}
@@ -127,7 +130,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({ items }) => {
           alt={items[activeItem].title}
           className="w-full h-[30vh] md:h-[60vh] object-cover rounded-2xl shadow-xl transform transition-transform duration-300"
         />
-      </motion.div>
+      </motion.a>
     </motion.div>
   );
 };
