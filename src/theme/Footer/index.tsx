@@ -319,10 +319,10 @@ const Footer: React.FC = () => {
                 <p className="text-base text-gray-300">
                   Designed and Developed by &nbsp;
                   <Link
-                    to="https://github.com/ajay-dhangar"
+                    to="https://github.com/sanjay-kv"
                     className="footer-link text-yellow-500 hover:text-[--ifm-color-primary] text-base relative hover:no-underline"
                   >
-                    Ajay Dhangar
+                    Sanjay Viswanathan
                   </Link>
                 </p>
               </div>

@@ -35,7 +35,7 @@ const HeaderContent = () => {
         className="gradient__text" // CSS class for gradient text
       >
         <ParticlesComponent/> {/* Render ParticlesComponent */}
-        Level Up Skills with Recodehive {/* Text content */}
+        Level Up Skills with <br></br>Recode Hive  {/* Text content */}
       </motion.h1>
 
       {/* Description paragraph with animated entrance */}
@@ -50,7 +50,7 @@ const HeaderContent = () => {
           delay: 0.2,
         }}
       >
-        Tired of limitations? CodeHarborHub shatters them. We&apos;re the
+        Tired of limitations? Recode Hive shatters them. We&apos;re the
         exclusive platform offering a comprehensive tech curriculum, taught by
         industry masters, completely free. Join our vibrant community, master
         in-demand skills, and launch your dream tech career.

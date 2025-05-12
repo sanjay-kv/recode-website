@@ -70,7 +70,7 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "RecodeHive",
+      title: "Recode Hive",
       logo: {
         alt: "RecodeHive Logo",
         src: "img/logo.png",
@@ -86,14 +86,11 @@ const config: Config = {
               value: `<div class="grid grid-cols-3 gap-4 w-xl">
               <a class="border-r col-span-1" href="/docs/">Tutorials</a>
               <div class="grid grid-cols-4 col-span-2">
-                <a href="/docs/category/html/" class="nav__icons"> <img src="/icons/html-5.svg" title="HTML5" alt="HTML" /> </a>
-                <a href="/docs/category/css/" class="nav__icons"> <img src="/icons/css.svg" title="CSS" alt="CSS" /> </a>
-                <a href="/docs/category/javascript/" class="nav__icons" > <img src="/icons/js.svg" title="JavaScript" alt="JavaScript" /> </a>
-                <a href="/docs/category/react/" class="nav__icons"> <img src="/icons/jsx.svg" title="React.Js" alt="React" /> </a>
-                <a href="/docs/category/typescript/" class="nav__icons"> <img src="/icons/ts.svg" title="TypeScript" alt="TypeScript" /> </a>
-                <a href="#" class="nav__icons"> <img src="/icons/py.svg" title="Python" alt="Python" /> </a>
-                <a href="/docs/category/tailwind/" class="nav__icons"> <img src="/icons/tailwind-css.svg" title="Tailwind CSS" alt="Tailwind" /> </a>
-                <a href="/docs/category/next-js/" class="nav__icons"> <img src="/icons/next-js.svg" title="NextJs" alt="Next" /> </a>
+                <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
+                <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
+                <a href="/docs/category/GitHub/" class="nav__icons" > <img src="/icons/github.svg" title="GitHub" alt="GitHub" /> </a>
+                <a href="/docs/category/Nextjs/" class="nav__icons" > <img src="/icons/Nextjs.svg" title="Nextjs" alt="Nextjs" /> </a>
+
               </div>
             </div>`,
             },
@@ -108,8 +105,9 @@ const config: Config = {
               value: `<div class="grid grid-cols-3 gap-4">
               <a class="border-r col-span-1" href="/courses/"> Courses </a>
               <div class="grid grid-cols-4 col-span-2">
-                <a href="/courses/category/html" class="nav__icons"> <img src="/icons/html-5.svg" alt="HTML" /> </a>
-                <a href="/courses/category/reactjs/" class="nav__icons"> <img src="/icons/jsx.svg" alt="React" /> </a>
+                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="git" /> </a>
+                <a href="https://www.youtube.com/watch?v=O1ahDsq8DU0&list=PLrLTYhoDFx-k62rLLajSB-jeqKwLkDrkF&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/postman.svg" alt="Postman" /> </a>
+
               </div>
             </div>`,
             },
@@ -122,10 +120,10 @@ const config: Config = {
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4">
-              <a  class="border-r col-span-1" href="https://codeharborhub.github.io/dsa/" target="_self"> DSA </a>
+              <a  class="border-r col-span-1" href="https://codeharborhub.github.io/dsa/" target="_self"> Interview Prep </a>
               <div class="grid grid-cols-1 col-span-2">
-                <a href="https://codeharborhub.github.io/dsa/problems/" target="_self" class="nav__icons"> 🧩Problems </a> <br />
-                <a href="https://codeharborhub.github.io/dsa/solutions/" target="_self" class="nav__icons  "> 💡Solutions </a>
+                <a href="https://codeharborhub.github.io/dsa/problems/" target="_self" class="nav__icons"> 🧩Technical </a> <br />
+                <a href="https://codeharborhub.github.io/dsa/solutions/" target="_self" class="nav__icons  "> 💡Behaviour </a>
               </div>
             </div>`,
             },
@@ -142,8 +140,32 @@ const config: Config = {
           position: "left",
         },
         {
-          to: "/our-sponsors/",
-          html: '<span class="nav-emoji">💰</span> Donate',
+          type: "dropdown",
+          html: '<span class="nav-emoji">👩🏻‍💻</span> Devfolio',
+          position: "left",
+          items: [
+            {
+              label: "💻GitHub Profiles",
+              to: "/projects/",
+            },
+            {
+              label: "🎖️ GitHub Badges",
+              to: "/ebooks/",
+            },
+
+            {
+              label: "💾 Portfolio",
+              to: "/roadmap/",
+            },
+            {
+              label: "⚙️ Tools",
+              to: "/our-sponsors/",
+            },
+            // {
+            //   label: "📺 Broadcast",
+            //   to: "https://codeharborhub-broadcast-web.vercel.app/",
+            // },
+          ],
         },
         {
           to: "/blogs",
@@ -155,7 +177,7 @@ const config: Config = {
           position: "left",
           items: [
             {
-              label: "Projects",
+              label: "📜Projects",
               to: "/projects/",
             },
             {
@@ -167,14 +189,18 @@ const config: Config = {
               label: "🛣️ Roadmap",
               to: "/roadmap/",
             },
-            // {
-            //   label: "🧑‍💻 Live Editor",
-            //   to: "/LiveEditor/",
-            // },
-            // {
-            //   label: "📺 Broadcast",
-            //   to: "https://codeharborhub-broadcast-web.vercel.app/",
-            // },
+            {
+              label: "💰 Donate",
+              to: "/our-sponsors/",
+            },
+            {
+              label: "📺 Broadcast",
+              to: "https://www.youtube.com/recodehive",
+            },
+            {
+              label: "🎙️ Podcast",
+              to: "https://open.spotify.com/show/6oPJ7ZBlN7y34yiSMguIda",
+            },            
           ],
         },
         // {
@@ -346,11 +372,11 @@ const config: Config = {
     //     },
     //   ],
     //   logo: {
-    //     alt: "Powered by CodeHarborHub | Product Hunt",
+    //     alt: "Powered by Recodehive | Product Hunt",
     //     src: "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464236&theme=light",
     //     href: "https://www.producthunt.com/posts/codeharborhub",
     //   },
-    //   copyright: `Copyright © ${new Date().getFullYear()} CodeHarborHub, Made by <a href="https://github.com/Ajay-Dhangar/">Ajay Dhangar</a>`,
+    //   copyright: `Copyright © ${new Date().getFullYear()} CodeHarborHub, Made by <a href="https://github.com/sanjay-kv">Sanjay Viswanathan</a>`,
     // },
     prism: {
       theme: prismThemes.github,
