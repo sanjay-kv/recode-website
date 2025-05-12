@@ -2,7 +2,7 @@
 id: git-commands
 title: 50 Git commands Cheatsheet
 sidebar_label: Git commands  
-sidebar_position: 3
+sidebar_position: 4
 tags: [git, github, git-cheatsheet, commands, git-commands]
 description: In this tutorial, you will learn about the basic of git and 50 important git commands.
 ---
