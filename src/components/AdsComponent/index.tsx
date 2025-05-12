@@ -11,8 +11,7 @@ const AdsComponent: React.FC = () => {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-    catch (err) {
+    } catch (err) {
       console.error(err);
     }
   }, []);
@@ -32,7 +31,7 @@ const AdsComponent: React.FC = () => {
         data-ad-format="fluid"
         data-ad-client="ca-pub-5832817025080991"
         data-ad-slot="3270832720"
-       />
+      />
     </>
   );
 };
