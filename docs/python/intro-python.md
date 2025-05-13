@@ -1,5 +1,5 @@
 ---
-id: intro-sql
+id: intro-python
 title: Introduction of SQL 
 sidebar_label: Introduction of SQL #displays in sidebar
 sidebar_position: 1
@@ -18,7 +18,7 @@ tags:
 description: In this tutorial, you will learn about SQL, its importance, what is SQL, why learn SQL, how to use SQL, steps to start using SQL, and more.
 ---
 
-SQL **Structured Query Language** is a standard programming language used to manage and manipulate relational databases. It allows users to store, retrieve, update, and delete data in a structured format.
+
 <AdsComponent />
 
 :::note
