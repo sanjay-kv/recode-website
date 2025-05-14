@@ -129,8 +129,8 @@ const stats = [
 const faqs = [
   { q: "Who can enroll in the programs?", a: "Anyone interested in data engineering, from beginners to professionals." },
   { q: "Will I receive a certificate?", a: "Yes, you will receive a certificate upon successful completion of the course." },
-  { q: "Is the course in Hindi or Englisany questions?", a: "You h?", a: "Courses are available in both Hindi and English." },
-  { q: "How can I contact you if I have can contact us via the contact form or email provided on the website." },
+  { q: "Is the course in Hindi or English?", a: "Courses are available in both Hindi and English." },
+  { q: "How can I contact you if I have questions?", a: "You can contact us via the contact form or email provided on the website." },
   { q: "Do I need to learn anything before this course starts?", a: "No prior experience is required. All fundamentals will be covered." },
 ];
 
@@ -225,19 +225,10 @@ export default function CoursesLanding() {
       setActiveProjectIndex((prevIndex) =>
         prevIndex === projects.length - 1 ? 0 : prevIndex + 1
       );
-
-      // Synchronize the carousel scroll with the active index
-      if (projectCarouselRef.current) {
-        const scrollAmount = activeProjectIndex * 240; // Adjust based on your image width + gap
-        projectCarouselRef.current.scrollTo({
-          left: scrollAmount,
-          behavior: 'smooth'
-        });
-      }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [activeProjectIndex]);
+  }, []);
 
   // Animate stats counter when visible
   useEffect(() => {
@@ -299,27 +290,17 @@ export default function CoursesLanding() {
 
     if (newIndex >= 0 && newIndex < projects.length) {
       setActiveProjectIndex(newIndex);
-
-      if (projectCarouselRef.current) {
-        const scrollAmount = newIndex * 240; // Adjust based on your image width + gap
-        projectCarouselRef.current.scrollTo({
-          left: scrollAmount,
-          behavior: 'smooth'
-        });
-      }
+    } else if (newIndex < 0) {
+      // Loop to the end if going backwards from first slide
+      setActiveProjectIndex(projects.length - 1);
+    } else {
+      // Loop to the beginning if going forward from last slide
+      setActiveProjectIndex(0);
     }
   };
 
   const goToProjectSlide = (index) => {
     setActiveProjectIndex(index);
-
-    if (projectCarouselRef.current) {
-      const scrollAmount = index * 240; // Adjust based on your image width + gap
-      projectCarouselRef.current.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }
   };
 
   const handleInfo = (info) => setModal({ open: true, content: info });
@@ -432,16 +413,16 @@ export default function CoursesLanding() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.1),transparent_80%)] animate-pulse"/>
           <motion.h1
-            className="text-6xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 relative z-10"
+            className="text-6xl md:text-7xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 relative z-10 tracking-tight"
             variants={fadeIn}
           >
             Transform Your Career<br />in Data Engineering</motion.h1>
           <div className="flex justify-center items-center">
             <motion.p
-              className="text-xl md:text-2xl text-gray-300 max-w-2xl text-center"
+              className="text-xl md:text-2xl text-gray-300 max-w-2xl text-center leading-relaxed"
               variants={fadeIn}
             >
-              Master the art of data engineering with industry-leading courses designed for modern tech careers.
+              Master the art of data engineering with industry-leading courses designed for <span className="text-blue-300 font-semibold">modern tech careers</span>.
             </motion.p>
           </div>
           <motion.div
@@ -449,7 +430,7 @@ export default function CoursesLanding() {
             variants={fadeIn}
           >
             <button
-              className="group relative px-8 py-4 overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50"
+              className="group relative px-8 py-4 overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50 border border-blue-400/30"
               onClick={() => handleAction("enroll")}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -461,7 +442,7 @@ export default function CoursesLanding() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"/>
             </button>
             <button
-              className="group relative px-8 py-4 overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm text-white font-bold text-lg shadow-xl border border-gray-700/50 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/30"
+              className="group relative px-8 py-4 overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm text-white font-bold text-lg shadow-xl border border-gray-700/50 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/30 hover:border-purple-500/30"
               onClick={() => handleAction("curriculum")}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -485,7 +466,7 @@ export default function CoursesLanding() {
               {techTags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full text-sm font-semibold text-white shadow transition-colors duration-300"
+                  className="bg-gray-800/80 hover:bg-blue-700/80 px-4 py-2 rounded-full text-sm font-semibold text-gray-200 shadow-md transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50 hover:text-white"
                 >
                   {tag}
                 </span>
@@ -498,14 +479,14 @@ export default function CoursesLanding() {
             className="mt-8"
             variants={fadeIn}
           >
-            <h3 className="text-lg text-gray-400 mb-2">Students now available at</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8">
+            <h3 className="text-lg text-gray-400 mb-2 text-center">Students now available at</h3>
+            <div className="flex flex-wrap justify-center items-center gap-4">
               {partnerLogos.map((logo, idx) => (
                 <motion.img
                   key={idx}
                   src={logo}
                   alt="Partner Logo"
-                  className="h-10 w-auto object-contain bg-white rounded p-2"
+                  className="h-12 w-auto object-contain"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 />
@@ -518,7 +499,7 @@ export default function CoursesLanding() {
         <section className="py-20 px-4 border-b border-gray-800 bg-gradient-to-b from-black via-blue-950/20 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.1),transparent_70%)]"/>
           <motion.h2
-            className="text-4xl font-bold text-center mb-12 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200"
+            className="text-4xl font-bold text-center mb-12 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-300 drop-shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -535,7 +516,7 @@ export default function CoursesLanding() {
           >
             <div className="relative">
               <button
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 hover:bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform transition hover:scale-110"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform transition hover:scale-110 border border-gray-700/50 hover:border-blue-500/50"
                 onClick={() => scrollProjects(-1)}
               >
                 &lt;
@@ -546,17 +527,18 @@ export default function CoursesLanding() {
               >
                 <div
                   className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${activeProjectIndex * (100 / projects.length)}%)` }}
+                  style={{ transform: `translateX(-${activeProjectIndex * 100}%)` }}
                 >
                   {projects.map((img, idx) => (
                     <div
                       key={idx}
                       className="min-w-full flex justify-center px-4"
+                      style={{ width: '100%', flexShrink: 0 }}
                     >
                       <img
                         src={img}
                         alt={`Project ${idx + 1}`}
-                        className="rounded-lg shadow-lg hover:shadow-blue-500/20 transition transform hover:scale-105 cursor-pointer"
+                        className="rounded-lg shadow-lg hover:shadow-blue-500/30 transition transform hover:scale-105 cursor-pointer border-2 border-gray-700/50 hover:border-blue-500/50"
                         style={{ height: "220px", width: "360px" }}
                       />
                     </div>
@@ -564,7 +546,7 @@ export default function CoursesLanding() {
                 </div>
               </div>
               <button
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 hover:bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform transition hover:scale-110"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform transition hover:scale-110 border border-gray-700/50 hover:border-blue-500/50"
                 onClick={() => scrollProjects(1)}
               >
                 &gt;
@@ -574,7 +556,7 @@ export default function CoursesLanding() {
               {projects.map((_, idx) => (
                 <button
                   key={idx}
-                  className={`w-3 h-3 rounded-full transition-colors ${idx === activeProjectIndex ? 'bg-blue-500' : 'bg-gray-600'}`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeProjectIndex ? 'bg-blue-500 scale-110 shadow-md shadow-blue-500/50' : 'bg-gray-600 hover:bg-gray-500'}`}
                   onClick={() => goToProjectSlide(idx)}
                 />
               ))}
@@ -586,7 +568,7 @@ export default function CoursesLanding() {
         <section className="py-20 px-4 border-b border-gray-800 bg-gradient-to-br from-gray-900 via-blue-950/10 to-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(59,130,246,0.1),transparent_70%)]"/>
           <motion.h2
-            className="text-4xl font-bold text-center mb-12 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300"
+            className="text-4xl font-bold text-center mb-12 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-300 drop-shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -598,7 +580,7 @@ export default function CoursesLanding() {
             {testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
-                className="group relative backdrop-blur-sm bg-gray-800/30 hover:bg-gray-800/50 p-8 rounded-xl flex flex-col items-center shadow-lg cursor-pointer border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300"
+                className="group relative backdrop-blur-sm bg-gray-800/30 hover:bg-gray-800/50 p-8 rounded-xl flex flex-col items-center shadow-lg cursor-pointer border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-blue-500/20"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -612,7 +594,7 @@ export default function CoursesLanding() {
                   <img 
                     src={t.img} 
                     alt={t.name} 
-                    className="relative w-full h-full rounded-full object-cover border-2 border-blue-400/50 group-hover:border-blue-400 transition-all duration-300 z-10" 
+                    className="relative w-full h-full rounded-full object-cover border-2 border-blue-400/50 group-hover:border-blue-400 transition-all duration-300 z-10 shadow-md shadow-blue-500/30" 
                   />
                 </div>
                 <h4 className="font-bold mb-3 text-xl bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300 group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">{t.name}</h4>
@@ -638,7 +620,7 @@ export default function CoursesLanding() {
         {/* Courses Timeline Section */}
         <section className="py-16 px-4 border-b border-gray-800">
           <motion.h2
-            className="text-3xl font-bold text-center mb-4 tracking-tight leading-tight"
+            className="text-3xl font-bold text-center mb-4 tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-300 drop-shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -647,7 +629,7 @@ export default function CoursesLanding() {
             Courses Available
           </motion.h2>
           <motion.h3
-            className="text-xl font-semibold text-center mb-12"
+            className="text-xl font-semibold text-center mb-12 text-gray-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -698,7 +680,7 @@ export default function CoursesLanding() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: idx * 0.1 }}
                   >
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900 border-4 border-purple-500 text-2xl font-bold mb-2 shadow-lg shadow-purple-500/50">
+                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gray-900 border-4 border-purple-500 text-2xl font-bold mb-2 shadow-lg shadow-purple-500/50 group-hover:border-blue-500 transition-all duration-300">
                       {course.number}
                     </div>
                     {idx !== courses.length - 1 && <div className="w-1 h-16 bg-transparent"></div>}
@@ -706,7 +688,7 @@ export default function CoursesLanding() {
                 </React.Fragment>
               ))}
               <motion.button
-                className="mt-8 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-110 relative z-10"
+                className="mt-8 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-110 relative z-10 border border-green-400/30"
                 onClick={() => handleAction("enroll")}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
