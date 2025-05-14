@@ -420,50 +420,6 @@ export default function CoursesLanding() {
           </div>
         )}
 
-        {/* Sticky Enroll Button
-        {showStickyEnroll && (
-          <motion.div 
-            className="fixed bottom-6 right-6 z-40"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.3 }}
-          >
-            <button
-              className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/30"
-              onClick={() => handleAction("enroll")}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Enroll Now
-                <svg className="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <span className="relative z-10 text-xs py-1 px-2 bg-white/20 rounded-full animate-pulse">🔥 Limited Time</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-            </button>
-          </motion.div>
-        )} */}
-
-        {/* Countdown Banner */}
-        {/* <div className="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-3 px-4 flex justify-center items-center gap-4">
-          <span className="font-bold">Save 50%</span>
-          <div className="flex items-center">
-            <span>Ends in:</span>
-            <div className="flex gap-2 ml-3">
-              {Object.entries(countdownValues).map(([unit, value]) => (
-                <div key={unit} className="bg-black bg-opacity-30 rounded px-2 py-1 min-w-[30px] text-center">
-                  {String(value).padStart(2, '0')}
-                  <div className="text-xs">{unit.charAt(0).toUpperCase()}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <button className="bg-white text-purple-600 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 transition-colors">
-            Use code: COMBO50
-          </button>
-        </div> */}
-
         {/* Hero Section */}
         <motion.section
           className="py-20 px-4 text-center border-b border-gray-800 bg-gradient-to-br from-blue-950 via-gray-900 to-black relative overflow-hidden"
@@ -958,38 +914,6 @@ export default function CoursesLanding() {
             ))}
           </div>
         </section>
-
-        {/* Call to action section */}
-        {/* <section className="py-16 px-4">
-          <motion.div 
-            className="max-w-4xl mx-auto bg-gradient-to-r from-blue-900 to-purple-900 rounded-2xl p-8 shadow-2xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-3xl font-bold text-center mb-4">Get enrolled now</h2>
-            <p className="text-center text-gray-300 mb-8">Enroll Now to Access Exclusive Benefits and Take Control of Your Data Engineering Journey!</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <motion.button 
-                className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg"
-                onClick={() => handleAction("enroll")}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Enroll now
-              </motion.button>
-              <motion.button 
-                className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg"
-                onClick={() => handleAction("trailer")}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Watch trailer
-              </motion.button>
-            </div>
-          </motion.div>
-        </section> */}
       </main>
     </Layout>
   );
