@@ -150,7 +150,7 @@ const config: Config = {
             },
             {
               label: "🎖️ GitHub Badges",
-              to: "/ebooks/",
+              to: "/badges/github-badges",
             },
 
             {

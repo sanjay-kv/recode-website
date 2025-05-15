@@ -1,0 +1,423 @@
+.github-badges-page {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.06);
+  padding: 32px 24px;
+  margin-top: 24px;
+}
+
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.badgeItem {
+  background: #f8fafc;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07), 0 1.5px 4px rgba(0,0,0,0.04);
+  padding: 24px 20px 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.badgeItem:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13), 0 3px 12px rgba(0,0,0,0.09);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.badgeImg {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  box-shadow: 0 1.5px 6px rgba(0,0,0,0.04);
+  margin-right: 10px;
+}
+
+.badgeItem div {
+  flex: 1;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #24292f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: background 0.2s, opacity 0.2s;
+  z-index: 2;
+}
+
+.copyBtn:hover {
+  background: #0969da;
+  opacity: 1;
+}
+
+.copyTooltip {
+  position: absolute;
+  top: -28px;
+  right: 8px;
+  background: #24292f;
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 3;
+}
+
+.badgeItem.copied .copyTooltip {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .badgeGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .badgeItem {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 10px 14px 10px;
+  }
+  .badgeImg {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+#scrollToTop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, background 0.2s;
+  background: linear-gradient(135deg, #24292f, #0969da);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+#scrollToTop.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.arrow-icon {
+  transition: transform 0.2s;
+}
+
+#scrollToTop:hover .arrow-icon {
+  transform: translateY(-3px) scale(1.2);
+}
+
+
+.github-badges-page h1 {
+  color: #24292f;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.bannerAchievements {
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #312e81;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.sectionHeading {
+  color: #24292f;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+  text-align: left;
+}
+
+.skinHeading {
+  color: #22223b;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0 18px 0;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.highlightsHeading {
+  color: #f59e42;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0 18px 0;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.retiredHeading {
+  color: #e11d48;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0 18px 0;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.neededBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 8px 10px;
+  min-width: 90px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  gap: 2px;
+}
+
+.neededLabel {
+  font-size: 0.95rem;
+  color: #be185d;
+  font-weight: bold;
+  margin-bottom: 2px;
+  letter-spacing: 0.01em;
+}
+
+.skinToneTable td, .skinToneTable th {
+  text-align: center;
+}
+
+.skinToneTable tr td:nth-child(3),
+.skinToneTable tr td:nth-child(4),
+.skinToneTable tr td:nth-child(5),
+.skinToneTable tr td:nth-child(6),
+.skinToneTable tr td:nth-child(7),
+.skinToneTable tr td:nth-child(8) {
+  min-width: 70px;
+  padding: 8px 4px;
+}
+
+.skinToneTable img {
+  display: block;
+  margin: 0 auto 2px auto;
+}
+
+@media (max-width: 800px) {
+  .skinHeading, .highlightsHeading, .retiredHeading {
+    font-size: 1.25rem;
+    margin: 24px 0 10px 0;
+  }
+  .neededBox {
+    min-width: 60px;
+    padding: 6px 3px;
+  }
+}
+
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.achievementsTable, .skinToneTable, .highlightsTable, .retiredTable, table {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95vw;
+}
+
+
+/* Add double border to all badge tables */
+.skinToneTable,
+.highlightsTable,
+.retiredTable,
+table {
+  border: 3px double #bfc3c9;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(44,62,80,0.08);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.skinToneTable th, .skinToneTable td,
+.highlightsTable th, .highlightsTable td,
+.retiredTable th, .retiredTable td,
+table th, table td {
+  border: 1.5px solid #d1d5db;
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.skinToneTable th:first-child, .highlightsTable th:first-child, .retiredTable th:first-child, table th:first-child {
+  border-top-left-radius: 10px;
+}
+.skinToneTable th:last-child, .highlightsTable th:last-child, .retiredTable th:last-child, table th:last-child {
+  border-top-right-radius: 10px;
+}
+.skinToneTable tr:last-child td:first-child, .highlightsTable tr:last-child td:first-child, .retiredTable tr:last-child td:first-child, table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+.skinToneTable tr:last-child td:last-child, .highlightsTable tr:last-child td:last-child, .retiredTable tr:last-child td:last-child, table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+
+.achievementsTable, .skinToneTable, .highlightsTable, .retiredTable {
+  /* width: 100%; */
+  border-collapse: separate;
+  border-spacing: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 32px;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.achievementsTable th, .skinToneTable th, .highlightsTable th, .retiredTable th {
+  background: #f3f4f6;
+  color: #1e293b;
+  font-weight: 700;
+  padding: 12px 10px;
+  border-bottom: 2px solid #e5e7eb;
+  text-align: left;
+}
+
+.achievementsTable td, .skinToneTable td, .highlightsTable td, .retiredTable td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.achievementsTable tr:last-child td, .skinToneTable tr:last-child td, .highlightsTable tr:last-child td, .retiredTable tr:last-child td {
+  border-bottom: none;
+}
+
+.achievementsTable tr:nth-child(even), .skinToneTable tr:nth-child(even), .highlightsTable tr:nth-child(even), .retiredTable tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.badgeImgSmall {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  box-shadow: 0 1.5px 6px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 800px) {
+  .achievementsTable, .skinToneTable, .highlightsTable, .retiredTable {
+    font-size: 0.95rem;
+  }
+  .bannerAchievements {
+    font-size: 1.05rem;
+    padding: 12px 6px;
+  }
+  .badgeImgSmall {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .achievementsTable, .skinToneTable, .highlightsTable, .retiredTable {
+    font-size: 0.87rem;
+  }
+  .github-badges-page h1 {
+    font-size: 1.5rem;
+  }
+  .sectionHeading {
+    font-size: 1.1rem;
+  }
+}
+
+
+.github-badges-page h2 {
+  color: #24292f;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+}
+
+.github-badges-page ul {
+  list-style: disc inside;
+  margin-left: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.github-badges-page a {
+  color: #0969da;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.github-badges-page a:hover {
+  color: #0550ae;
+  text-decoration: underline;
+}
+
+.github-badges-page p, .github-badges-page li {
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.github-badges-page hr {
+  border: none;
+  border-top: 1px solid #e1e4e8;
+  margin: 32px 0;
+}
+
+.github-badges-page .section {
+  margin-bottom: 32px;
+}
+
+.github-badges-page .arrow-icon {
+  transition: transform 0.2s;
+}
+
+#scrollToTop.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 0.3s;
+}
+
+#scrollToTop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
