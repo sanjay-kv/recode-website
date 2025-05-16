@@ -7,8 +7,6 @@ const Footer: React.FC = () => {
       className="wow fadeInUp relative z-10 pt-16 lg:pt-[100px]"
       data-wow-delay=".15s"
       style={{
-        backgroundImage: `linear-gradient(#272329aa, #2d2c2d50, transparent),
-                          url("/img/footer.png")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -252,7 +250,7 @@ const Footer: React.FC = () => {
                   className="group flex items-center gap-[22px]"
                 >
                   <div className="overflow-hidden rounded">
-                    <img src="/img/blog-footer-01.jpg" alt="blog" />
+                    <img src="/img/" alt="blog" />
                   </div>
                   <span className="max-w-[180px] text-base text-gray-300 group-hover:text-[--ifm-color-primary]">
                     Getting started with the MERN stack...
