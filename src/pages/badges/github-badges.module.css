@@ -196,20 +196,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f3f4f6;
+  background: white;
   border-radius: 10px;
-  padding: 8px 10px;
-  min-width: 90px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  gap: 2px;
+  padding: 12px;
+  min-width: 120px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  gap: 6px;
+  border: 1px solid #e5e7eb;
 }
 
 .neededLabel {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #be185d;
   font-weight: bold;
-  margin-bottom: 2px;
+  padding: 4px 10px;
+  background: #fdf2f8;
+  border-radius: 6px;
   letter-spacing: 0.01em;
+  border: 1px solid #fbcfe8;
 }
 
 .skinToneTable td, .skinToneTable th {
@@ -919,4 +923,154 @@ table th, table td {
   .footerDescription {
     text-align: center;
   }
+}
+
+.achievementsTable td:last-child {
+  min-width: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 16px);
+  padding: clamp(16px, 2vw, 24px);
+  background: #fafafa;
+  border-left: 1px solid #e5e7eb;
+}
+
+.achievementsTable .badgeLevels {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.achievementsTable .levelImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 1vw, 10px);
+  justify-content: center;
+  margin: 8px 0;
+  padding: 8px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.achievementsTable .levelImages img {
+  width: clamp(32px, 5vw, 44px);
+  height: clamp(32px, 5vw, 44px);
+  transition: transform 0.2s ease;
+}
+
+.achievementsTable .levelImages img:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.achievementsTable .neededAmount {
+  font-weight: 500;
+  color: #374151;
+  background: linear-gradient(to right, #f1f5f9, #e2e8f0);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  margin-top: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* Adjust levels text styling */
+.achievementsTable .levelText {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  font-size: 0.9em;
+  border: 1px solid #e2e8f0;
+}
+
+/* Single badge center alignment */
+.achievementsTable .singleBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.achievementsTable .singleBadge img {
+  margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+  .achievementsTable td:last-child {
+    padding: clamp(12px, 1.5vw, 16px);
+  }
+
+  .achievementsTable .levelImages {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .achievementsTable .levelText {
+    font-size: 0.85em;
+    padding: 4px 10px;
+  }
+
+  .achievementsTable .neededAmount {
+    font-size: 0.85em;
+    padding: 4px 12px;
+  }
+
+  .neededBox {
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .neededLabel {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+  }
+
+  .achievementsTable .singleBadge {
+    padding: 8px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievementsTable td:last-child {
+    padding: 10px;
+  }
+
+  .achievementsTable .levelImages {
+    gap: 3px;
+    padding: 4px;
+  }
+
+  .achievementsTable .singleBadge {
+    max-width: 160px;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .achievementsTable .neededAmount {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .achievementsTable .levelText {
+  color: var(--ifm-color-content);
 }
