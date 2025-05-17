@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import Head from "@docusaurus/Head";
-import { motion } from "framer-motion";
+import React, { useEffect } from 'react';
+import Head from '@docusaurus/Head';
+import { motion, HTMLMotionProps } from 'framer-motion';
+import type { ReactElement } from 'react';
+import styles from './github-badges.module.css';
 
-// Import global and badge-specific styles
-import styles from "./github-badges.module.css";
+type MotionDivProps = HTMLMotionProps<"div">;
+type MotionTrProps = HTMLMotionProps<"tr">;
 
-const GithubBadges: React.FC = () => {
+const GithubBadges = (): React.ReactElement => {
   // Scroll to top button logic
   useEffect(() => {
     const scrollToTopBtn = document.getElementById("scrollToTop");
@@ -35,11 +37,25 @@ const GithubBadges: React.FC = () => {
 
   return (
     <div className={styles["github-badges-page"]}>
-      <motion.h1
+      {/* Hero section */}
+      <Head>
+        <title>GitHub Achievements - RecodeHive</title>
+        <meta name="description" content="Explore GitHub achievements and badges" />
+        <link 
+          rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossOrigin="anonymous" 
+          referrerPolicy="no-referrer" 
+        />
+      </Head>
+      
+      {/* Main content */}      <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}
+        className={styles.title}
       >
         🏆 GitHub Achievements 🏆
       </motion.h1>
@@ -59,13 +75,13 @@ const GithubBadges: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Starstruck */}
-            <motion.tr
+            {/* Starstruck */}            <motion.tr
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              whileHover={{ scale: 1.02, boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
+              whileHover={{ scale: 1.02 }}
+              style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
             >
               <td>
                 <motion.img
@@ -392,86 +408,234 @@ const GithubBadges: React.FC = () => {
             </tr>
           </tbody>
         </table>
+      </div>      <hr className={styles.hr} />      
+      <div style={{ textAlign: "center" }}>
+        <h2 className={styles.subheading}>🛈 More Information 🛈</h2>
+        <p className={styles.paragraph}>
+          You can find more information about GitHub Badges under this{' '}
+          <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile" target="_blank" rel="noopener noreferrer">link</a>
+        </p>
+      </div>
+      <div className={styles.certificationHero} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30 }}>
+        <div style={{ flex: 1 }}>
+          <h1>Showcase your expertise with GitHub</h1>
+          <p style={{ fontSize: "1.2rem", margin: "16px 0" }}>
+        Getting GitHub certified is a strong endorsement of your skills and knowledge of the technologies and developer tools used by millions of developers worldwide.
+          </p>
+        </div>
+        <div style={{ flex: "0 0 auto", display: "flex", alignItems: "center", height: "100%" }}>
+          <img
+        src="https://images.ctfassets.net/wfutmusr1t3h/6eWM76bx8skN2B4Jpvkcil/3ccdafea4229f02802abbd9fc6634a3b/Certifiedtocat_full__2_.svg?w=1280&q=75"
+        alt="GitHub Certification"
+        style={{ maxHeight: "400px", width: "auto", objectFit: "contain", marginLeft: 16, borderRadius: "30px" }}
+          />
+        </div>
       </div>
 
+      <div className={styles.certificationCards}>
+        <motion.div 
+          className={`${styles.certCard} ${styles.yellowGradient}`}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={styles.cardContent}>
+        <h2>GitHub Foundations</h2>
+        <p>
+          Highlight your understanding of the foundational topics and concepts of collaborating, contributing, and working on GitHub. 
+          This exam covers collaboration, GitHub products, Git basics, and working within GitHub repositories.
+        </p>
+        <a href="https://examregistration.github.com/waitlist/foundations" className={styles.certLink} target="_blank" rel="noopener noreferrer">
+          Prepare for the GitHub Foundations exam →
+        </a>
+          </div>
+          <div className={styles.certBadge}>
+        <img 
+          src="https://images.ctfassets.net/wfutmusr1t3h/1GLjOPbAzxSyIZy7Cvu2Do/4220986cedca60a0cb3eaa1ed21ca5fc/foundations-river-image__1_.png?w=1280&q=75" 
+          alt="GitHub Foundations Badge" 
+          style={{ borderRadius: "30px" }}
+        />
+          </div>
+        </motion.div>
 
-      <hr className={styles.hr} />
+        <motion.div 
+          className={`${styles.certCard} ${styles.greenGradient}`}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className={styles.certBadge}>
+        <img 
+          src="https://images.ctfassets.net/wfutmusr1t3h/7xYtTWmQ24xRlS68Do9qiG/a785c50083a579f2530863c230198e98/actions-river-image__1_.png?w=1280&q=75" 
+          alt="GitHub Actions Badge" 
+          style={{ borderRadius: "30px" }}
+        />
+          </div>
+          <div className={styles.cardContent}>
+        <h2>GitHub Actions</h2>
+        <p>
+          Certify your proficiency in automating workflows and accelerating development with GitHub Actions. 
+          Test your skills in streamlining workflows, automating tasks, and optimizing software pipelines, 
+          including CI/CD—all within customizable workflows.
+        </p>
+        <a href="https://examregistration.github.com/waitlist/actions" className={styles.certLink} target="_blank" rel="noopener noreferrer">
+          Prepare for the GitHub Actions exam →
+        </a>
+          </div>
+        </motion.div>
 
-      <h2 className={styles.subheading}>🛈 More Information 🛈</h2>
-      <p className={styles.paragraph}>
-        You can find more information about GitHub Badges under this
-        <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile" target="_blank" rel="noopener noreferrer"> link</a>.
-      </p>
+        <motion.div 
+          className={`${styles.certCard} ${styles.yellowGradient}`}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className={styles.cardContent}>
+        <h2>GitHub Advanced Security</h2>
+        <p>
+          Highlight your code security knowledge with the GitHub Advanced Security certification. 
+          Validate your expertise in vulnerability identification, workflow security, and robust 
+          security implementation—elevating software integrity standards.
+        </p>
+        <a href="https://examregistration.github.com/waitlist/security" className={styles.certLink} target="_blank" rel="noopener noreferrer">
+          Prepare for the GitHub Advanced Security exam →
+        </a>
+          </div>
+          <div className={styles.certBadge}>
+        <img 
+          src="https://images.ctfassets.net/wfutmusr1t3h/1GLjOPbAzxSyIZy7Cvu2Do/4220986cedca60a0cb3eaa1ed21ca5fc/foundations-river-image__1_.png?w=1280&q=75" 
+          alt="GitHub Advanced Security Badge" 
+          style={{ borderRadius: "30px" }}
+        />
+          </div>
+        </motion.div>
 
-      <h2>Showcase your expertise with GitHub</h2>
-      <p>
-        <b>Certifications</b><br />
-        Getting GitHub certified is a resounding endorsement that validates your skills, credibility, trust, and knowledge of the technologies and developer tools that are used by more than 100 million developers worldwide.
-      </p>
+        <motion.div 
+          className={`${styles.certCard} ${styles.purpleGradient}`}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <div className={styles.certBadge}>
+        <img 
+          src="https://images.ctfassets.net/wfutmusr1t3h/1GLjOPbAzxSyIZy7Cvu2Do/4220986cedca60a0cb3eaa1ed21ca5fc/foundations-river-image__1_.png?w=1280&q=75" 
+          alt="GitHub Administration Badge" 
+          style={{ borderRadius: "30px" }}
+        />
+          </div>
+          <div className={styles.cardContent}>
+        <h2>GitHub Administration</h2>
+        <p>
+          Certify your ability to optimize and manage a healthy GitHub environment with the GitHub Admin exam. 
+          Highlight your expertise in repository management, workflow optimization, and efficient collaboration 
+          to support successful projects on GitHub.
+        </p>
+        <a href="https://examregistration.github.com/waitlist/admin" className={styles.certLink} target="_blank" rel="noopener noreferrer">
+          Prepare for the GitHub Administration exam →
+        </a>
+          </div>
+        </motion.div>
 
-      <h2>GitHub Foundations</h2>
-      <p>
-        Highlight your understanding of the foundational topics and concepts of collaborating, contributing, and working on GitHub. This exam covers collaboration, GitHub products, Git basics, and working within GitHub repositories.<br />
-        <a href="https://examregistration.github.com/waitlist/copilot" target="_blank" rel="noopener noreferrer">Prepare for the GitHub Foundations exam</a>
-      </p>
-
-      <h2>GitHub Actions</h2>
-      <p>
-        Certify your proficiency in automating workflows and accelerating development with GitHub Actions. Test your skills in streamlining workflows, automating tasks, and optimizing software pipelines, including CI/CD—all within customizable workflows.<br />
-        <a href="https://examregistration.github.com/waitlist/copilot" target="_blank" rel="noopener noreferrer">Prepare for the GitHub Actions exam</a>
-      </p>
-
-      <h2>GitHub Advanced Security</h2>
-      <p>
-        Highlight your code security knowledge with the GitHub Advanced Security certification. Validate your expertise in vulnerability identification, workflow security, and robust security implementation—elevating software integrity standards.<br />
-        <a href="https://examregistration.github.com/waitlist/copilot" target="_blank" rel="noopener noreferrer">Prepare for the GitHub Advanced Security exam</a>
-      </p>
-
-      <h2>GitHub Administration</h2>
-      <p>
-        Certify your ability to optimize and manage a healthy GitHub environment with the GitHub Admin exam. Highlight your expertise in repository management, workflow optimization, and efficient collaboration to support successful projects on GitHub.<br />
-        <a href="https://examregistration.github.com/waitlist/copilot" target="_blank" rel="noopener noreferrer">Prepare for the GitHub Administration exam</a>
-      </p>
-
-      <h2>GitHub Copilot</h2>
-      <p>
-        The GitHub Copilot certification exam evaluates your skill in using the AI-driven code completion tool in various programming languages, certifying your capability to optimize software development workflows efficiently.<br />
-        <a href="https://examregistration.github.com/waitlist/copilot" target="_blank" rel="noopener noreferrer">Coming Soon! Join the waitlist now for priority access</a>
-      </p>
+        <motion.div 
+          className={`${styles.certCard} ${styles.blueGradient}`}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className={styles.cardContent}>
+        <h2>GitHub Copilot</h2>
+        <p>
+          The GitHub Copilot certification exam evaluates your skill in using the AI-driven code completion tool 
+          in various programming languages, certifying your capability to optimize software development workflows efficiently.
+        </p>
+        <a href="https://examregistration.github.com/waitlist/copilot" className={styles.certLink} target="_blank" rel="noopener noreferrer">
+          Coming Soon! Join the waitlist now for priority access →
+        </a>
+          </div>
+          <div className={styles.certBadge}>
+        <img 
+          src="https://images.ctfassets.net/wfutmusr1t3h/KdVTNopvz0GZy60xzXCq0/86148a36ddf27ea1d22226f0113b8711/admin-river-image__1_.png?w=1280&q=75" 
+          alt="GitHub Copilot Badge" 
+          style={{ borderRadius: "50px" }}
+        />
+          </div>
+        </motion.div>
+      </div>
 
       <hr style={{ margin: "40px 0" }} />
 
-      <hr />
-<div className="section">
-  <b>ABOUT RECODE-HIVE</b><br />
-  <a href="https://recodehive.github.io/awesome-github-profiles/pages/help.html" target="_blank" rel="noopener noreferrer">Contact Us</a> |
-  <a href="https://github.com/recodehive/awesome-github-profiles/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer"> Code of Conduct</a> |
-  <a href="https://recodehive.github.io/awesome-github-profiles/pages/faq.html" target="_blank" rel="noopener noreferrer"> FAQ</a>
-</div>
-<div className="section">
-  <b>GET INVOLVED</b><br />
-  <a href="https://github.com/recodehive/awesome-github-profiles/issues/new?assignees=&labels=%E2%9E%95+profile&projects=&template=add_profile.md&title=Add+Profile%3A+" target="_blank" rel="noopener noreferrer">Add Your Profile</a> |
-  <a href="https://github.com/recodehive/Support/issues/new?assignees=&labels=invite+me+to+the+community&projects=&template=invitation.yml&title=Please+invite+me+to+the+Recode-Hive+GitHub+Community+Organization" target="_blank" rel="noopener noreferrer"> Join the Organization</a> |
-  <a href="https://recodehive.github.io/awesome-github-profiles/pages/events.html" target="_blank" rel="noopener noreferrer"> Events</a>
-</div>
-<div className="section">
-  We focus on quality content to the right people at the right time⏱. Recode Hive will help you with updates on what's happening in the tech industry💻. We focus on everything starting from How To's to Data Science.<br />
-  <a href="https://recodehive.github.io/awesome-github-profiles/pages/exploremore.html" target="_blank" rel="noopener noreferrer">Explore</a>
-</div>
-<div style={{ fontSize: 12, color: "#aaa", textAlign: "center" }}>
-  &copy; 2025 Recode-Hive. Made with <span style={{ color: "#e25555" }}>&hearts;</span> by the community. All rights reserved.
-</div>
+      {/* Footer section */}
+      <div className={styles.footer}>
+        <div className={styles.footerGrid}>
+          {/* Logo and social links */}
+          <div className={styles.footerBrand}>
+            <div className={styles.footerLogo}>
+              <img src="/img/logo.png" alt="Recode Hive" />
+              <span>Recode Hive</span>
+            </div>            <div className={styles.socialLinks}>
+              <a href="https://facebook.com/recodehive" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com/recodehive" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/recodehive" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="https://linkedin.com/company/recodehive" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/recodehive" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i className="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
 
-      <button
-        id="scrollToTop"
-        onClick={handleScrollToTop}
-        aria-label="Scroll to top"
-        style={{ position: "fixed", bottom: 20, right: 20, width: 45, height: 45, borderRadius: "50%", backgroundColor: "black", color: "white", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)", opacity: 0, visibility: "hidden", zIndex: 1000 }}
-      >
-        <svg className="arrow-icon" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4v16m0 0l-8-8m8 8l8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-      </button>
+          {/* Links sections */}
+          <div className={styles.footerLinks}>
+            <div className={styles.footerSection}>
+              <h3>ABOUT RECODE-HIVE</h3>
+              <ul>
+                <li><a href="https://recodehive.github.io/awesome-github-profiles/pages/help.html">Contact Us</a></li>
+                <li><a href="https://github.com/recodehive/awesome-github-profiles/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+                <li><a href="https://recodehive.github.io/awesome-github-profiles/pages/faq.html">FAQ</a></li>
+              </ul>
+            </div>
+            <div className={styles.footerSection}>
+              <h3>GET INVOLVED</h3>
+              <ul>
+                <li><a href="https://github.com/recodehive/awesome-github-profiles/issues/new?assignees=&labels=%E2%9E%95+profile&projects=&template=add_profile.md&title=Add+Profile%3A+">Add Your Profile</a></li>
+                <li><a href="https://github.com/recodehive/Support/issues/new?assignees=&labels=invite+me+to+the+community&projects=&template=invitation.yml&title=Please+invite+me+to+the+Recode-Hive+GitHub+Community+Organization">Join the Organization</a></li>
+                <li><a href="https://recodehive.github.io/awesome-github-profiles/pages/events.html">Events</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className={styles.footerDescription}>
+            <p>
+              We focus on quality content to the right people at the right time⏱.
+              Recode Hive will help you with updates on what's happening in the tech industry💻.
+              We focus on everything starting from How To's to Data Science.
+            </p>
+            <a href="https://recodehive.github.io/awesome-github-profiles/pages/exploremore.html" className={styles.exploreButton}>
+              Explore
+            </a>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className={styles.copyright} style={{ fontSize: "0.95rem", padding: "3px 0", lineHeight: 1.2 }}>
+          &copy; {new Date().getFullYear()} Recode-Hive. Made with <span style={{ color: "#e25555" }}>&hearts;</span> by the community. All rights reserved.
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default GithubBadges;

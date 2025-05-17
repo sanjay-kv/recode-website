@@ -422,6 +422,226 @@ table th, table td {
   transition: opacity 0.3s;
 }
 
+/* Certification Section Styles */
+.certificationHero {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.certificationHero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgb(152 0 255) 0%,
+    rgb(246 41 41) 50%,
+    rgb(255 169 8) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.certificationHero p {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.certificationCards {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.certCard {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  min-height: 300px;
+  backdrop-filter: blur(8px);
+}
+
+.certCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.certCard:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.certCard:hover::before {
+  opacity: 1;
+}
+
+.certCard:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.cardContent {
+  flex: 1;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.cardContent h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.cardContent p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.certBadge {
+  flex: 0 0 200px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.certBadge::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+
+.certBadge img {
+  width: 180px;
+  height: 180px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.certCard:hover .certBadge::before {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.certCard:hover .certBadge img {
+  transform: rotate(8deg) scale(1.08);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+.certLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.certLink:hover {
+  transform: translateX(8px);
+  text-decoration: none;
+  color: white;
+}
+
+.certLink::after {
+  content: "→";
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.certLink:hover::after {
+  transform: translateX(4px);
+}
+
+/* Gradient backgrounds */
+.yellowGradient {
+  background: linear-gradient(135deg, #ffa600 0%, #ff6b00 100%);
+}
+
+.greenGradient {
+  background: linear-gradient(135deg, #00c853 0%, #009624 100%);
+}
+
+.purpleGradient {
+  background: linear-gradient(135deg, #7b1fa2 0%, #4a148c 100%);
+}
+
+.blueGradient {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .certCard, 
+  .certCard:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .certBadge {
+    margin-bottom: 1.5rem;
+  }
+
+  .certificationHero h1 {
+    font-size: 2.5rem;
+  }
+
+  .cardContent h2 {
+    font-size: 1.75rem;
+  }
+
+  .cardContent p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificationHero {
+    padding: 2rem 1rem;
+  }
+
+  .certificationHero h1 {
+    font-size: 2rem;
+  }
+
+  .certBadge img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 /* Skin Tone Grid Styles */
 .skinToneGrid {
   display: flex;
@@ -531,5 +751,172 @@ table th, table td {
   
   .skinToneLabel {
     color: #8b949e;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  padding: 40px 0;
+  background: #f5f5f5;
+  margin-top: 60px;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footerLogo img {
+  width: 40px;
+  height: 40px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLinks a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  background: #333;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Social media brand colors on hover */
+.socialLinks a:hover i.fa-facebook-f {
+  color: #1877f2;
+}
+
+.socialLinks a:hover i.fa-twitter {
+  color: #1da1f2;
+}
+
+.socialLinks a:hover i.fa-instagram {
+  color: #e4405f;
+}
+
+.socialLinks a:hover i.fa-linkedin-in {
+  color: #0a66c2;
+}
+
+.socialLinks a:hover i.fa-github {
+  color: #333;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.footerSection h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerSection li {
+  margin-bottom: 8px;
+}
+
+.footerSection a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerSection a:hover {
+  color: #000;
+}
+
+.footerDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.exploreButton {
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 16px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.exploreButton:hover {
+  background: #333;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footerSection {
+    text-align: center;
+  }
+
+  .footerBrand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerDescription {
+    text-align: center;
   }
 }
