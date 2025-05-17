@@ -421,3 +421,115 @@ table th, table td {
   visibility: hidden;
   transition: opacity 0.3s;
 }
+
+/* Skin Tone Grid Styles */
+.skinToneGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skinToneBadgeCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.skinToneBadgeCard:hover {
+  transform: translateY(-4px);
+}
+
+.badgeHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.mainBadge {
+  width: 64px;
+  height: 64px;
+}
+
+.badgeHeader h3 {
+  font-size: 1.5rem;
+  color: #24292e;
+  margin: 0;
+}
+
+.skinToneVariants {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.variant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: #f6f8fa;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.variant:hover {
+  background: #eef1f5;
+}
+
+.skinToneLabel {
+  font-size: 0.875rem;
+  color: #57606a;
+  margin-bottom: 0.5rem;
+}
+
+.variant img {
+  width: 48px;
+  height: 48px;
+  margin: 0.5rem 0;
+}
+
+.handEmoji {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .skinToneGrid {
+    gap: 3rem;
+  }
+  
+  .skinToneVariants {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .skinToneBadgeCard {
+    background: #0d1117;
+  }
+  
+  .badgeHeader h3 {
+    color: #c9d1d9;
+  }
+  
+  .variant {
+    background: #161b22;
+  }
+  
+  .variant:hover {
+    background: #1c2128;
+  }
+  
+  .skinToneLabel {
+    color: #8b949e;
+  }
+}

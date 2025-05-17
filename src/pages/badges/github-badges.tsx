@@ -255,7 +255,7 @@ const GithubBadges: React.FC = () => {
       >
         <span role="img" aria-label="wave">👋</span> Achievement Skin Tone <span role="img" aria-label="wave">👋</span>
       </motion.h2>
-      <p className={styles.paragraph}>
+      <p className={styles.paragraph} style={{ textAlign: "center" }}>
         Some achievements' appearance depends on your Emoji Skin Tone Preference.<br />
         You can change your preferred Skin Tone by going to
         <a href="https://github.com/settings/appearance" target="_blank" rel="noopener noreferrer">appearance settings</a>.
@@ -269,8 +269,8 @@ const GithubBadges: React.FC = () => {
               <th colSpan={6}>Skin Tone Versions</th>
             </tr>
             <tr>
-              <td></td><td></td>
-              <th>Default</th><th>Light</th><th>Medium-Light</th><th>Medium</th><th>Medium-Dark</th><th>Dark</th>
+              {/* <td></td><td></td> */}
+              {/* <th>Default</th><th>Light</th><th>Medium-Light</th><th>Medium</th><th>Medium-Dark</th><th>Dark</th> */}
             </tr>
           </thead>
           <tbody>
@@ -278,21 +278,21 @@ const GithubBadges: React.FC = () => {
               <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png" alt="Starstruck" className={styles.badgeImgSmall} /></td>
               <td>Starstruck</td>
               <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png" className={styles.badgeImgSmall} /> 👋</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-light.png" className={styles.badgeImgSmall} /> 👋🏻</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-medium-light.png" className={styles.badgeImgSmall} /> 👋🏼</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-medium.png" className={styles.badgeImgSmall} /> 👋🏽</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-medium-dark.png" className={styles.badgeImgSmall} /> 👋🏾</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/starstruck-dark.png" className={styles.badgeImgSmall} /> 👋🏿</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Star-Struck/PNG/Skin-Tones/StarStruck_SkinTone2.png" className={styles.badgeImgSmall} /> 👋🏻</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Star-Struck/PNG/Skin-Tones/StarStruck_SkinTone3.png" className={styles.badgeImgSmall} /> 👋🏼</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Star-Struck/PNG/Skin-Tones/StarStruck_SkinTone4.png" className={styles.badgeImgSmall} /> 👋🏽</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Star-Struck/PNG/Skin-Tones/StarStruck_SkinTone5.png" className={styles.badgeImgSmall} /> 👋🏾</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Star-Struck/PNG/Skin-Tones/StarStruck_SkinTone6.png" className={styles.badgeImgSmall} /> 👋🏿</td>
             </tr>
             <tr>
               <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png" alt="Quickdraw" className={styles.badgeImgSmall} /></td>
               <td>Quickdraw</td>
               <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png" className={styles.badgeImgSmall} /> 👋</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-light.png" className={styles.badgeImgSmall} /> 👋🏻</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-medium-light.png" className={styles.badgeImgSmall} /> 👋🏼</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-medium.png" className={styles.badgeImgSmall} /> 👋🏽</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-medium-dark.png" className={styles.badgeImgSmall} /> 👋🏾</td>
-              <td><img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-dark.png" className={styles.badgeImgSmall} /> 👋🏿</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Quick-Draw/PNG/Skin-Tones/QuickDraw_SkinTone2.png" className={styles.badgeImgSmall} /> 👋🏻</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Quick-Draw/PNG/Skin-Tones/QuickDraw_SkinTone3.png" className={styles.badgeImgSmall} /> 👋🏼</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Quick-Draw/PNG/Skin-Tones/QuickDraw_SkinTone4.png" className={styles.badgeImgSmall} /> 👋🏽</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Quick-Draw/PNG/Skin-Tones/QuickDraw_SkinTone5.png" className={styles.badgeImgSmall} /> 👋🏾</td>
+              <td><img src="https://raw.githubusercontent.com/recodehive/awesome-github-profiles/main/assets/Badges/Quick-Draw/PNG/Skin-Tones/QuickDraw_SkinTone6.png" className={styles.badgeImgSmall} /> 👋🏿</td>
             </tr>
           </tbody>
         </table>
