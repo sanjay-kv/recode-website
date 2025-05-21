@@ -1,5 +1,8 @@
+body{
+    background-color: #fff;
+}
 .github-badges-page {
-  background: #fff;
+  background: #f6f5f5;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.06);
   padding: 32px 24px;
@@ -510,13 +513,13 @@ table th, table td {
 .cardContent h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: white;
+  color: black;
 }
 
 .cardContent p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: black;
   margin-bottom: 2rem;
 }
 
@@ -586,23 +589,6 @@ table th, table td {
 
 .certLink:hover::after {
   transform: translateX(4px);
-}
-
-/* Gradient backgrounds */
-.yellowGradient {
-  background: linear-gradient(135deg, #ffa600 0%, #ff6b00 100%);
-}
-
-.greenGradient {
-  background: linear-gradient(135deg, #00c853 0%, #009624 100%);
-}
-
-.purpleGradient {
-  background: linear-gradient(135deg, #7b1fa2 0%, #4a148c 100%);
-}
-
-.blueGradient {
-  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
 }
 
 /* Responsive design */

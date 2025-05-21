@@ -580,25 +580,51 @@ const GithubBadges = (): React.ReactElement => {
           <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile" target="_blank" rel="noopener noreferrer">link</a>
         </p>
       </div>
-      <div className={styles.certificationHero} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30 }}>
-        <div style={{ flex: 1 }}>
-          <h1>Showcase your expertise with GitHub</h1>
-          <p style={{ fontSize: "1.2rem", margin: "16px 0" }}>
-        Getting GitHub certified is a strong endorsement of your skills and knowledge of the technologies and developer tools used by millions of developers worldwide.
-          </p>
+      <div
+        className={styles.certificationHero}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "100px",
+          flexWrap: "wrap",
+          borderRadius: "24px",
+          padding: "32px",
+          width: "100%",
+          maxWidth: "100vw",
+          margin : "0 auto",
+        }}
+      >
+        <div style={{ flex: 1, minWidth: 260 }}>
+          <h1 style={{ margin: 0 }}>Showcase your expertise with GitHub</h1>
+            {/* <p style={{ fontSize: "1.2rem", margin: "16px 0", color: "#000" }}>s
+          Getting GitHub certified is a strong endorsement of your skills and knowledge of the technologies and developer tools used by millions of developers worldwide.
+            </p> */}
         </div>
-        <div style={{ flex: "0 0 auto", display: "flex", alignItems: "center", height: "100%" }}>
+        <div style={{ flex: 1, display: "flex", justifyContent: "flex-end", minWidth: 220, borderRadius: "20px" }}>
           <img
         src="https://images.ctfassets.net/wfutmusr1t3h/6eWM76bx8skN2B4Jpvkcil/3ccdafea4229f02802abbd9fc6634a3b/Certifiedtocat_full__2_.svg?w=1280&q=75"
         alt="GitHub Certification"
-        style={{ maxHeight: "400px", width: "auto", objectFit: "contain", marginLeft: 16, borderRadius: "30px" }}
+        style={{
+          maxHeight: "320px",
+          width: "auto",
+          borderRadius: "20px",
+          maxWidth: "100%",
+          objectFit: "contain",
+          background: "#f6f8fa",
+          padding: "8px"
+        }}
           />
         </div>
+        <div>
+          <p style={{ fontSize: "1.2rem", margin: "16px 0", color: "#000", textAlign: "left" }}>
+          Getting GitHub certified is a strong endorsement of your skills and knowledge of the technologies and developer tools used by millions of developers worldwide.
+            </p>
+            </div>
       </div>
 
       <div className={styles.certificationCards}>
         <motion.div 
-          className={`${styles.certCard} ${styles.yellowGradient}`}
+          className={`${styles.certCard}`}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -624,7 +650,7 @@ const GithubBadges = (): React.ReactElement => {
         </motion.div>
 
         <motion.div 
-          className={`${styles.certCard} ${styles.greenGradient}`}
+          className={`${styles.certCard}`}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -651,7 +677,7 @@ const GithubBadges = (): React.ReactElement => {
         </motion.div>
 
         <motion.div 
-          className={`${styles.certCard} ${styles.yellowGradient}`}
+          className={`${styles.certCard}`}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -678,7 +704,7 @@ const GithubBadges = (): React.ReactElement => {
         </motion.div>
 
         <motion.div 
-          className={`${styles.certCard} ${styles.purpleGradient}`}
+          className={`${styles.certCard}`}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -705,7 +731,7 @@ const GithubBadges = (): React.ReactElement => {
         </motion.div>
 
         <motion.div 
-          className={`${styles.certCard} ${styles.blueGradient}`}
+          className={`${styles.certCard}`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
