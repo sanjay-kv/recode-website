@@ -71,7 +71,7 @@ const OurSponsors: React.FC = () => {
           </p>
         </div>
         <div className="sponsors-section">
-          <h2 className="TitleText">Latest Sponsors</h2>
+          <h2 className="TitleText">Current Sponsors</h2>
           <div className="sponsors-list">
             {sponsors.filter(s => !s.isPastSponsor).map((sponsor) => (
               <SponsorCard key={`${sponsor.name}-latest`} {...sponsor} />
