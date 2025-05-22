@@ -14,7 +14,7 @@ tags:
 description: In this tutorial, you will learn how to set up your development environment for Git And GitHub.
 ---
 
-Github is a way of version control your software development using Git, Github was founded in 2008 and recently Microsoft has bought the company now Microsoft is the parent organization of Github. Now setting up is very straight forward process , first you need to create a GitHub account online, then Install Git in your system and connect your Git with GitHub. So all the changes will be updated to the GitHub. 
+Github provides two of installation, one the GitHub Desktop and command line by installing Git Software in your system. Personally from a developer perspective i would suggest you to use the command line as this will come in handy and more flexibility in terms of solving bugs and do more with version control, especially when the conflicts happens with the Git. This tutorial is focused on the command line version. 
 
 <AdsComponent />
 ### Step 1: Let’s Download the git 
@@ -99,7 +99,8 @@ Congratulations! The Git Setup has been finished and now you can launch the GitH
 After that setup, you can see in your PC’s application list there are few new apps are added like ‘Git Bash,’ ‘Git GUI,’ ‘Git CMD.’ However, we will mostly use Git Bash for uploading our projects.
 
 Execute the below command to see your current version of git in Git CMD or windows command promt. Git Installation on Windows is completed.
-  ```html title="create a new repository on the command line"
+
+  ```html title="Check git is installed properly"
 git --version
     ```
 <AdsComponent />

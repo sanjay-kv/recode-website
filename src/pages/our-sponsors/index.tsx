@@ -16,8 +16,8 @@ const OurSponsors: React.FC = () => {
 
   const handlePaymentSuccess = () => {
     setShowScanner(false);
-    alert("Payment successful! Please fill in your sponsor info.");
-    history.push('https://forms.gle/8zBeFP98bpjDxm9u8');
+    alert("Thanks, we will redirect to Github Sponsors page, upon sponsoring you will be added to our sponsors list.");
+    window.location.href = 'https://github.com/sponsors/sanjay-kv?o=esb';
   };
 
   const handleCloseModal = () => setShowScanner(false);
@@ -64,14 +64,14 @@ const OurSponsors: React.FC = () => {
           <h1 className="TitleText">Our Sponsors</h1>
           <p>
             Fuel the Hive community to our ecosystem and support open-source projects by donating
-            today. <br />Your contribution help us to create valuable resource and
-            knowledge base on our website.
+            today. <br />Your contribution directly goes to new developers in opensource community who helps us create valuable resource and
+            knowledge base on our organisation.
             <br />
             Thank you for your support!
           </p>
         </div>
         <div className="sponsors-section">
-          <h2 className="TitleText">Latest Sponsors</h2>
+          <h2 className="TitleText">Current Sponsors</h2>
           <div className="sponsors-list">
             {sponsors.filter(s => !s.isPastSponsor).map((sponsor) => (
               <SponsorCard key={`${sponsor.name}-latest`} {...sponsor} />
@@ -113,10 +113,10 @@ const OurSponsors: React.FC = () => {
               >
                 <FaTimes size={20} />
               </button>
-              <h2 className="TitleText">Scan to Sponsor</h2>
-              <img src="/sponsors/scan-pay.jpg" alt="Payment QR Code" />
+              <h2 className="TitleText">Sponsor Hive Community</h2>
+              <img src="#" alt="" />
               <button className="scanner-button mt-4" onClick={handlePaymentSuccess}>
-                I have paid
+                Github Sponser
               </button>
             </div>
           </div>
