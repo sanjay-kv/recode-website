@@ -199,7 +199,7 @@ const config: Config = {
             },
             {
               label: "🎙️ Podcast",
-              to: "https://open.spotify.com/show/6oPJ7ZBlN7y34yiSMguIda",
+              to: "podcasts/",
             },            
           ],
         },
