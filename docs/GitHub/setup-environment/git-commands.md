@@ -9,13 +9,13 @@ description: In this tutorial, you will learn about the basic of git and 50 impo
 
 > *This is part of GitHub/Git Tutorials and a continuation of the previous post where we discussed what is gitHub. I hope you have a basic understanding of what is Github in general. Let’s get started with Git Cheat Sheet. Git Cheat Sheet. 50 Git commands | Git Tutorials*
 
-I can create like teaching how to fork and clone and making changes. HTML, which stands for **HyperText Markup Language**, serves as the backbone of the World Wide Web. It is the standard language used to create web pages, providing the structure and content that browsers render for users to interact with. Understanding how HTML works with web browsers is fundamental for anyone diving into web development.
+Git commands are handy when comes to fix any problems which you cant fix by the UI, for example consider a scenarion you need to fix the conflict in a page. Git Commands will help you to find the root cause and can explore the entire log history. At Git core it help you to keep a history of every change you made in the project files and help the user with track the changes, revert, helps to identify who made the changes. 
 
 <AdsComponent />
 
 ## Understanding Git: The Building Blocks
 
-HTML is a markup language that uses tags to define the structure and content of web pages. These tags are enclosed in angle brackets (`<` and `>`), and they tell the browser how to display the content. For example, the following HTML code snippet creates a simple web page with a heading and a paragraph:
+In Setting up git on Windows tutorial you learned to perform how to check the current version of the git. Now below you will see how to add some changes to the files you have created. I assume you have a small project where you created a file called filename.ipynb, now you want to add that into the git. 
 
 <Tabs>
   <TabItem value="Git Code" label="Git Code">

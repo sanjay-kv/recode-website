@@ -1,7 +1,7 @@
 ---
-id: github-repo-command-line
-title: Create Repo Via Command line 
-sidebar_label: Create Repo Via Command line 
+id: ordering-data
+title: Ordering Data
+sidebar_label: Ordering Data
 sidebar_position: 2
 tags: [html, web-development, document-structure,]
 description: In this tutorial, you will learn about the structure of an HTML document and how to create a basic HTML document.
