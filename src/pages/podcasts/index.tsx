@@ -24,16 +24,16 @@ const getSpotifyContentType = (url: string): 'episode' | 'show' | 'playlist' => 
 
 // Add your podcasts here
 const podcastUrls: string[] = [
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
-  "https://open.spotify.com/playlist/5EClSKDUVtkZMIRi6wgW5u?si=c7b90bfc62544845&pt=c4580022e1bd545fde3a71a58efe2d1a",
+  "https://open.spotify.com/show/6oPJ7ZBlN7y34yiSMguIda?si=729edf3b64a246d7",
+  "https://open.spotify.com/episode/1zbmUPmGRjC8o8YIMMx2Z6?si=Q4QAS3IJQVGaQYhYApckdA",
+  "https://open.spotify.com/episode/2twnTb39n5GH9DEhXzSIvi?si=e2d6e85ee7fe4095",
+  "https://open.spotify.com/episode/3SyDohHTdX2wwaTLNmPTlY?si=5d70f6f7912049a1",
+  "https://open.spotify.com/episode/20oNPNibv9YFK89wgYfAdK?si=36DZqf4gREC50jrDYOcGGg",
+  "https://open.spotify.com/episode/5MY5KieAmUWzyKVBK9eFYi?si=caa85cca96c74233",
+  "https://open.spotify.com/episode/3KSOxrjalScxHFQF9u8M46?si=KNpkP8b3TAy5MShtoISunw",
+  "https://open.spotify.com/episode/2y9SeEILUFWI6rzl8okASZ?si=52faf8736f914f79",
+  "https://open.spotify.com/episode/04G9l6lJCBuQ1OdqsjeZz1?si=YEC9zSFiTiSJlbiMjsJMjg",
+  "https://open.spotify.com/episode/21yp6PDe1XN8B1goR5qMI3?si=k6JURkMRTQq2Ltbujq9qLw",
 ];
 
 const podcastData: PodcastData[] = podcastUrls.map((url, index) => ({
@@ -44,7 +44,7 @@ const podcastData: PodcastData[] = podcastUrls.map((url, index) => ({
 
 export default function Podcasts(): ReactElement {  const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
-  const podcastsPerPage = 9;
+  const podcastsPerPage = 9; // Pagination size
 
   // Calculate podcasts for current page
   const indexOfLastPodcast = currentPage * podcastsPerPage;
