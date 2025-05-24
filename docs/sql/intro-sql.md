@@ -1,6 +1,6 @@
 ---
 id: intro-sql
-title: Introduction of SQL 
+title: Introduction of SQL #Remember to keep this unique, as it maps with giscus discussions in the recodehive/support/general discussions
 sidebar_label: Introduction of SQL #displays in sidebar
 sidebar_position: 1
 tags:
@@ -151,3 +151,5 @@ Even marketers, product managers, and business analysts often use SQL to get ins
 ## Conclusion
 
 Learning SQL empowers you to talk to data, unlock insights, and build data-driven solutions—making it one of the most valuable and versatile skills in the digital world.
+
+<GiscusComments/>

@@ -203,6 +203,11 @@ const config: Config = {
             },            
           ],
         },
+        {
+          type: "html",
+          position: "right",
+          value: '<div id="firebase-auth-github-navbar"></div>',
+        },
         // {
         //   type: "dropdown",
         //   html: '<span class="nav-emoji">🏷️</span> Tags',
@@ -228,6 +233,14 @@ const config: Config = {
         {
           type: "search",
           position: "right",
+        },
+        
+        {
+          type: "html",
+          position: "right",
+          value: `<div class="m-4">
+          <FirebaseAuthGithub />
+        </div>`,
         },
         // {
         //   href: "https://github.com/codeharborhub/codeharborhub",

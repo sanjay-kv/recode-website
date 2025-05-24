@@ -5,8 +5,8 @@ import MDXComponents from "@theme-original/MDXComponents";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import Comming from "../components/Comming";
-import GiscusComponent from "../components/GiscusComponent";
 import Image from "@theme/IdealImage";
+import GiscusComments from "../components/giscus";
 
 
 export default {
@@ -16,6 +16,6 @@ export default {
   Tabs,
   TabItem,
   Comming,
-  GiscusComponent,
   Image,
+  GiscusComments,
 };

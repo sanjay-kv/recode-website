@@ -40,10 +40,11 @@ import FAQs from "../components/faqs/faqs";
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Welcome to Recodehive. Learn the basics to advanced concepts of web development. sql, python, Cloud, GitHub and more."
-    >
+    // <Layout
+    //   title={`${siteConfig.title}`}
+    //   description="Welcome to Recodehive. Learn the basics to advanced concepts of web development. sql, python, Cloud, GitHub and more."
+    // >
+    <>
       <Head>
         <script
           async
@@ -94,6 +95,7 @@ export default function Home(): ReactNode {
         <ScrollTopToBottom />
         <ScrollBottomToTop />
       </main>
-    </Layout>
+    </>
+    // </Layout>
   );
 }
