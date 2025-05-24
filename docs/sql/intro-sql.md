@@ -111,29 +111,33 @@ So, SQL code written for one system may not work exactly the same on another wit
 
 <AdsComponent />
 
-## Why Learn HTML?
+## Why Learn SQL?
 
-Learning SQL (Structured Query Language) is essential for anyone working with data. Whether you're in tech, business, or science, SQL gives you direct control over databases—the backbone of modern applications and data systems.
+SQL is the standard language for managing and querying relational databases — the most common way data is stored in businesses. Whether it's MySQL, PostgreSQL, SQL Server, or SQLite, they all use SQL.
 
-1. **🗃️ SQL Is the Language of Data**: SQL is essential in roles like: Data Analyst, Data Scientist, Software Engineer, Business Analyst, Backend Developer.
-2. **🔍 Easy to Learn, Powerful in Use**: SQL has simple syntax compared to most programming languages, yet it's powerful enough to: Filter millions of records, Join data across multiple tables, Perform aggregations, subqueries, and window functions.
-3. **🚀 Used with Major Tools and Platforms**: SQL works with: MySQL, PostgreSQL, SQL Server, Oracle, Data tools like Excel, Power BI, Tableau, Big data and cloud platforms (AWS, Google BigQuery, Snowflake)
-4. **💼 Better Decision Making**: With SQL, you can extract insights from raw data directly. This helps in: Creating reports, Making data-driven decisions, Automating workflows
-5. **🧱 Foundation for Advanced Data Skills**: SQL is the gateway to deeper topics like: Data Engineering, Machine Learning (preprocessing data), Database Design and Optimization, ETL Pipelines
+📊 2. Critical for Data-Driven Roles
+SQL is a core skill for:
+
+Data Analysts
+
+Data Engineers
+
+Data Scientists
+
+Business Intelligence Professionals
+
+Software Developers
+
+Even marketers, product managers, and business analysts often use SQL to get insights from data.
 
 
 <AdsComponent />
 
-## How to use HTML?
-
-HTML is used to create structured documents for the web. To start using HTML, you'll need a basic understanding of its syntax and structure, as well as a text editor to write your code and a web browser to view your web pages.
 
 ### Steps to start using HTML
 
 **1. Set up your development environment**: Go to MySQL Downloads Page:
     - Visit MySQL Workbench Downloads.
-
-    - https://www.youtube.com/watch?v=u96rVINbAUI&ab_channel=WebDevSimplified
 
 **2. Download the Installer:**: To create your first HTML document, follow these steps:
 

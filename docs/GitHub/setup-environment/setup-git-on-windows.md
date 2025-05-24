@@ -100,9 +100,23 @@ After that setup, you can see in your PC’s application list there are few new 
 
 Execute the below command to see your current version of git in Git CMD or windows command promt. Git Installation on Windows is completed.
 
-  ```html title="Check git is installed properly"
-git --version
+<Tabs>
+  <TabItem value="Git Code" label="Git Code">
+  
+  ```html title="Adding file to the repo"
+   git --version
     ```
+
+    </TabItem>
+    
+    <TabItem value="how-git-works" label="Output on browser">
+      ![alt text](./assets/14-git-version.png)
+    </TabItem>
+</Tabs>
+
+
+
+    
 <AdsComponent />
 
 ## Conclusion
