@@ -27,8 +27,7 @@ const FirebaseAuthGithub: React.FC = () => {
 
   if (user) {
     return (
-      <div style={{ textAlign: 'center' }}>
-        <p>Signed in as {user.displayName || user.email}</p>
+      <div style={{ textAlign: 'center' }} className='flex justify-center items-center gap-5'>
         <img src={user.photoURL || ''} alt="avatar" style={{ width: 48, borderRadius: '50%' }} />
         <br />
         <button onClick={() => auth.signOut()}>Sign out</button>
