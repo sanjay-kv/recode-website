@@ -14,6 +14,34 @@ interface LocationState {
   podcast: PodcastData;
 }
 
+interface SpotifyTitleProps {
+  spotifyUrl: string;
+  type: 'episode' | 'show' | 'playlist';
+}
+
+// Fetches the podcast/show/episode title from Spotify oEmbed API
+const SpotifyTitle: React.FC<SpotifyTitleProps> = ({ spotifyUrl, type }) => {
+  const [title, setTitle] = React.useState<string>('');
+
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch(`https://open.spotify.com/oembed?url=${encodeURIComponent(spotifyUrl)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!cancelled) setTitle(data.title);
+      })
+      .catch(() => {
+        if (!cancelled) setTitle('');
+      });
+    return () => { cancelled = true; };
+  }, [spotifyUrl]);
+  return (
+    <div className="spotify-title">
+      <strong>{title || (type.charAt(0).toUpperCase() + type.slice(1))}</strong>
+    </div>
+  );
+};
+
 export default function PodcastDetails(): ReactElement {
   const location = useLocation();
   const state = location.state as LocationState;
@@ -49,21 +77,27 @@ export default function PodcastDetails(): ReactElement {
   return (
     <Layout>
       <div className="podcast-container">
-        <h1>Podcast Details</h1>
-        <div className="podcast-description">
-          <p>{randomDescription}</p>
-        </div>
-        <div className="podcast-embed-large">
-          <iframe
-            src={`https://open.spotify.com/embed/${podcast.type}/${podcast.spotifyUrl.split('/').pop()?.split('?')[0]}`}
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title={`Spotify embed ${podcast.id}`}
-          />
+        <div className="podcast-card details-card">
+          <div className="podcast-content">
+            <div className="podcast-info">
+              <SpotifyTitle spotifyUrl={podcast.spotifyUrl} type={podcast.type} />
+            </div>
+            <div className="podcast-description">
+              <p>{randomDescription}</p>
+            </div>
+            <div className="podcast-embed-large">
+              <iframe
+                src={`https://open.spotify.com/embed/${podcast.type}/${podcast.spotifyUrl.split('/').pop()?.split('?')[0]}`}
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title={`Spotify embed ${podcast.id}`}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

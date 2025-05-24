@@ -31,8 +31,8 @@ const podcastUrls: string[] = [
   "https://open.spotify.com/episode/20oNPNibv9YFK89wgYfAdK?si=36DZqf4gREC50jrDYOcGGg",
   "https://open.spotify.com/episode/5MY5KieAmUWzyKVBK9eFYi?si=caa85cca96c74233",
   "https://open.spotify.com/episode/3KSOxrjalScxHFQF9u8M46?si=KNpkP8b3TAy5MShtoISunw",
-  "https://open.spotify.com/episode/2y9SeEILUFWI6rzl8okASZ?si=52faf8736f914f79",
   "https://open.spotify.com/episode/04G9l6lJCBuQ1OdqsjeZz1?si=YEC9zSFiTiSJlbiMjsJMjg",
+  "https://open.spotify.com/episode/2y9SeEILUFWI6rzl8okASZ?si=52faf8736f914f79",
   "https://open.spotify.com/episode/21yp6PDe1XN8B1goR5qMI3?si=k6JURkMRTQq2Ltbujq9qLw",
 ];
 
@@ -41,6 +41,34 @@ const podcastData: PodcastData[] = podcastUrls.map((url, index) => ({
   spotifyUrl: url,
   type: getSpotifyContentType(url)
 }));
+
+interface SpotifyTitleProps {
+  spotifyUrl: string;
+  type: 'episode' | 'show' | 'playlist';
+}
+
+// Fetches the podcast/show/episode title from Spotify oEmbed API
+const SpotifyTitle: React.FC<SpotifyTitleProps> = ({ spotifyUrl, type }) => {
+  const [title, setTitle] = React.useState<string>('');
+
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch(`https://open.spotify.com/oembed?url=${encodeURIComponent(spotifyUrl)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!cancelled) setTitle(data.title);
+      })
+      .catch(() => {
+        if (!cancelled) setTitle('');
+      });
+    return () => { cancelled = true; };
+  }, [spotifyUrl]);
+  return (
+    <div className="spotify-title">
+      <strong>{title || (type.charAt(0).toUpperCase() + type.slice(1))}</strong>
+    </div>
+  );
+};
 
 export default function Podcasts(): ReactElement {  const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
@@ -85,7 +113,7 @@ export default function Podcasts(): ReactElement {  const history = useHistory()
             >
               <div className="podcast-content">
                 <div className="podcast-info">
-                  <h3>Podcast</h3>
+                  <SpotifyTitle spotifyUrl={podcast.spotifyUrl} type={podcast.type} />
                 </div>
                 <div className="podcast-embed" onClick={(e) => e.stopPropagation()}>
                   <iframe

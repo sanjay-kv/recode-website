@@ -174,3 +174,20 @@ h1 {
 .podcast-card {
   cursor: pointer;
 }
+
+.details-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.podcast-description {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  text-align: center;
+}
