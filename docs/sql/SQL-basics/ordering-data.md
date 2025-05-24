@@ -7,115 +7,244 @@ tags: [html, web-development, document-structure,]
 description: In this tutorial, you will learn about the structure of an HTML document and how to create a basic HTML document.
 ---
 
-HTML (Hypertext Markup Language) is the standard markup language for creating web pages. It provides the structure and layout of the content on the web. In this tutorial, you will learn about the syntax and structure of HTML.
+# 📗 Ordering Data
 
-<AdsComponent />
-
-## Prerequisites
-
-You should have a Github account 2. Should have a basic understanding of how Git works/ and Git running in your OS.
-
-
-
-### How to create Github Repository
-
-Step 1: Go to Git hub and create a new Repository.
-
-    <BrowserWindow url="https://github.com" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/1-GitHub-repo.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
-<br />
-
-Step 2: Specify the Name of the Project, make It public or primate, check on the readme file. Then click on Create repository on the button below.
-
-
-    <BrowserWindow url="https://github.com/new" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/2-repo-create-github.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
-Upon creation you will get a screen like this below, the explanation of each elements is mentioned below. 
- 
-  ```html title="create a new repository on the command line"
-echo "# demo-repo" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/sanjay-kv/demo-repo.git
-git push -u origin main
-    ```
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/3-command-line-exec.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
-
-- **`<!DOCTYPE html>`**: Declares the document type and version of HTML.
-- **`<html>`**: Root element that contains all other elements.
-- **`<head>`**: Contains metadata about the document. It includes elements like `<meta>` and `<title>`.
-- **`<meta charset="UTF-8" />`**: Specifies the character encoding of the document.
-- **`<meta name="viewport" content="width=device-width, initial-scale=1.0" />`**: Sets the viewport properties for responsive design.
-- **`<title>`**: Sets the title of the document (displayed in the browser tab).
-- **`<body>`**: Contains the visible content of the document.
-- **`<!-- Your content goes here -->`**: Represents a comment that is not displayed in the browser.
-
+Welcome to the **Selecting Data** module! This foundational learning path is designed to help you master the basics of querying data, particularly focusing on how to retrieve specific information from databases effectively.
 
 
 <AdsComponent />
 
 
-### Browser Rendering
+### 📘 Creating SQL Table
 
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/12-add-file.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
+In this tutorial, you'll learn how to interpret and use rows in a database table. Tables are essential to storing structured data, and each **row** in a table represents a unique **item or record**.
+> Each row of a table represents a new item.
 
-
-When the above HTML code is rendered in a browser, it will display the following content:
-
-
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/13-cmd-git.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
-
-When the above HTML code is rendered in a browser, it will display the following content:
+> Each column of a table represents a specific attribute of the data, such as `id`, `name`, or `username`. 
+> These columns define the **type of information** stored for each item in the table.
 
 
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/14-git-command-add.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
-
-Now you can see the new file been added in your local system
-
-When the above HTML code is rendered in a browser, it will display the following content:
+For example, consider a table named `Friends`. Below is how a simple table might look:
 
 
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/15-push-changes.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
+
+    :::info
+<Tabs>
+  <TabItem value="SQL Table" label="SQL Table">
+```sql title="Friends"
+  | id | name            | username         |
+|----|-----------------|------------------|
+| 1  | John Doe        | @johndoe         |
+| 2  | Jane Smith      | @janesmith       |
+| 3  | Bob Johnson     | @bobjohnson      |
+```
+  </TabItem>
+
+<TabItem value="SQL Code" label="SQL Code">
+  
+  ```sql title="Creating SQL Tables & db. "
+
+    -- creating database
+    CREATE DATABASE my_database;
+
+    -- use the database you created
+    USE my_database;
 
 
-When the above HTML code is rendered in a browser, it will display the following content:
-How to push Github Repository?
-Step 10:  Once the work is done click on save and open cmd/ terminal
+  -- Create the table
+CREATE TABLE friends (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    username VARCHAR(100)
+);
 
-    <BrowserWindow url="https://github.com/sanjay-kv/demo-repo" bodyStyle={{padding: 0}}>    
-     [![GitHub](./assets/16-remote-repo.png)](https://github.com/sanjay-kv)
-    </BrowserWindow>
+-- Insert data into the table
+INSERT INTO friends (id, name, username) VALUES
+(1, 'John Doe', '@johndoe'),
+(2, 'Jane Smith', '@janesmith'),
+(3, 'Bob Johnson', '@bobjohnson');
 
-Step 11: Initially when I was creating the repo I used Git add * to add all files in one go.
-
-If you are committing for the first time adding a file in this way you may ask to enter your GitHub email id and username to proceed. The screenshot will be the same as below. and then while you enter the push command it will ask you browser prompt to sign in to Github.
-
-  ```html title="create a new repository on the command line"
-git config --global user.email "Enter your github Email"
-git config --global user.name "Github username"
     ```
 
-### Watch the video Tutorial
+    </TabItem>
+    
+    <TabItem value="how-git-works" label="Output ">
+      | id | name            | username         |
+|----|-----------------|------------------|
+| 1  | John Doe        | @johndoe         |
+| 2  | Jane Smith      | @janesmith       |
+| 3  | Bob Johnson     | @bobjohnson      |
+    </TabItem>
+</Tabs>
+
+
+:::
+
+## 🧾 Explanation
+
+The **first row** of this table contains:
+- `id`: **1**
+- `name`: **John Doe**
+- `username`: **@johndoe**
+
+Each of the remaining rows represents a different friend, with unique ID, name, and username values.
+
+---
+
+✅ This is your first step in understanding how data is structured in relational databases. Once you master rows, you're on your way to writing powerful SQL queries!
 
 
 
 
-<iframe width="880" height="480" src="https://www.youtube.com/embed/DO38CZcw5pg?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63" title="Github create repo using command line" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<AdsComponent />
 
-## Conclusion
 
-In this tutorial, you learned about the syntax and structure of HTML. HTML syntax consists of elements, tags, and attributes that define the structure and content of a web page. An HTML document follows a basic structure with elements like `<!DOCTYPE html>`, `<html>`, `<head>`, `<title>`, `<meta>`, and `<body>`. Understanding HTML syntax and structure is essential for creating web pages and applications.
+### 📘 Querying a Table with `FROM`
+
+> To query data from a table, use the FROM clause followed by the table's name.
+
+
+For example, consider a table named `Friends`. Below is how a simple table might look:
+
+
+
+    :::info
+<Tabs>
+  <TabItem value="SQL Table" label="SQL Table">
+```sql title="Friends"
+| id | name              | email                   |
+|----|-------------------|--------------------------|
+| 1  | Tony Stark        | ironman@avengers.com     |
+| 2  | Bruce Wayne       | batman@gotham.com        |
+| 3  | Leia Organa       | princess@rebellion.org   |
+```
+  </TabItem>
+
+<TabItem value="SQL Code" label="SQL Code">
+  
+  ```sql title="Creating SQL Tables. "
+SELECT name
+FROM friends;
+    ```
+
+    </TabItem>
+    
+    <TabItem value="how-git-works" label="Output">
+     | id | name              | email                   |
+|----|-------------------|--------------------------|
+| 1  | Tony Stark        | ironman@avengers.com     |
+| 2  | Bruce Wayne       | batman@gotham.com        |
+| 3  | Leia Organa       | princess@rebellion.org   |
+    </TabItem>
+</Tabs>
+
+
+:::
+
+
+
+:::tip
+ When requesting data with SQL staments like SELECT, we say that we are making a query.
+From helps in select the name col from
+While not necessary but its a good practice to finish the sql queries with;
+
+
+By following these best practices, 
+:::
+
+### 🔄 Selecting Multiple Columns in SQL
+
+    :::info
+<Tabs>
+  <TabItem value="SQL Table" label="SQL Table">
+```sql title="friends"
+| id | name              | email                   |
+|----|-------------------|--------------------------|
+| 1  | Tony Stark        | ironman@avengers.com     |
+| 2  | Bruce Wayne       | batman@gotham.com        |
+| 3  | Leia Organa       | princess@rebellion.org   |
+```
+  </TabItem>
+
+<TabItem value="SQL Code" label="SQL Code">
+  
+  ```sql title="Creating SQL Tables. "
+SELECT name, email
+FROM friends;
+    ```
+
+    </TabItem>
+    
+    <TabItem value="how-git-works" label="Output">
+      | name              | email                   |
+|------------------|--------------------------|
+| Tony Stark        | ironman@avengers.com     |
+ | Bruce Wayne       | batman@gotham.com        |
+  | Leia Organa       | princess@rebellion.org   |
+    </TabItem>
+</Tabs>
+
+
+:::
+
+## 🧹 Selecting Unique Values with `DISTINCT`
+
+Sometimes your table might contain **duplicate values**, and you only want to see each unique value **once** in your result.
+
+That’s where the `DISTINCT` keyword comes in!
+
+---
+
+    :::info
+<Tabs>
+  <TabItem value="SQL Table" label="SQL Table">
+```sql title="Subscribers"
+| name | email             | country  |
+|------|-------------------|----------|
+| Sam  | sam17@mail.com    | England  |
+| Remy | rem@mail.com      | France   |
+| Luis | luis_99@mail.com  | France   |
+```
+  </TabItem>
+
+<TabItem value="SQL Code" label="SQL Code">
+  
+  ```sql title="Creating SQL Tables. "
+SELECT DISTINCT country
+FROM subscribers;
+    ```
+
+    </TabItem>
+    
+    <TabItem value="how-git-works" label="Output">
+   | country  |
+---------|
+  | England  |
+ | France   |
+
+    </TabItem>
+</Tabs>
+
+
+:::
+
+
+
+
+## ✅ What You have Learned
+
+This module covers four essential topics in data selection:
+
+- **Rows and Columns**  
+  Learn how to access specific rows and columns in a dataset or table, the building blocks of any query.
+
+- **Select Data**  
+  Understand the basic `SELECT` statement to retrieve data from a database.
+
+- **Select Multiple Columns**  
+  Retrieve more than one column at a time in your queries to get the information you need all at once.
+
+- **Select Distinct Values**  
+  Use `DISTINCT` to eliminate duplicate records and identify unique entries within your dataset.
+
+---

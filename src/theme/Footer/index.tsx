@@ -22,12 +22,12 @@ const Footer: React.FC = () => {
                 <img src="/img/logo.png" alt="logo" className="max-w-full" />
               </Link>
               <p className="mb-8 max-w-[270px] text-base text-gray-300">
-                CodeHarborHub is a platform for developers to practice their
+                recodehive is a platform for developers to practice their
                 coding skills and prepare for technical interviews.
               </p>
               <div className="-mx-3 flex items-center">
                 <Link
-                  to="https://github.com/codeharborhub"
+                  to="https://github.com/recodehive"
                   className="px-3 text-gray-300 hover:text-[--ifm-color-primary]"
                 >
                   <svg
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                   </svg>
                 </Link>
                 <Link
-                  to="https://x.com/Codeharborhub"
+                  to="https://x.com/sanjay_kv_"
                   className="px-3 text-gray-300 hover:text-[--ifm-color-primary]"
                 >
                   <svg
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
                   </svg>
                 </Link>
                 <Link
-                  to="https://www.linkedin.com/company/codeharborhub"
+                  to="https://www.linkedin.com/in/sanjay-k-v/"
                   className="px-3 text-gray-300 hover:text-[--ifm-color-primary]"
                 >
                   <svg
@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="https://codeharborhub.github.io/dsa/problems/"
+                    to="#"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                     target="_self"
                   >
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="https://codeharborhub.github.io/dsa/solutions/"
+                    to="#"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                     target="_self"
                   >
@@ -317,7 +317,7 @@ const Footer: React.FC = () => {
             <div className="w-full px-4 md:w-1/3 lg:w-1/2">
               <div className="my-1 flex justify-center md:justify-end">
                 <p className="text-base text-gray-300">
-                  Designed and Developed by &nbsp;
+                  Developed by &nbsp;
                   <Link
                     to="https://github.com/sanjay-kv"
                     className="footer-link text-yellow-500 hover:text-[--ifm-color-primary] text-base relative hover:no-underline"
