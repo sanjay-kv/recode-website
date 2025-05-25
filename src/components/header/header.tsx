@@ -72,7 +72,7 @@ const HeaderContent = () => {
           type="button" // Button type
         >
           {/* Link to documentation page */}
-          <Link to="/docs" className="chh__header-content__input--link">
+          <Link to="/courses/" className="chh__header-content__input--link">
             Get Started
           </Link>
         </motion.button>
