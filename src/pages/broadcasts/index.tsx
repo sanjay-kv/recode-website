@@ -22,6 +22,7 @@ const getYoutubeVideoId = (url: string): string => {
 const getYoutubeContentType = (url: string): 'video' | 'shorts' =>
   url.includes('/shorts/') ? 'shorts' : 'video';
 
+// List of both videos and shorts which will be handeled by the component
 const videoUrls: string[] = [
     "https://youtu.be/Fl2L9bXSRy0?si=Pdvb0oBLCP4TCIwF",
     "https://youtu.be/vuUusiD7EDM?si=4UTby9iK5hUNhNJ4",
