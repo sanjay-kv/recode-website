@@ -165,17 +165,17 @@ const config: Config = {
             //   label: "📺 Broadcast",
             //   to: "https://codeharborhub-broadcast-web.vercel.app/",
             // },
-          ],
-        },
-        {
-          to: "/blogs",
-          html: '<span class="nav-emoji">📰</span> Blogs',
-        },
-        {
-          type: "dropdown",
-          html: '<span class="nav-emoji">🔗</span> More',
-          position: "left",
-          items: [
+            ],
+          },
+          {
+            to: "/blogs",
+            html: '<span class="nav-emoji">📰</span> Blogs',
+          },
+          {
+            type: "dropdown",
+            html: '<span class="nav-emoji">🔗</span> More',
+            position: "left",
+            items: [
             {
               label: "📜Projects",
               to: "#",
@@ -195,12 +195,16 @@ const config: Config = {
             },
             {
               label: "📺 Broadcast",
-              to: "https://www.youtube.com/recodehive",
+              to: "/broadcasts/",
             },
             {
               label: "🎙️ Podcast",
-              to: "podcasts/",
+              to: "/podcasts/",
             },            
+
+            ],
+          },
+
           ],
         },
         {
@@ -208,6 +212,7 @@ const config: Config = {
           position: "right",
           value: '<div id="firebase-auth-github-navbar"></div>',
         },
+
         // {
         //   type: "dropdown",
         //   html: '<span class="nav-emoji">🏷️</span> Tags',
