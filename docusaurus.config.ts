@@ -146,7 +146,7 @@ const config: Config = {
           items: [
             {
               label: "💻GitHub Profiles",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "🎖️ GitHub Badges",
@@ -159,7 +159,7 @@ const config: Config = {
             },
             {
               label: "⚙️ Tools",
-              to: "/our-sponsors/",
+              to: "#",
             },
             // {
             //   label: "📺 Broadcast",
@@ -178,11 +178,11 @@ const config: Config = {
             items: [
             {
               label: "📜Projects",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "📚 E-books",
-              to: "/ebooks/",
+              to: "#",
             },
 
             {
@@ -201,8 +201,18 @@ const config: Config = {
               label: "🎙️ Podcast",
               to: "/podcasts/",
             },            
+
             ],
           },
+
+          ],
+        },
+        {
+          type: "html",
+          position: "right",
+          value: '<div id="firebase-auth-github-navbar"></div>',
+        },
+
         // {
         //   type: "dropdown",
         //   html: '<span class="nav-emoji">🏷️</span> Tags',
@@ -228,6 +238,14 @@ const config: Config = {
         {
           type: "search",
           position: "right",
+        },
+        
+        {
+          type: "html",
+          position: "right",
+          value: `<div class="m-4">
+          <FirebaseAuthGithub />
+        </div>`,
         },
         // {
         //   href: "https://github.com/codeharborhub/codeharborhub",
@@ -381,6 +399,38 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'YOUR_APP_ID',
+
+      // Public API key: it is safe to commit it
+      apiKey: 'YOUR_SEARCH_API_KEY',
+
+      indexName: 'YOUR_INDEX_NAME',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      replaceSearchResultPathname: {
+        from: '/docs/', // or as RegExp: /\/docs\//
+        to: '/',
+      },
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+
+      // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+      insights: false,
+
+      //... other Algolia params
     },
   } satisfies Preset.ThemeConfig,
 
