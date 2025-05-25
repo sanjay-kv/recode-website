@@ -23,16 +23,25 @@ const getYoutubeContentType = (url: string): 'video' | 'shorts' =>
   url.includes('/shorts/') ? 'shorts' : 'video';
 
 const videoUrls: string[] = [
-    "https://youtu.be/Fl2L9bXSRy0?si=mDQ4mU2M4GzpDPTA",
-    "https://youtu.be/vuUusiD7EDM?si=zQFzeW8wBcC-MJ_m",
-    "https://youtu.be/xdjZ0HXADjE?si=FDcTk-SPIiu-TJOS",
-    "https://youtu.be/DmYe2itxSQA?si=fqriZcdme9ztpnAC",
+    "https://youtu.be/Fl2L9bXSRy0?si=Pdvb0oBLCP4TCIwF",
+    "https://youtu.be/vuUusiD7EDM?si=4UTby9iK5hUNhNJ4",
+    "https://youtu.be/xdjZ0HXADjE?si=JkIuRgwJ8Z3qbjxi",
+    "https://youtu.be/DmYe2itxSQA?si=skfOHQcC6EI8kouM",
     "https://youtu.be/V2nvZYe_q7g?si=SkagJNJNUqCGsPXX",
-    "https://youtube.com/shorts/tbJCUeQi7dc?si=Nm0GBq2I2wCiLKcx",
-    "https://youtube.com/shorts/vZdKQsPxTSg?si=R_FOujIPQvsL2TWz",
-    "https://youtube.com/shorts/zQqnoSp5WHc?si=sy4bKGSB2wRGOFg-",
-    "https://youtube.com/shorts/P_sE06UAFHg?si=5XmWp3-VkqNmytbX",
-    "https://youtube.com/shorts/2nbfpbVzW0I?si=YVLij5SUc1-o_E3m",
+    "https://youtu.be/7BL6eInh7qo?si=iwZmF9iWGzUly91r",
+    "https://youtu.be/oyi86CljSk4?si=FKQBbJQ1qmi1movv",
+    "https://youtu.be/akz9xHL1RQo?si=thHXvVijm4fo9N58",
+    "https://youtu.be/4JX-SIkM3uk?si=r2kvpCztaPEoCKoM",
+    "https://youtube.com/shorts/zSu-K54fI8s?si=CPriy5v8uCTV5YlW",
+    "https://youtube.com/shorts/Wj3GEuwoNWc?si=PdfmvBSYrC7vRtvc",
+    "https://youtube.com/shorts/YOY-6VCZhic?si=FSBCIhPkCLPRWTg5",
+    "https://youtube.com/shorts/QUe3MG8mrCA?si=-LPWBr6ugtYicH9d",
+    "https://youtube.com/shorts/OGx-8hVSkHI?si=yVdRjmuhI38EV51_",
+    "https://youtube.com/shorts/ETVU4yeOxB4?si=mV68Bv7q8ozmPg9v",
+    "https://youtube.com/shorts/HGLhwI5ieL0?si=Ay_E2DK43slrtRXn",
+    "https://youtube.com/shorts/WpDc9yNGDxA?si=zrrvKuu-c_ZOemYi",
+    "https://youtube.com/shorts/N-9NUXvdvcM?si=rD_uqweUQou5VAvD",
+    "https://youtube.com/shorts/sN6RtRiT8D8?si=MThSH4PMl5O1OVTN",
 ];
 
 const VideoCard: React.FC<{
@@ -70,9 +79,20 @@ const VideoCard: React.FC<{
       }}
     >
       <div className="video-content">
-        <div className="video-info">
-          <div className="video-title"><strong>{title}</strong></div>
-          <div className="video-type">{video.type === 'shorts' ? '📱 Shorts' : '🎥 Video'}</div>
+        <div className="video-info">          <div className="video-title">{title}</div>
+          <div className="video-type">
+            <span>
+              {video.type === 'shorts' ? (
+                <>
+                  <span role="img" aria-label="shorts">📱</span> Shorts
+                </>
+              ) : (
+                <>
+                  <span role="img" aria-label="video">🎥</span> Video
+                </>
+              )}
+            </span>
+          </div>
         </div>
         <div className="video-thumbnail">
           {!thumbnailError && (
@@ -125,19 +145,20 @@ const Pagination: React.FC<{
   totalPages: number;
   setCurrentPage: (page: number) => void;
 }> = ({ currentPage, totalPages, setCurrentPage }) => (
-  <div className="pagination">
-    <button
+  <div className="pagination">    <button
       disabled={currentPage === 1}
       onClick={() => setCurrentPage(currentPage - 1)}
+      title="Previous page"
     >
-      Previous
+      ← Previous
     </button>
     <span>Page {currentPage} of {totalPages}</span>
     <button
       disabled={currentPage === totalPages}
       onClick={() => setCurrentPage(currentPage + 1)}
+      title="Next page"
     >
-      Next
+      Next →
     </button>
   </div>
 );
@@ -146,7 +167,7 @@ function BroadcastsPage(): ReactElement {
   const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState<'videos' | 'shorts'>('videos');
-  const videosPerPage = 9;
+  const videosPerPage = 6;
 
   const videoData: VideoData[] = videoUrls.map((url, index) => ({
     id: String(index + 1),
