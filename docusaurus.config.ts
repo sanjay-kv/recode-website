@@ -84,7 +84,7 @@ const config: Config = {
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4 w-xl">
-              <a class="border-r col-span-1" href="/docs/">Tutorials</a>
+              <a class="border-r col-span-1" href="/courses/">Tutorials</a>
               <div class="grid grid-cols-4 col-span-2">
                 <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
                 <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
@@ -120,10 +120,10 @@ const config: Config = {
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4">
-              <a  class="border-r col-span-1" href="https://codeharborhub.github.io/dsa/" target="_self"> Interview Prep </a>
+              <a  class="border-r col-span-1" href="#" target="_self"> Interview Prep </a>
               <div class="grid grid-cols-1 col-span-2">
-                <a href="https://codeharborhub.github.io/dsa/problems/" target="_self" class="nav__icons"> 🧩Technical </a> <br />
-                <a href="https://codeharborhub.github.io/dsa/solutions/" target="_self" class="nav__icons  "> 💡Behaviour </a>
+                <a href="#" target="_self" class="nav__icons"> 🧩Technical </a> <br />
+                <a href="#" target="_self" class="nav__icons  "> 💡Behaviour </a>
               </div>
             </div>`,
             },
@@ -146,7 +146,7 @@ const config: Config = {
           items: [
             {
               label: "💻GitHub Profiles",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "🎖️ GitHub Badges",
@@ -159,7 +159,7 @@ const config: Config = {
             },
             {
               label: "⚙️ Tools",
-              to: "/our-sponsors/",
+              to: "#",
             },
             // {
             //   label: "📺 Broadcast",
@@ -178,11 +178,11 @@ const config: Config = {
           items: [
             {
               label: "📜Projects",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "📚 E-books",
-              to: "/ebooks/",
+              to: "#",
             },
 
             {
