@@ -146,7 +146,7 @@ const config: Config = {
           items: [
             {
               label: "💻GitHub Profiles",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "🎖️ GitHub Badges",
@@ -159,7 +159,7 @@ const config: Config = {
             },
             {
               label: "⚙️ Tools",
-              to: "/our-sponsors/",
+              to: "#",
             },
             // {
             //   label: "📺 Broadcast",
@@ -178,11 +178,11 @@ const config: Config = {
           items: [
             {
               label: "📜Projects",
-              to: "/projects/",
+              to: "#",
             },
             {
               label: "📚 E-books",
-              to: "/ebooks/",
+              to: "#",
             },
 
             {

@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               <ul className="list-none pl-0">
                 <li>
                   <Link
-                    to="/docs/"
+                    to="/courses/"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Tutorials
@@ -111,28 +111,28 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/badges/github-badges/"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                     target="_self"
                   >
-                    DSA Problems
+                    Learn GitHub
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/showcase"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                     target="_self"
                   >
-                    DSA Solutions
+                    Explore Projects
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/blogs"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Web Development
+                    All Blogs
                   </Link>
                 </li>
                 {/* <li>
@@ -152,7 +152,7 @@ const Footer: React.FC = () => {
               <ul className="list-none pl-0">
                 <li>
                   <Link
-                    to="/about/"
+                    to="/community"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     About Us
@@ -160,7 +160,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/contact/"
+                    to="/community/supports"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Contact Us
@@ -168,7 +168,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/careers/"
+                    to="#"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Careers
@@ -184,10 +184,10 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/blogs"
+                    to="/our-sponsors/"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    All Blogs
+                    Sponsor US
                   </Link>
                 </li>
               </ul>
@@ -199,7 +199,7 @@ const Footer: React.FC = () => {
               <ul className="list-none pl-0">
                 <li>
                   <Link
-                    to="#"
+                    to="/community/supports"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Help Center
