@@ -27,16 +27,27 @@ In this tutorial, you'll learn how to interpret and use rows in a database table
 For example, consider a table named `Friends`. Below is how a simple table might look:
 
 
+## Task: Sort a table using the `ORDER BY` clause
+
+### Lesson Overview
+
+After using `ORDER BY`, we specify the column by which we want to order the entries.  
+For example, to sort by the `name` column:
+
+The first step in ordering table is the SELECT
+ORDER BY helps you to arrange data in readable form
+Here FROM specify the table we are selecting from ountries. 
+Here the query is ordering the number by name/. 
 
     :::info
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="Friends"
-  | id | name            | username         |
-|----|-----------------|------------------|
-| 1  | John Doe        | @johndoe         |
-| 2  | Jane Smith      | @janesmith       |
-| 3  | Bob Johnson     | @bobjohnson      |
+| name            | username         |
+-----------------|------------------|
+ Smith       | 19       |
+ Jones     | 60      |
+ Wilson    | 25      |
 ```
   </TabItem>
 
@@ -44,54 +55,27 @@ For example, consider a table named `Friends`. Below is how a simple table might
   
   ```sql title="Creating SQL Tables & db. "
 
-    -- creating database
-    CREATE DATABASE my_database;
-
-    -- use the database you created
-    USE my_database;
-
-
-  -- Create the table
-CREATE TABLE friends (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    username VARCHAR(100)
-);
-
--- Insert data into the table
-INSERT INTO friends (id, name, username) VALUES
-(1, 'John Doe', '@johndoe'),
-(2, 'Jane Smith', '@janesmith'),
-(3, 'Bob Johnson', '@bobjohnson');
+    -- creating orders
+SELECT * FROM patients
+ORDER BY name;
 
     ```
 
+
+
     </TabItem>
     
-    <TabItem value="how-git-works" label="Output ">
-      | id | name            | username         |
-|----|-----------------|------------------|
-| 1  | John Doe        | @johndoe         |
-| 2  | Jane Smith      | @janesmith       |
-| 3  | Bob Johnson     | @bobjohnson      |
+    <TabItem value="how-git-works" label="Output">
+| name              | age                  |
+-------------------|--------------------------|
+Smith       | 19    |
+Jones       | 60        |
+Wilson       | 25   |
     </TabItem>
 </Tabs>
 
 
 :::
-
-## 🧾 Explanation
-
-The **first row** of this table contains:
-- `id`: **1**
-- `name`: **John Doe**
-- `username`: **@johndoe**
-
-Each of the remaining rows represents a different friend, with unique ID, name, and username values.
-
----
-
-✅ This is your first step in understanding how data is structured in relational databases. Once you master rows, you're on your way to writing powerful SQL queries!
 
 
 
@@ -99,7 +83,7 @@ Each of the remaining rows represents a different friend, with unique ID, name, 
 <AdsComponent />
 
 
-### 📘 Querying a Table with `FROM`
+### Example Practice 
 
 > To query data from a table, use the FROM clause followed by the table's name.
 
@@ -112,29 +96,34 @@ For example, consider a table named `Friends`. Below is how a simple table might
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="Friends"
-| id | name              | email                   |
-|----|-------------------|--------------------------|
-| 1  | Tony Stark        | ironman@avengers.com     |
-| 2  | Bruce Wayne       | batman@gotham.com        |
-| 3  | Leia Organa       | princess@rebellion.org   |
+| name    | gdp     |
+|---------|---------|
+| Greece  | 187.46  |
+| Sweden  | 474.15  |
+| Iceland | 21.6    |
+| Germany | 3449.05 |
+
 ```
   </TabItem>
 
 <TabItem value="SQL Code" label="SQL Code">
   
   ```sql title="Creating SQL Tables. "
-SELECT name
-FROM friends;
+SELECT *
+FROM countries
+ORDER BY name;
     ```
 
     </TabItem>
     
     <TabItem value="how-git-works" label="Output">
-     | id | name              | email                   |
-|----|-------------------|--------------------------|
-| 1  | Tony Stark        | ironman@avengers.com     |
-| 2  | Bruce Wayne       | batman@gotham.com        |
-| 3  | Leia Organa       | princess@rebellion.org   |
+| name    | gdp     |
+|---------|---------|
+| Germany | 3449.05 |
+| Greece  | 187.46  |
+| Iceland | 21.6    |
+| Sweden  | 474.15  |
+
     </TabItem>
 </Tabs>
 
@@ -152,46 +141,51 @@ While not necessary but its a good practice to finish the sql queries with;
 By following these best practices, 
 :::
 
-### 🔄 Selecting Multiple Columns in SQL
+### 🔄 Arranging ORDERS BY with ASC , DESC
 
     :::info
+    Ordering text properties like name is different when comparing to the age
+    We can order items in asseding starting with smalest value or deceding. 
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="friends"
-| id | name              | email                   |
-|----|-------------------|--------------------------|
-| 1  | Tony Stark        | ironman@avengers.com     |
-| 2  | Bruce Wayne       | batman@gotham.com        |
-| 3  | Leia Organa       | princess@rebellion.org   |
+| name   | age |
+|--------|-----|
+| Smith  | 19  |
+| Jones  | 60  |
+| Wilson | 25  |
+
 ```
   </TabItem>
 
 <TabItem value="SQL Code" label="SQL Code">
   
   ```sql title="Creating SQL Tables. "
-SELECT name, email
-FROM friends;
+SELECT *
+FROM patients
+ORDER BY age ASC;
+
     ```
 
     </TabItem>
     
     <TabItem value="how-git-works" label="Output">
-      | name              | email                   |
-|------------------|--------------------------|
-| Tony Stark        | ironman@avengers.com     |
- | Bruce Wayne       | batman@gotham.com        |
-  | Leia Organa       | princess@rebellion.org   |
+| name   | age |
+|--------|-----|
+| Smith  | 19  |
+| Wilson | 25  |
+| Jones  | 60  |
+
     </TabItem>
 </Tabs>
 
 
 :::
 
-## 🧹 Selecting Unique Values with `DISTINCT`
+## 🧹 Selecting with `DESC`
 
-Sometimes your table might contain **duplicate values**, and you only want to see each unique value **once** in your result.
-
-That’s where the `DISTINCT` keyword comes in!
+For Text value it order by Alphabetically 
+When arranging numerical value the item with smallest value in that coloumn comes first 
 
 ---
 
@@ -199,28 +193,33 @@ That’s where the `DISTINCT` keyword comes in!
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="Subscribers"
-| name | email             | country  |
-|------|-------------------|----------|
-| Sam  | sam17@mail.com    | England  |
-| Remy | rem@mail.com      | France   |
-| Luis | luis_99@mail.com  | France   |
+| name   | age |
+|--------|-----|
+| Smith  | 19  |
+| Jones  | 60  |
+| Wilson | 25  |
+
 ```
   </TabItem>
 
 <TabItem value="SQL Code" label="SQL Code">
   
   ```sql title="Creating SQL Tables. "
-SELECT DISTINCT country
-FROM subscribers;
+SELECT *
+FROM patients
+ORDER BY age DESC;
+
     ```
 
     </TabItem>
     
     <TabItem value="how-git-works" label="Output">
-   | country  |
----------|
-  | England  |
- | France   |
+| name   | age |
+|--------|-----|
+| Jones  | 60  |
+| Wilson | 25  |
+| Smith  | 19  |
+
 
     </TabItem>
 </Tabs>
@@ -231,20 +230,20 @@ FROM subscribers;
 
 
 
-## ✅ What You have Learned
+# ✅ What You Have Learned
 
-This module covers four essential topics in data selection:
+This module covers essential concepts related to ordering data in SQL:
 
-- **Rows and Columns**  
-  Learn how to access specific rows and columns in a dataset or table, the building blocks of any query.
+## 📌 ORDER BY Clause  
+Learn how to sort query results based on one or more columns using the `ORDER BY` keyword.
 
-- **Select Data**  
-  Understand the basic `SELECT` statement to retrieve data from a database.
+## 🔼 Ascending Order (ASC)  
+Understand that SQL sorts in ascending order by default, which is the same as explicitly using `ASC`.
 
-- **Select Multiple Columns**  
-  Retrieve more than one column at a time in your queries to get the information you need all at once.
+## 🔽 Descending Order (DESC)  
+Use the `DESC` keyword to sort results from highest to lowest or reverse alphabetical order.
 
-- **Select Distinct Values**  
-  Use `DISTINCT` to eliminate duplicate records and identify unique entries within your dataset.
+## 📊 Sort by Column Values  
+Practice sorting by numeric or text column values to organize data meaningfully.
 
 ---
