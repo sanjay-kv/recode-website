@@ -11,23 +11,15 @@ const config: Config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "facebook",
+  projectName: "docusaurus",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -38,9 +30,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: require.resolve("./sidebars.ts"),
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
@@ -50,24 +40,20 @@ const config: Config = {
             type: ["rss", "atom"],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: require.resolve("./src/css/custom.css"),
         },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Recode Hive",
@@ -84,48 +70,42 @@ const config: Config = {
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4 w-xl">
-              <a class="border-r col-span-1" href="/courses/">Tutorials</a>
-              <div class="grid grid-cols-4 col-span-2">
-                <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
-                <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
-                <a href="/docs/category/GitHub/" class="nav__icons" > <img src="/icons/github.svg" title="GitHub" alt="GitHub" /> </a>
-                <a href="/docs/category/Nextjs/" class="nav__icons" > <img src="/icons/Nextjs.svg" title="Nextjs" alt="Nextjs" /> </a>
-
-              </div>
-            </div>`,
+                <a class="border-r col-span-1" href="/courses/">Tutorials</a>
+                <div class="grid grid-cols-4 col-span-2">
+                  <a href="/docs/category/sql/" class="nav__icons"> <img src="/icons/sql.svg" title="SQL" alt="SQL" /> </a>
+                  <a href="/docs/category/python/" class="nav__icons"> <img src="/icons/python.svg" title="Python" alt="Python" /> </a>
+                  <a href="/docs/category/GitHub/" class="nav__icons" > <img src="/icons/github.svg" title="GitHub" alt="GitHub" /> </a>
+                  <a href="/docs/category/Nextjs/" class="nav__icons" > <img src="/icons/Nextjs.svg" title="Nextjs" alt="Nextjs" /> </a>
+                </div>
+              </div>`,
             },
-
             {
               type: "html",
               value: '<hr style="margin: 0.3rem 0;">',
             },
-
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4">
-              <a class="border-r col-span-1" href="/courses/"> Courses </a>
-              <div class="grid grid-cols-4 col-span-2">
-                <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="git" /> </a>
-                <a href="https://www.youtube.com/watch?v=O1ahDsq8DU0&list=PLrLTYhoDFx-k62rLLajSB-jeqKwLkDrkF&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/postman.svg" alt="Postman" /> </a>
-
-              </div>
-            </div>`,
+                <a class="border-r col-span-1" href="/courses/"> Courses </a>
+                <div class="grid grid-cols-4 col-span-2">
+                  <a href="https://www.youtube.com/watch?v=GrTV59Y84S8&list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/git.svg" alt="git" /> </a>
+                  <a href="https://www.youtube.com/watch?v=O1ahDsq8DU0&list=PLrLTYhoDFx-k62rLLajSB-jeqKwLkDrkF&ab_channel=RecodeHive" class="nav__icons"> <img src="/icons/postman.svg" alt="Postman" /> </a>
+                </div>
+              </div>`,
             },
-
             {
               type: "html",
               value: '<hr style="margin: 0.3rem 0;">',
             },
-
             {
               type: "html",
               value: `<div class="grid grid-cols-3 gap-4">
-              <a  class="border-r col-span-1" href="#" target="_self"> Interview Prep </a>
-              <div class="grid grid-cols-1 col-span-2">
-                <a href="#" target="_self" class="nav__icons"> 🧩Technical </a> <br />
-                <a href="#" target="_self" class="nav__icons  "> 💡Behaviour </a>
-              </div>
-            </div>`,
+                <a  class="border-r col-span-1" href="#" target="_self"> Interview Prep </a>
+                <div class="grid grid-cols-1 col-span-2">
+                  <a href="#" target="_self" class="nav__icons"> 🧩Technical </a> <br />
+                  <a href="#" target="_self" class="nav__icons"> 💡Behaviour </a>
+                </div>
+              </div>`,
             },
           ],
         },
@@ -152,7 +132,6 @@ const config: Config = {
               label: "🎖️ GitHub Badges",
               to: "/badges/github-badges/",
             },
-
             {
               label: "💾 Portfolio",
               to: "/roadmap/",
@@ -170,6 +149,7 @@ const config: Config = {
         {
           to: "/blogs",
           html: '<span class="nav-emoji">📰</span> Blogs',
+          position: "left",
         },
         {
           type: "dropdown",
@@ -184,7 +164,6 @@ const config: Config = {
               label: "📚 E-books",
               to: "#",
             },
-
             {
               label: "🛣️ Roadmap",
               to: "/roadmap/",
@@ -195,12 +174,12 @@ const config: Config = {
             },
             {
               label: "📺 Broadcast",
-              to: "https://www.youtube.com/recodehive",
+              to: "/broadcasts/",
             },
             {
               label: "🎙️ Podcast",
-              to: "podcasts/",
-            },            
+              to: "/podcasts/",
+            },
           ],
         },
         {
@@ -208,230 +187,44 @@ const config: Config = {
           position: "right",
           value: '<div id="firebase-auth-github-navbar"></div>',
         },
-        // {
-        //   type: "dropdown",
-        //   html: '<span class="nav-emoji">🏷️</span> Tags',
-        //   position: "left",
-        //   items: [
-        //     {
-        //       label: "🏷️ Tutorial Tags 📚",
-        //       to: "/docs/tags/",
-        //       activeBaseRegex: "/docs/tags/",
-        //     },
-        //     {
-        //       label: "🏷️ Courses Tags 🎓",
-        //       to: "/courses/tags/",
-        //       activeBaseRegex: "/courses/tags/",
-        //     },
-        //     {
-        //       label: "🏷️ DSA Tags 🧠",
-        //       to: "/dsa/tags/",
-        //       activeBaseRegex: "/dsa/tags/",
-        //     },
-        //   ],
-        // },
         {
           type: "search",
           position: "right",
         },
-        
         {
           type: "html",
           position: "right",
           value: `<div class="m-4">
-          <FirebaseAuthGithub />
-        </div>`,
+            <FirebaseAuthGithub />
+          </div>`,
         },
-        // {
-        //   href: "https://github.com/codeharborhub/codeharborhub",
-        //   position: "right",
-        //   className: "header-github-link",
-        //   "aria-label": "GitHub repository",
-        // },
-        // {
-        //   href: "https://www.codeharborhub.live/register",
-        //   position: "right",
-        //   className: "header-signup-link",
-        //   "aria-label": "Auth",
-        //   label: "Auth",
-        // },
       ],
       // hideOnScroll: true,
     },
-    // footer: {
-    //   style: "dark",
-    //   links: [
-    //     {
-    //       title: " ",
-    //       items: [
-    //         {
-    //           html: `
-    //               <div class="footer_info--container">
-    //                 <img src="/img/logo.png" alt="Footer logo" />
-    //                 <span>
-    //                 Our mission at RecodeHive  is clear: to provide accessible and comprehensive educational resources to learners of all levels, from beginners to advanced professionals.
-    //                 </span>
-    //               </div>
-    //             `,
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: "Resources",
-    //       items: [
-    //         {
-    //           label: "Tutorials",
-    //           to: "/docs",
-    //         },
-    //         {
-    //           label: "Courses",
-    //           to: "/courses",
-    //         },
-    //         {
-    //           label: "DSA Problems",
-    //           to: "#",
-    //         },
-    //         {
-    //           label: "DSA Solutions",
-    //           to: "#",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: "Company",
-    //       items: [
-    //         {
-    //           label: "About",
-    //           to: "/about/",
-    //         },
-    //         {
-    //           label: "Contact",
-    //           to: "/contact/",
-    //         },
-    //         {
-    //           label: "Careers",
-    //           to: "/careers/",
-    //         },
-    //         {
-    //           label: "Team",
-    //           to: "/community/team/",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: "Terms/Conditions",
-    //       items: [
-    //         {
-    //           label: "Privacy Policy",
-    //           to: "/privacy-policy/",
-    //         },
-    //         {
-    //           label: "Terms of Service",
-    //           to: "/terms-service/",
-    //         },
-    //         {
-    //           label: "Code of Conduct",
-    //           to: "/code-of-conduct",
-    //         },
-    //         {
-    //           label: "Cookie Policy",
-    //           to: "/cookie-policy",
-    //         },
-
-    //         {
-    //           label: "License",
-    //           to: "/License/",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: "Quick Links",
-    //       items: [
-    //         {
-    //           label: "Blog",
-    //           to: "/blog",
-    //         },
-    //         {
-    //           label: "Community",
-    //           to: "/community/",
-    //         },
-    //         {
-    //           label: "GitHub",
-    //           href: "https://github.com/codeharborhub",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: "Social Media",
-    //       items: [
-    //         {
-    //           label: "LinkedIn",
-    //           href: "https://www.linkedin.com/company/codeharborhub/",
-    //         },
-    //         {
-    //           label: "YouTube",
-    //           href: "https://www.youtube.com/",
-    //           icon: "faYoutube",
-    //         },
-    //         {
-    //           label: "Discord",
-    //           href: "https://discord.gg/c53FQn3pRv",
-    //         },
-    //         {
-    //           label: "Twitter(X)",
-    //           href: "https://twitter.com/CodesWithAjay",
-    //         },
-    //       ],
-    //     },
-    //   ],
-    //   logo: {
-    //     alt: "Powered by Recodehive | Product Hunt",
-    //     src: "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=464236&theme=light",
-    //     href: "https://www.producthunt.com/posts/codeharborhub",
-    //   },
-    //   copyright: `Copyright © ${new Date().getFullYear()} CodeHarborHub, Made by <a href="https://github.com/sanjay-kv">Sanjay Viswanathan</a>`,
-    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
     algolia: {
-      // The application ID provided by Algolia
-      appId: 'YOUR_APP_ID',
-
-      // Public API key: it is safe to commit it
-      apiKey: 'YOUR_SEARCH_API_KEY',
-
-      indexName: 'YOUR_INDEX_NAME',
-
-      // Optional: see doc section below
+      appId: "YOUR_APP_ID",
+      apiKey: "YOUR_SEARCH_API_KEY",
+      indexName: "YOUR_INDEX_NAME",
       contextualSearch: true,
-
-      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      externalUrlRegex: 'external\\.com|domain\\.com',
-
-      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      externalUrlRegex: "external\\.com|domain\\.com",
       replaceSearchResultPathname: {
-        from: '/docs/', // or as RegExp: /\/docs\//
-        to: '/',
+        from: "/docs/",
+        to: "/",
       },
-
-      // Optional: Algolia search parameters
       searchParameters: {},
-
-      // Optional: path for search page that enabled by default (`false` to disable it)
-      searchPagePath: 'search',
-
-      // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+      searchPagePath: "search",
       insights: false,
-
-      //... other Algolia params
     },
   } satisfies Preset.ThemeConfig,
 
   markdown: {
     mermaid: true,
   },
+
   themes: ["@docusaurus/theme-mermaid"],
 
   plugins: [
@@ -447,7 +240,6 @@ const config: Config = {
     ],
     [
       "@docusaurus/plugin-content-docs",
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: "community",
         path: "community",
