@@ -4,10 +4,9 @@ import NavbarFirebaseAuthGithub from "@site/src/components/ui/NavbarFirebaseAuth
 
 export default function CustomLayout(props) {
   return (
-    <>
+    // <>
       <Layout {...props} />
-      dnjawdwjadjwa
-      <NavbarFirebaseAuthGithub />
-    </>
+    //   <NavbarFirebaseAuthGithub />
+    // </>
   );
 }

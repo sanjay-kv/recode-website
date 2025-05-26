@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import styled from 'styled-components';
 
 // Styled Components
 const LicensingContainer = styled.div`
