@@ -4,39 +4,39 @@ import { motion } from "framer-motion";
 
 const faqData = [
   {
-    question: "What is CodeHarborHub?",
+    question: "What is the recode hive?",
     answer:
-      "CodeHarborHub is an educational platform aimed at providing comprehensive resources for learners at all levels. Whether you're a beginner looking to start your career in web development or an advanced professional wanting to master a new programming language, CodeHarborHub offers tutorials, courses, and a community to support your learning journey.",
+      "Recode Hive is a platform focused on students with the right resources at the right time, We help you to focus on the important topics and tools which is used in the current industry standard compared to the traditional university. This includes a summary of data engineering-related tutorials, blogs, and the potential to do an open-source program and earn.",
   },
   {
-    question: "What features does CodeHarborHub offer?",
+    question: "What features do the recode hive provides?",
     answer:
-      "CodeHarborHub offers features such as code solutions, project collaboration, coding quizzes, tutorials, and a community section. Our platform is designed to help you learn, share, and grow as a developer.",
+      "We provide students with the opportunity to learn and apply knowledge on the Recode Hive GitHub organisation, which includes 1000+ data-related projects, and earn as well. This community is non-profit and inclusive for all.",
   },
   {
-    question: "Can I contribute my tutorials here?",
+    question: "How can I contribute tutorials?",
     answer:
-      "Yes, users can contribute tutorials by submitting them through a PR with the resources committed.",
+      "The process is very straightforward, Yes this community is open-source, and entire code base is available on GitHub to fork and contribute. if you are a beginner, then,.",
   },
   {
-    question: "How many types of tutorials are available?",
+    question: "What all resources are available here?",
     answer:
-      "CodeHarborHub offers tutorials on HTML, CSS, JavaScript, React, and Node.js, providing a comprehensive guide to web development.",
+      "At the moment, SQL, Python, GitHub, Postman, NextJs resources are available on the platform for you to engage and modify. in the future will plan to launch advanced data tools tutorials.",
   },
   {
-    question: "What types of courses are available?",
+    question: "How can I contribute as a beginner?",
     answer:
-      "CodeHarborHub offers courses in HTML, CSS, JavaScript, React, and Node.js. Each course is designed to help you build practical skills and projects.",
+      "It can be tricky if you are a beginner, but here we build this community focusing on your priority for everyone to learn opensource contributions in a simple and effective way..",
   },
   {
-    question: "How can I contribute to open-source projects?",
+    question: "How can I earn from this recode hive organisation?",
     answer:
-      "You can contribute by navigating to the Showcase section, where you can find and join community projects.",
+      "You can earn through GitHub sponsorship. Every week, I sponsor one person who contributes valuable open-source contributions. The sponsorship amount ranges from 100 to 500 INR per week.",
   },
   {
-    question: "How can I stay updated with the latest news?",
+    question: "How will I stay up to date with the latest news from this organisation?",
     answer:
-      "You can stay updated by following our blog and joining our community on social media platforms like LinkedIn, YouTube, Discord, and Twitter.",
+      "The best way to stay up to date is the newsletter, which makes it very easy and provides weekly updates to you on what's happening on the recode hive community.",
   },
 ];
 
@@ -60,7 +60,7 @@ const FAQs: React.FC = () => {
                 Looking for answers?
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-center lg:text-left">
-                Find answers to the most common questions about CodeHarborHub.
+                Find answers to the most common questions about Recode Hive.
               </p>
             </div>
 

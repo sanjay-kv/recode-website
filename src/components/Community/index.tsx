@@ -18,22 +18,26 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
   const generateList = useMemo(() => [
     {
       stat: githubStarCountText,
-      description: "Stars on our GitHub repository, showcasing our community's support and contribution.",
-      href: "https://github.com/CodeHarborHub/codeharborhub.github.io/stargazers",
+      description: "Stars on our GitHub repository, showcase the  support and contribution, we recieved from the community.",
+      href: "https://github.com/recodehive",
+      // https://github.com/CodeHarborHub/codeharborhub.github.io/stargazers
     },
     {
-      stat: 30,
-      description: "Live projects on CodeHarborHub, demonstrating the power of open-source collaboration.",
+      stat: 20,
+      description: "Live projects on recodehive, demonstrating the power of open-source collaboration.",
     },
     {
       stat: githubContributorsCount,
-      description: "Contributors who have made our repository better.",
-      href: "https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors",
+      description: "List of Contributors who have made our repository better.",
+      href: "https://github.com/recodehive",
+      // https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors
     },
     {
       stat: githubForksCount,
       description: "Forks of our repository, showing how our community extends our work.",
-      href: "https://github.com/CodeHarborHub/codeharborhub.github.io/network/members",
+      href: "https://github.com/recodehive",
+
+      //https://github.com/CodeHarborHub/codeharborhub.github.io/network/members
     },
   ], [githubStarCountText, githubContributorsCount, githubForksCount]);
 
@@ -97,10 +101,11 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
             loading="lazy"
           />
           <div className="landing-community__info-text">
-            Our developers are the heartbeat of CodeHarborHub. We take pride in
+            Our developers are the core of Hive community. We take pride in
             our{" "}
             <a
-              href="https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors"
+              href="https://github.com/recodehive"
+              //https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors
               target="_blank"
               rel="noopener noreferrer"
               className="landing-community__link"
@@ -109,14 +114,14 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
             </a>{" "}
             with over{" "}
             <a
-              href="https://github.com/CodeHarborHub/codeharborhub.github.io"
+              href="https://github.com/recodehive"
               target="_blank"
               rel="noopener noreferrer"
               className="landing-community__link"
             >
-              100+ contributors
+              500+ contributors
             </a>{" "}
-            powering CodeHarborHub.
+            powering recodehive.
           </div>
         </div>
       </div>

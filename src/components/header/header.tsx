@@ -50,10 +50,9 @@ const HeaderContent = () => {
           delay: 0.2,
         }}
       >
-        Tired of limitations? Recode Hive shatters them. We&apos;re the
-        exclusive platform offering a comprehensive tech curriculum, taught by
-        industry masters, completely free. Join our vibrant community, master
-        in-demand skills, and launch your dream tech career.
+        Recode Hive helps you get started with open-source contributions. We have built an 
+        inclusive community from people from all around the world. Join our community to earn while learning to  learning much more simplified
+         and practical. 
       </motion.p>
 
       {/* Buttons for navigation */}

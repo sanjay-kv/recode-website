@@ -35,7 +35,7 @@ const HeaderContent = () => {
         className="gradient__text" // CSS class for gradient text
       >
         <ParticlesComponent/> {/* Render ParticlesComponent */}
-        Level Up Skills with CodeHarborHub {/* Text content */}
+        Level Up Skills with Recode Hive{/* Text content */}
       </motion.h1>
 
       {/* Description paragraph with animated entrance */}
@@ -50,10 +50,8 @@ const HeaderContent = () => {
           delay: 0.2,
         }}
       >
-        Tired of limitations? Recode Hive shatters them. We&apos;re the
-        exclusive platform offering a comprehensive tech curriculum, taught by
-        industry masters, completely free. Join our vibrant community, master
-        in-demand skills, and launch your dream tech career.
+        Recode Hive helps you get started with open-source contributions. We have built an inclusive community from people from all around the world. We ain't doing any magic, we make the learning much more simplified and practical, which traditional 
+        education couldn't provide to you. Join our community to earn while learning.
       </motion.p>
 
       {/* Buttons for navigation */}
