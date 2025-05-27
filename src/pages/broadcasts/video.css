@@ -2,7 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 3rem 2rem;
-  background: var(--ifm-background-color);
+  background: transparent;
 }
 
 .video-subtitle {
@@ -48,7 +48,7 @@
 }
 
 .video-card {
-  background: var(--ifm-card-background-color);
+  background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -56,7 +56,7 @@
   height: 100%;
   cursor: pointer;
   padding: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid #e9ecef;
   position: relative;
   isolation: isolate;
 }
@@ -74,10 +74,10 @@
 
 .video-info {
   padding: 1.25rem;
-  background: var(--ifm-background-surface-color);
+  background: #ffffff;
   border-radius: 16px;
   margin-bottom: 1rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid #e9ecef;
 }
 
 .video-title {
@@ -96,20 +96,35 @@
 
 .video-type {
   font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-600);
+  color: #6c757d; /* Neutral gray color */
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
+/* Force the video type tags to use neutral colors */
+.video-card .video-type span,
+.video-card .video-type {
+  background: #f8f9fa !important;
+  color: #495057 !important;
+}
+
 .video-type span {
   display: inline-flex;
   align-items: center;
   padding: 0.35rem 0.75rem;
-  background: var(--ifm-color-emphasis-100);
+  background: #f8f9fa !important; /* Force light gray background */
   border-radius: 100px;
   font-weight: 500;
+  color: #495057 !important; /* Force darker gray for text */
+  border: 1px solid #e9ecef !important; /* Force subtle border */
+}
+
+/* Ensure the emoji and text inside the span are also not green */
+.video-type span *,
+.video-type span {
+  color: #495057 !important;
 }
 
 .video-thumbnail {
@@ -121,47 +136,68 @@
   flex-grow: 1;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
 }
 
-.video-play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  width: 70px;
-  height: 70px;
-  background: rgba(255, 0, 0, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: white;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-  pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.video-thumbnail img {
+.thumbnail-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background: transparent;
+  position: relative;
   z-index: 1;
-  background: var(--ifm-color-emphasis-200);
 }
 
-.video-card:hover .video-play-button {
-  background: rgb(255, 0, 0);
-  transform: translate(-50%, -50%) scale(1);
-  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.3);
+/* Fallback for when image fails to load */
+.thumbnail-img[src=""] {
+  opacity: 0;
 }
 
-.video-card:hover .video-thumbnail img {
+.thumbnail-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  padding: 1rem;
+  text-align: center;
+}
+
+.thumbnail-placeholder::before {
+  content: '🎥';
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.thumbnail-placeholder span {
+  max-width: 80%;
+  word-break: break-word;
+}
+
+/* Play button styles removed as per request */
+
+.video-card:hover .thumbnail-img {
   transform: scale(1.02);
 }
 

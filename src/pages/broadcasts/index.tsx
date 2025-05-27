@@ -11,12 +11,25 @@ interface VideoData {
 }
 
 const getYoutubeVideoId = (url: string): string => {
-  let videoId = '';
-  const normalMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
-  const shortsMatch = url.match(/youtube\.com\/shorts\/([^&\s]+)/);
-  if (normalMatch) videoId = normalMatch[1];
-  else if (shortsMatch) videoId = shortsMatch[1];
-  return videoId;
+  // Handle youtu.be short links
+  if (url.includes('youtu.be/')) {
+    const match = url.match(/youtu\.be\/([^?&\s]+)/);
+    return match ? match[1].split('?')[0] : '';
+  }
+  
+  // Handle youtube.com/watch?v= links
+  if (url.includes('youtube.com/watch')) {
+    const match = url.match(/[?&]v=([^&\s]+)/);
+    return match ? match[1].split('&')[0] : '';
+  }
+  
+  // Handle youtube.com/shorts/ links
+  if (url.includes('youtube.com/shorts/')) {
+    const match = url.match(/shorts\/([^?&\s]+)/);
+    return match ? match[1].split('?')[0] : '';
+  }
+  
+  return '';
 };
 
 const getYoutubeContentType = (url: string): 'video' | 'shorts' =>
@@ -50,10 +63,64 @@ const VideoCard: React.FC<{
   onClick: (video: VideoData, event: React.MouseEvent | React.KeyboardEvent) => void;
 }> = ({ video, onClick }) => {
   const [title, setTitle] = useState('Loading...');
-  const [thumbnailError, setThumbnailError] = useState(false);
+  const [thumbnailUrl, setThumbnailUrl] = useState('');
   const videoId = getYoutubeVideoId(video.youtubeUrl);
+  
+  // Try different thumbnail qualities in sequence
+  const tryThumbnailUrl = (url: string) => {
+    if (!videoId) return;
+    
+    const img = new Image();
+    img.crossOrigin = 'anonymous'; // Handle CORS if needed
+    
+    img.onload = () => {
+      // Only set the URL if it's not an error image
+      if (img.width > 0 && img.height > 0) {
+        setThumbnailUrl(url);
+      } else {
+        handleThumbnailError(url);
+      }
+    };
+    
+    img.onerror = () => handleThumbnailError(url);
+    img.src = url;
+  };
+  
+  const handleThumbnailError = (failedUrl: string) => {
+    console.log(`Failed to load thumbnail: ${failedUrl}`);
+    
+    if (failedUrl.includes('maxresdefault')) {
+      // Try hqdefault if maxresdefault fails
+      tryThumbnailUrl(`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`);
+    } else if (failedUrl.includes('hqdefault')) {
+      // Try mqdefault if hqdefault fails
+      tryThumbnailUrl(`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`);
+    } else if (failedUrl.includes('mqdefault')) {
+      // Try default if mqdefault fails
+      tryThumbnailUrl(`https://i.ytimg.com/vi/${videoId}/default.jpg`);
+    } else {
+      // All options failed, show placeholder
+      setThumbnailUrl('');
+    }
+  };
 
   useEffect(() => {
+    if (!videoId) return;
+    
+    // Start with the highest quality thumbnail
+    console.log(`Loading thumbnails for video ID: ${videoId}`);
+    tryThumbnailUrl(`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`);
+    
+    // Also try the first frame as a fallback (sometimes works when others don't)
+    const firstFrameUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+    setTimeout(() => {
+      if (!thumbnailUrl) {
+        console.log('Trying first frame as fallback');
+        tryThumbnailUrl(firstFrameUrl);
+      }
+    }, 1000);
+    
+    // Fetch video title
     const fetchVideoTitle = async () => {
       try {
         const response = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(video.youtubeUrl)}&format=json`);
@@ -64,8 +131,7 @@ const VideoCard: React.FC<{
         console.error('Error fetching video title:', error);
       }
     };
-
-    setThumbnailError(false);
+    
     fetchVideoTitle();
   }, [video.youtubeUrl, videoId]);
 
@@ -80,7 +146,8 @@ const VideoCard: React.FC<{
       }}
     >
       <div className="video-content">
-        <div className="video-info">          <div className="video-title">{title}</div>
+        <div className="video-info">
+          <div className="video-title">{title}</div>
           <div className="video-type">
             <span>
               {video.type === 'shorts' ? (
@@ -96,26 +163,27 @@ const VideoCard: React.FC<{
           </div>
         </div>
         <div className="video-thumbnail">
-          {!thumbnailError && (
-            <img
-              src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-              alt={title}
-              loading="lazy"
-              onError={(e) => {
-                const img = e.target as HTMLImageElement;
-                if (img.src.includes('maxresdefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
-                } else if (img.src.includes('sddefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-                } else if (img.src.includes('hqdefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
-                } else {
-                  setThumbnailError(true);
-                }
-              }}
-            />
-          )}
-          <div className="video-play-button">▶</div>
+          <div className="thumbnail-container">
+            {thumbnailUrl ? (
+              <img
+                src={thumbnailUrl}
+                alt={title}
+                className="thumbnail-img"
+                loading="lazy"
+                onError={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  console.log('Image error:', img.src);
+                  // Let the parent component handle the error
+                  setThumbnailUrl('');
+                }}
+              />
+            ) : (
+              <div className="thumbnail-placeholder">
+                <span>Loading thumbnail...</span>
+              </div>
+            )}
+            {/* Play button removed as per request */}
+          </div>
         </div>
       </div>
     </div>
@@ -146,7 +214,8 @@ const Pagination: React.FC<{
   totalPages: number;
   setCurrentPage: (page: number) => void;
 }> = ({ currentPage, totalPages, setCurrentPage }) => (
-  <div className="pagination">    <button
+  <div className="pagination">
+    <button
       disabled={currentPage === 1}
       onClick={() => setCurrentPage(currentPage - 1)}
       title="Previous page"

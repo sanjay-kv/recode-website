@@ -85,26 +85,27 @@ export default function VideoDetails(): ReactElement {
           <div className="video-content">
             <div className="video-info">
               <div className="video-title">
-                <strong>{title}</strong>
+                <h1>{title}</h1>
+                <div className="video-type">
+                  {video.type === 'shorts' ? '📱 Shorts' : '🎥 Video'}
+                </div>
               </div>
-              <div className="video-type">
-                {video.type === 'shorts' ? '📱 Shorts' : '🎥 Video'}
+              <div className="video-description">
+                <p>{randomDescription}</p>
               </div>
-            </div>
-            <div className="video-description">
-              <p>{randomDescription}</p>
             </div>
             <div className="video-embed-large">
               <iframe
                 src={`https://www.youtube.com/embed/${getYoutubeVideoId(video.youtubeUrl)}${video.type === 'shorts' ? '?loop=1' : ''}`}
-                width="100%"
-                height="600"
                 frameBorder="0"
                 allowFullScreen
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
+                loading="eager"
                 title={title}
               />
+            </div>
+            <div className="video-meta">
+              <p>Watch in full screen for the best viewing experience</p>
             </div>
           </div>
         </div>
