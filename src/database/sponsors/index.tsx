@@ -7,6 +7,7 @@ export interface Sponsor {
   twitter?: string;
   instagram?: string;
   isPastSponsor?: boolean;
+  isWeSponsor?: boolean;
 }
 
 const sponsors: Sponsor[] = [
@@ -34,7 +35,7 @@ const sponsors: Sponsor[] = [
   },
  
   {
-    name: "Mike O",
+    name: "Mike ",
     image: "https://avatars.githubusercontent.com/u/79911993?v=4",
     description: "AI Consultant",
     github: "#",
@@ -149,7 +150,48 @@ const sponsors: Sponsor[] = [
     twitter: "https://x.com/AkshithaChiluka?t=5ztRGbV2DDB6Wf5tlCyHrw&s=09",
     isPastSponsor: true,
   },
-
+    {
+    name: "Renato Maynard",
+    image: "https://avatars.githubusercontent.com/u/79546214?v=4",
+    description: "M.Sc. in Operations Research",
+    github: "https://www.linkedin.com/in/renatomaynardetche/",
+    linkedin: "#",
+    twitter: "#",
+    isWeSponsor: true,
+  },  
+  {
+    name: "Carlos Romero",
+    image: "https://avatars.githubusercontent.com/u/119690391?v=4",
+    description: "CS Student of La Salle",
+    github: "https://github.com/carlosromerorodriguez",
+    linkedin: "https://www.linkedin.com/in/carlos-romero-rdgz/",
+    isWeSponsor: true,
+  },
+  {
+    name: "Shivansh Saxena",
+    image: "https://avatars.githubusercontent.com/u/112249407?v=4",
+    description: "Intern at Geo Softech",
+    github: "https://github.com/ShivanshPlays",
+    linkedin: "https://www.linkedin.com/in/shivansh-saxena-288785168/",
+    isWeSponsor: true,
+  },
+  {
+    name: "Mastan Sayyad",
+    image: "https://avatars.githubusercontent.com/u/101971980?v=4",
+    description: "Web Deveoper at SWOC",
+    github: "https://github.com/MastanSayyad",
+    linkedin: "https://www.linkedin.com/in/mastan-sayyad/",
+    twitter: "https://x.com/mastansayyad02",    
+    isWeSponsor: true,
+  },
+  {
+    name: "Carlos Romero",
+    image: "https://avatars.githubusercontent.com/u/119690391?v=4",
+    description: "CS Student of La Salle",
+    github: "https://github.com/carlosromerorodriguez",
+    linkedin: "https://www.linkedin.com/in/carlos-romero-rdgz/",
+    isWeSponsor: true,
+  },
 ];
 
 export default sponsors;

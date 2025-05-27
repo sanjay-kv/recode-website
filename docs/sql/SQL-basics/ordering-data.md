@@ -234,16 +234,16 @@ ORDER BY age DESC;
 
 This module covers essential concepts related to ordering data in SQL:
 
-## 📌 ORDER BY Clause  
+- **ORDER BY Clause**  
 Learn how to sort query results based on one or more columns using the `ORDER BY` keyword.
 
-## 🔼 Ascending Order (ASC)  
+- **Ascending Order** (ASC)  
 Understand that SQL sorts in ascending order by default, which is the same as explicitly using `ASC`.
 
-## 🔽 Descending Order (DESC)  
+- **Descending Order** (DESC)  
 Use the `DESC` keyword to sort results from highest to lowest or reverse alphabetical order.
 
-## 📊 Sort by Column Values  
+- **Sort by Column Values**  
 Practice sorting by numeric or text column values to organize data meaningfully.
 
 ---

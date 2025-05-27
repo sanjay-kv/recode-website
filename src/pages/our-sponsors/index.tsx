@@ -15,8 +15,13 @@ const OurSponsors: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const history = useHistory();
 
-  const currentSponsors = sponsors.filter(s => !s.isPastSponsor);
+// Filter for current sponsors (exclude isWeSponsor)
+  const currentSponsors = sponsors.filter(
+  (s) => !s.isPastSponsor && !s.isWeSponsor);
   const pastSponsors = sponsors.filter(s => s.isPastSponsor);
+
+ // Filter for people we sponsor
+  const weSponsorPeople = sponsors.filter((s) => s.isWeSponsor);
 
   const handleJoinSponsor = () => setShowScanner(true);
 
@@ -91,9 +96,9 @@ const OurSponsors: React.FC = () => {
               className={`tab-button ${activeTab === 'past' ? 'active' : ''}`}
               onClick={() => handleTabChange('past')}
             >
-              Past Sponsors
-              {pastSponsors.length > 0 && (
-                <span className="tab-badge">{pastSponsors.length}</span>
+              People We Sponsored
+              {weSponsorPeople.length > 0 && (
+                <span className="tab-badge">{weSponsorPeople.length}</span>
               )}
             </button>
           </div>
@@ -138,6 +143,7 @@ const OurSponsors: React.FC = () => {
                 </div>
               </div>
               
+
               {pastSponsors.length > 0 && (
                 <>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 mt-12">Past Sponsors</h3>
@@ -152,10 +158,10 @@ const OurSponsors: React.FC = () => {
           </div>
 
           <div className={`tab-content ${activeTab === 'past' ? 'active' : ''}`}>
-            {pastSponsors.length > 0 ? (
+            {weSponsorPeople.length > 0 ? (
               <div className="sponsors-list">
-                {pastSponsors.map((sponsor) => (
-                  <SponsorCard key={`${sponsor.name}-past`} {...sponsor} />
+                {weSponsorPeople.map((sponsor) => (
+                  <SponsorCard key={`${sponsor.name}-wesponsor`} {...sponsor} />
                 ))}
               </div>
             ) : (
