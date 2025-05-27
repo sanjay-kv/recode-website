@@ -157,12 +157,10 @@ h1 {
 }
 
 .podcast-embed-large {
-  margin-bottom: 2rem;
-}
-
-.podcast-transcript {
-  background: #fff;
-  padding: 2rem;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  margin: 2rem 0;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -177,18 +175,22 @@ h1 {
 }
 
 .details-card {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
-}
-
-.video-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.video-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .video-subtitle {
@@ -310,10 +312,17 @@ h1 {
 }
 
 .video-embed-large {
-  width: 100%;
-  margin: 1rem 0;
   position: relative;
+  width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  background: #000;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video-embed-large iframe {
@@ -322,7 +331,68 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
   border-radius: 8px;
+}
+
+.video-title h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-heading-color);
+  line-height: 1.2;
+}
+
+.video-type {
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.video-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.video-meta {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .video-title h1 {
+    font-size: 1.75rem;
+  }
+  
+  .video-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-title h1 {
+    font-size: 1.5rem;
+  }
+  
+  .video-embed-large {
+    border-radius: 0;
+    margin: 1.5rem -1rem;
+    width: calc(100% + 2rem);
+  }
+  
+  .video-embed-large iframe {
+    border-radius: 0;
+  }
 }
 
 .pagination {
