@@ -115,8 +115,8 @@ const config: Config = {
           position: "left",
         },
         {
-          to: "/community",
-          html: '<span class="nav-emoji">🤝</span> Community',
+          to: "/our-sponsors/",
+          html: '<span class="nav-emoji">💰</span> Donate',
           position: "left",
         },
         {
@@ -131,19 +131,7 @@ const config: Config = {
             {
               label: "🎖️ GitHub Badges",
               to: "/badges/github-badges/",
-            },
-            {
-              label: "💾 Portfolio",
-              to: "/roadmap/",
-            },
-            {
-              label: "⚙️ Tools",
-              to: "#",
-            },
-            // {
-            //   label: "📺 Broadcast",
-            //   to: "https://codeharborhub-broadcast-web.vercel.app/",
-            // },
+            }, 
           ],
         },
         {
@@ -157,20 +145,16 @@ const config: Config = {
           position: "left",
           items: [
             {
-              label: "📜Projects",
-              to: "#",
-            },
-            {
               label: "📚 E-books",
               to: "#",
             },
             {
               label: "🛣️ Roadmap",
-              to: "/roadmap/",
+              to: "#",
             },
             {
-              label: "💰 Donate",
-              to: "/our-sponsors/",
+              label: "🤝 Community",
+              to: "/community",
             },
             {
               label: "📺 Broadcast",
