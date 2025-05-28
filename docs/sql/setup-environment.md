@@ -38,3 +38,5 @@ An Integrated Development Environment (IDE) is a software application that provi
 ## Conclusion
 
 Setting up your development environment is a crucial step in your journey as a web developer. By choosing the right IDE or text editor and customizing it to suit your needs, you can enhance your coding experience and productivity. Visual Studio Code is a popular choice among developers due to its versatility, powerful features, and active community support. By following the steps outlined in this tutorial, you can set up your development environment using VS Code and start coding HTML like a pro.
+
+<GiscusComments/>

@@ -1,7 +1,7 @@
 .video-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 2rem 5rem;
   background: transparent;
 }
 
@@ -42,7 +42,7 @@
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-top: 1rem;
 }
@@ -129,8 +129,9 @@
 
 .video-thumbnail {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  width: 600px;         /* Set desired width */
+  height: 380px;        /* Set desired height */
+  padding-top: 0;     
   overflow: hidden;
   background: var(--ifm-color-emphasis-200);
   flex-grow: 1;
@@ -155,7 +156,7 @@
 }
 
 .thumbnail-img {
-  width: 100%;
+  width: 0%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -198,7 +199,7 @@
 /* Play button styles removed as per request */
 
 .video-card:hover .thumbnail-img {
-  transform: scale(1.02);
+  transform: scale(5.02);
 }
 
 .video-embed-large {
