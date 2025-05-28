@@ -5,21 +5,20 @@ sidebar_label: Introduction of SQL #displays in sidebar
 sidebar_position: 1
 tags:
   [
-    html,
-    introduction of html,
-    what is html,
-    why learn html,
-    how to use html,
-    html syntax,
-    html structure,
-    html elements,
-    html attributes,
+    sql,
+    introduction of sql,
+    what is sql,
+    why learn sql,
+    how to use sql,
+    sql structure,
+    sql elements,
+    sql attributes,
   ]
 description: In this tutorial, you will learn about SQL, its importance, what is SQL, why learn SQL, how to use SQL, steps to start using SQL, and more.
 ---
 
 SQL **Structured Query Language** is a standard programming language used to manage and manipulate relational databases. It allows users to store, retrieve, update, and delete data in a structured format.
-<AdsComponent />
+
 
 :::note
 Key Features of SQL:
@@ -38,9 +37,9 @@ SQL became a standard of the American National Standards Institute (ANSI) in 198
 
 :::info
 
-1.  **International Organization for Standardization (ISO)**: The International Organization for Standardization (ISO) is an independent, non-governmental international organization that develops and publishes global standards to ensure quality, safety, efficiency, and interoperability of products, services, and systems.
-2.  **American National Standards Institute (ANSI)**: The American National Standards Institute (ANSI) is a non-profit organization that oversees the development of voluntary consensus standards in the United States. It plays a key role in ensuring products, services, and systems in the U.S. are consistent, safe, and compatible.
-3.  Basic SQL Commands::
+1.  **International Organization for Standardization (ISO)**: 
+2.  **American National Standards Institute (ANSI)**: 
+3.  Basic SQL Commands:
 
         | Category | 	Command | 	Description |
         | --- | --------------- | -------------------- |
@@ -52,7 +51,13 @@ SQL became a standard of the American National Standards Institute (ANSI) in 198
 
 4.  **Structure and Content**: In SQL, the structure refers to how data is organized in tables, and the content refers to the actual data stored within those tables.
 
-    **For example, the following HTML code creates a simple web page:**
+        | Category | 	Alias | 	Description |
+        | --- | --------------- | -------------------- |
+        | Tuple  | Row | Record |
+        | Attribute | Col | 	Field|
+
+
+    **For example, the following SAQl code creates a table named students**
 
     <Tabs>
       <TabItem value="HTML">
@@ -97,41 +102,46 @@ SQL became a standard of the American National Standards Institute (ANSI) in 198
 5.  **Platform Independent?**: Yes and No — It Depends. The core SQL language (based on ANSI/ISO standards) is platform-independent, meaning the basic syntax and concepts—like SELECT, INSERT, UPDATE, and DELETE—are the same across different database systems. ❌ But, SQL Implementations Are Not Fully Platform Independent:
 Different Database Management Systems (DBMS)—like MySQL, PostgreSQL, Oracle, SQL Server, and SQLite—extend SQL differently. They may:
 
-Use different data types (VARCHAR vs TEXT, etc.)
+- Use different data types (VARCHAR vs TEXT, etc.)
 
-Have custom functions and features
+- Have custom functions and features
 
-Handle stored procedures, triggers, and syntax differently
+- Handle stored procedures, triggers, and syntax differently
 
-Offer different tools and performance optimizations
+- Offer different tools and performance optimizations
 
-So, SQL code written for one system may not work exactly the same on another without adjustments.
+- So, SQL code written for one system may not work exactly the same on another without adjustments.
 
 :::
 
-<AdsComponent />
-
-## Why Learn SQL?
-
-SQL is the standard language for managing and querying relational databases — the most common way data is stored in businesses. Whether it's MySQL, PostgreSQL, SQL Server, or SQLite, they all use SQL.
-
-📊 2. Critical for Data-Driven Roles
-SQL is a core skill for:
-
-Data Analysts
-
-Data Engineers
-
-Data Scientists
-
-Business Intelligence Professionals
-
-Software Developers
-
-Even marketers, product managers, and business analysts often use SQL to get insights from data.
 
 
-<AdsComponent />
+# 🗃️ Why Learn SQL?
+
+**SQL (Structured Query Language)** is the standard language used to manage and query **relational databases** — the most common way data is stored across businesses.  Whether it's **MySQL**, **PostgreSQL**, **SQL Server**, or **SQLite** — they all speak SQL! 💬
+
+---
+
+## 📊 SQL: A Must-Have for Data-Driven Roles
+
+SQL is a **critical skill** for anyone working with data. It empowers you to extract, analyze, and transform information efficiently.
+
+Here are some roles where SQL is a game-changer:
+
+👨‍💻 **Data Analysts**  
+🛠️ **Data Engineers**  
+🔬 **Data Scientists**  
+📈 **Business Intelligence Professionals**  
+💻 **Software Developers**  
+📣 **Marketers**  
+📦 **Product Managers**  
+📊 **Business Analysts**
+
+From running ad-hoc queries to building pipelines and dashboards — SQL is everywhere in data work! 🚀
+
+---
+
+📌 *Master SQL to unlock the power of your data.*
 
 
 ### Steps to start using HTML
@@ -146,7 +156,7 @@ Even marketers, product managers, and business analysts often use SQL to get ins
     - https://dev.mysql.com/downloads/workbench/
 
 
-<AdsComponent />
+
 
 ## Conclusion
 

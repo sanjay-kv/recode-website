@@ -12,7 +12,7 @@ description: In this tutorial, you will learn about the structure of an HTML doc
 To check if a coloumns value is not equa to another we use the inequality operator. 
 
 
-<AdsComponent />
+
 
 
 
@@ -55,7 +55,7 @@ WHERE year <> 1;
 
 
 
-<AdsComponent />
+
 
 
 ### 📘 Practise Example

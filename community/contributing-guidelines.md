@@ -2,60 +2,63 @@
 id: contributing-guidelines
 title: Contributing Guidelines
 sidebar_label: Contributing Guidelines
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 Thank you for considering contributing to CodeHarborHub! We welcome contributions from everyone. Whether you're a seasoned developer or just starting out, there are many ways to get involved and help improve CodeHarborHub. This document outlines the guidelines for contributing to this project.
 
-## How to Contribute
+## Getting Started
 
-To contribute to this project, please follow these steps:
+To get started with contributing to Recode-Hive, please refer to our [Contributing Guidelines](CONTRIBUTING.md).
 
-1. **Fork** the repository by clicking on the "Fork" button on the top right corner of this page.
-2. **Clone** your fork of the repository to your local machine:
+Follow these steps:
 
+
+```mermaid
+flowchart LR
+    Fork[Fork the project]-->branch[Create a New Branch]
+    branch-->Edit[Edit file]
+    Edit-->commit[Commit the changes]
+    commit -->|Finally|creatpr((Create a Pull Request))
+```
+
+1. **Clone the repository:** 
+   ```bash
+   git clone https://github.com/your-username/recodehive-website.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd recodehive-website
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Running the Application:**
+
+    Once you have installed the dependencies, you can run the application locally using:
     ```bash
-    git clone https://github.com/your-username/codeharborhub.git
+    npm i
+    ```
+    ```bash
+    npm start
     ```
 
-3. **Create a new branch** for your changes:
+    This command will start a development server and open the application in your default web browser.
 
-    ```bash
-    git checkout -b my-contribution
-    ```
+**If you'd like to contribute to CodeHarborHub, please follow these guidelines:**
 
-4. **Make your changes** and commit them to your branch:
-
-    ```bash
-    git commit -am "Add your commit message here"
-    ```
-
-5. **Push** your changes to your fork:
-
-    ```bash
-    git push origin my-contribution
-    ```
-
-6. Submit a **Pull Request** (PR) to the `main` branch of the original repository. Ensure that your PR includes a clear description of the changes you've made and any relevant information about your contribution.
-
-## Code Style
-
-Please adhere to the coding style guidelines used in this project. Consistent coding style helps make the codebase more maintainable and readable for everyone.
-
-## Testing
-
-Before submitting a PR, ensure that your changes pass any relevant tests. If you're adding new features or fixing bugs, consider adding tests to cover the changes you've made.
-
-## Resources for Guidance
-
-Here are some resources that may be helpful as you contribute to Code Harbor Hub:
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
-- [React.js Documentation](https://legacy.reactjs.org/docs/getting-started.html)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [MDX Documentation](https://mdxjs.com/docs/)
-- [Mermaid Documentation](https://mermaid.js.org/)
+- **Fork** the repository and clone it locally.
+- Create a new branch for your feature or bug fix: `git checkout -b feature-name`
+- Make your changes and test thoroughly.
+- Commit your changes: `git commit -m "Brief description of your changes"`
+- Push to the branch: `git push origin feature-name`
+- Submit a pull request detailing your changes.
 
 
-## Questions or Need Help?
+## License
 
-If you have any questions or need help with contributing to CodeHarborHub, please feel free to reach out to us through our [website](https://www.codeharborhub.live/) or by opening an [issue](https://github.com/CodeHarborHub/codeharborhub/issues) on GitHub.
+This project is licensed under the [MIT License](LICENSE).

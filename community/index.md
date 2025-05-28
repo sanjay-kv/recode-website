@@ -1,29 +1,70 @@
 ---
-title: Community
-sidebar_label: Welcome to the Community
+title: Hive Community
+sidebar_label: Welcome to the Hive Community
 sidebar_position: 1
 ---
+# 🐝 Welcome to Hive Community
 
-Our community is a place for everyone to learn, share, and grow. We encourage you to join us and contribute to the community in any way you can. We are always looking for new members to join our community and help us grow. Whether you are a developer, designer, or just someone who is interested in learning more about our project, we would love to have you join us.
+Welcome to **RecodeHive** — a community built for everyone to **learn**, **share**, and **grow**. Whether you're a **developer 👨‍💻**, **designer 🎨**, or just someone interested in exploring new ideas 💡, we’re excited to have you here!
 
-## How to Contribute
+---
 
-There are many ways to contribute to our community. Here are a few ideas to get you started:
+## 🌟 How You Can Contribute
 
-- **Code**: If you are a developer, you can contribute to our project by writing code, fixing bugs, or adding new features. You can find our code on [GitHub](https://github.com/ajay-dhangar) or [GitHab](https://github.com/codemastermindhq).
+There are many ways to get involved in RecodeHive. Here’s how you can contribute:
 
-- **Design**: If you are a designer, you can contribute to our project by creating new designs, improving existing designs, or providing feedback on our designs. You can find our designs on [Figma](https://www.figma.com) or [Adobe XD](https://www.adobe.com/products/xd.html).
+### 🔧 Code
+If you're a developer, you can:
+- Write code 🧑‍💻
+- Fix bugs 🐞
+- Add new features 🚀
 
-- **Documentation**: If you are a writer, you can contribute to our project by writing documentation, creating tutorials, or translating our content into other languages. You can find our documentation on [GitHub](https://github.com/ajay-dhangar/code-harbor-hub).
+➡️ Find our codebase on [GitHub](#) or [GitHab](#)
 
-- **Community**: If you are a community member, you can contribute to our project by helping others, answering questions, or sharing your knowledge and experience with others. You can find our community on [Discord](https://discord.com) or [Slack](https://slack.com).
+### 🎨 Design
+If you're a designer, you can:
+- Create new UI/UX designs
+- Improve existing visuals
+- Share design feedback
 
-## Get Started
+➡️ Our design resources live on [Figma](#) and [Adobe XD](#)
 
-To get started, you can join our community on [Discord](https://discord.com) or [Slack](https://slack.com). You can also find our project on [GitHub](https://github.com/ajay-dhangar).
+### 📝 Documentation
+If you're a writer or educator, you can:
+- Improve documentation 🖋️
+- Write tutorials 📚
+- Translate content 🌍
 
-We look forward to having you join our community and help us grow. If you have any questions or need help getting started, please feel free to reach out to us. We are always here to help and support you in any way we can.
+➡️ Documentation is hosted on [GitHub](#)
 
-## Thank You 
+### 🤝 Community
+If you're a community-minded person, you can:
+- Help answer questions
+- Support new members 💬
+- Share knowledge and insights
 
-Thank you for your interest in our community. We are excited to have you join us and help us grow. We look forward to working with you and learning from you. Together, we can make our community a better place for everyone.
+➡️ Join the conversation on [Discord](#) or [Slack](#)
+
+---
+
+## 🚀 Get Started
+
+To begin your journey with RecodeHive:
+1. Join our community on [Discord](#) or [Slack](#)
+2. Explore our repositories on [GitHub](#)
+3. Pick a task or area you're excited about!
+
+We’re here to help and support you throughout your journey — don’t hesitate to reach out.
+
+---
+
+## 🙏 Thank You
+
+Thank you for your interest in **RecodeHive**!  
+We're thrilled to have you here and can’t wait to **collaborate**, **learn**, and **grow** — together. 🌱
+
+> _Let’s make this community the best it can bee! 🐝_
+
+---
+
+_Last updated on Oct 14, 2018 by Author (Simulated during dev for better per)_

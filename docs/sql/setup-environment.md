@@ -5,38 +5,52 @@ sidebar_label: Setting up environment
 sidebar_position: 3
 tags:
   [
-    html,
-    web-development,
-    front-end-development,
-    web-design,
-    development-environment,
-    web-technology,
-    web-pages,
-    web-browsers,
-    web-technology,
-    setup-environment,
+    sql,
+    introduction of sql,
+    what is sql,
+    why learn sql,
+    setup sql,
+    sql workbench,
+    sql server,
+    sql setup,
   ]
 description: In this tutorial, you will learn how to set up your development environment for HTML development.
 ---
 
-Setting up your development environment is the first step towards becoming a proficient web developer. Whether you're a beginner or an experienced coder, having the right tools can make a significant difference in your productivity and coding experience. In this tutorial, we'll explore the importance of an Integrated Development Environment (IDE) or text editor for HTML coding, compare some of the top IDEs and text editors available, and guide you through setting up your development environment using Visual Studio Code, a popular choice among developers.
+There are different emulators available for SQL Queries, but as a beginner its always good to start with Installing MYSQL Server and Workbench in your system, it helps you to understand the overall process and industry settings. This MYSQL Workbench is called the IDE (Itegrated developement enviornment).
+We will guide you to setup the IDE in your system, and navigate further executing SQL queries and creating database in the IDE. 
 
-<AdsComponent />
+**1. Download the Installer:**: To install download the installer.
 
-## What is an IDE and Why Do You Need One?
+    - Select the version compatible with your operating system (Windows, macOS, or Linux).
+    - Click Download and follow the installation instructions.
+    - https://dev.mysql.com/downloads/workbench/
 
-An Integrated Development Environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. It typically includes a source code editor, build automation tools, and a debugger. IDEs are designed to streamline the coding process by providing features like syntax highlighting, auto-completion, and debugging tools, making it easier for developers to write, test, and debug code.
+**2. Mac:**
+  - Server Install: http://bit.ly/2PU2IZU 
+
+  - Workbench Install: http://bit.ly/2B2xiZ2
+
+**3. Linux:**
+  - Server Install: http://bit.ly/2DijNpJ
+
+  - Workbench Install: http://bit.ly/2B153d8
+
+
+## Why Do You Need an IDE?
+
+This IDE helps you to execute and maintain the workflow of SQL, It acts as  a source code editor,  and a debugger. It basically help you to execute and debug any bugs for developer. Especially when comes to DBA (Database adminstration), managing huge dataset can be tiring here, it will help you with performance dashboard and quick improvement features. 
+
+<iframe width="853" height="480" src="https://www.youtube.com/embed/u96rVINbAUI" title="How To Install MySQL (Server and Workbench)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Key Features to Look for in an IDE/Text Editor
 
-1. **Syntax Highlighting:** Color-coding of keywords, variables, and strings to make code more readable.
-2. **Auto-Completion:** Suggestions for code completion as you type to speed up coding.
-3. **Code Formatting:** Automatic formatting of code to maintain consistency and readability.
-
-<AdsComponent />
+1. **Syntax :** Highlights the color, make code readbility.
+2. **Accelerate Work stucture:** Help you to sort and visualise the messy database.
+3. **Helps managing Database:** Allows you to store the data, create workflow and organise it. 
 
 ## Conclusion
 
-Setting up your development environment is a crucial step in your journey as a web developer. By choosing the right IDE or text editor and customizing it to suit your needs, you can enhance your coding experience and productivity. Visual Studio Code is a popular choice among developers due to its versatility, powerful features, and active community support. By following the steps outlined in this tutorial, you can set up your development environment using VS Code and start coding HTML like a pro.
+I hope you understood the concept here, if not yet, think like its a nice view from your house, it lets you see whats happening outside in your comfort zone, if anything happening to the house, the view remain same, Workbench works the simillar way, it helps you to see the data in the databse, just like your house SQL workbench doesnt have the data, if you remove workbench nothing happens to your databse. 
 
 <GiscusComments/>
