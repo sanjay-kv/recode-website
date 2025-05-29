@@ -11,10 +11,6 @@ description: In this tutorial, you will learn about the how to create a GitHub r
 
 Welcome to the **Selecting Data** module! This foundational learning path is designed to help you master the basics of querying data, particularly focusing on how to retrieve specific information from databases effectively.
 
-
-<AdsComponent />
-
-
 ### 📘 Creating SQL Table
 
 In this tutorial, you'll learn how to interpret and use rows in a database table. Tables are essential to storing structured data, and each **row** in a table represents a unique **item or record**.
@@ -96,7 +92,7 @@ Each of the remaining rows represents a different friend, with unique ID, name, 
 
 
 
-<AdsComponent />
+
 
 
 ### 📘 Querying a Table with `FROM`

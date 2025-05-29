@@ -26,11 +26,11 @@ import { sortedUsers,
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 
 const TITLE =
-  'CodeHarborHub: Showcasing Exceptional Websites, Templates, and Project';
+  'Recode Hive: Framing all the opensource projects built by our community members';
 const DESCRIPTION =
-  'Unleash your creativity and expertise with our exceptional Site/Templates/Projects Showcase at CodeHarborHub: Where Innovation Meets Inspiration.';
+  'All the opensource projects listed below are available for you to explore, learn, and contribute.';
 const EDIT_URL =
-  'https://github.com/codeharborhub/codeharborhub';
+  'https://github.com/recodehive';
 
 type UserState = {
   scrollTopPosition: number;
@@ -154,7 +154,7 @@ function ShowcaseHeader() {
           rel="noreferrer"
         >
           <Translate id="showcase.header.button">
-            🌟 Join the CodeHarbarHub Community
+            🌟 Join the Hive Community
           </Translate>
         </a>
       </motion.div>
@@ -351,7 +351,7 @@ function ShowcaseCards() {
                   }}
                 >
                   <Translate id="showcase.favoritesList.title">
-                    Our favorites
+                    Best of the Hive
                   </Translate>
                 </motion.h2>
                 <motion.h2

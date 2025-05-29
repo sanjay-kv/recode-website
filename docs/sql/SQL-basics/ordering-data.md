@@ -11,10 +11,6 @@ description: In this tutorial, you will learn about the structure of an HTML doc
 
 Welcome to the **Selecting Data** module! This foundational learning path is designed to help you master the basics of querying data, particularly focusing on how to retrieve specific information from databases effectively.
 
-
-<AdsComponent />
-
-
 ### 📘 Creating SQL Table
 
 In this tutorial, you'll learn how to interpret and use rows in a database table. Tables are essential to storing structured data, and each **row** in a table represents a unique **item or record**.
@@ -76,11 +72,6 @@ Wilson       | 25   |
 
 
 :::
-
-
-
-
-<AdsComponent />
 
 
 ### Example Practice 
