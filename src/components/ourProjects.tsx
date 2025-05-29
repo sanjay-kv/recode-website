@@ -112,7 +112,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({ items }) => {
         ))}
       </div>
       <motion.a
-        href="https://github.com/recodehive/Opensource-practice"
+        href="https://github.com/recodehive"
         target="_blank"
         rel="noopener noreferrer"
         initial={false}

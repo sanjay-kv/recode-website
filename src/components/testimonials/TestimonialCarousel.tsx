@@ -14,24 +14,24 @@ import Autoplay from "embla-carousel-autoplay";
 // Sample testimonial data
 const testimonials = [
   {
-    name: "TechLover99",
-    username: "TechLover99",
-    content: "Just completed my first JavaScript course on @CodeHarborHub! The content is top-notch and completely free. Highly recommend it! #LearnToCode #FreeEducation",
-    date: "May 28, 2024",
+    name: "Shaanif ahmed",
+    username: "Shaanifahmed",
+    content: "The resources for learning statistics were really useful . Also I liked the summary of each field given out there .! #LearnToCode #FreeEducation",
+    date: "May 21, 2023",
     avatar: "/icons/adobe.png"
   },
   {
-    name: "CoderGirl",
-    username: "CoderGirl",
-    content: "Joined @CodeHarborHub last month and already feel more confident in my coding skills. Great community and resources! #TechCommunity #WomenInTech",
-    date: "May 28, 2024",
+    name: "Namith",
+    username: "namith",
+    content: "Gave remarkable insights on parts i have to improve and gave me new opportunities . cheers~! #TechCommunity #WomenInTech",
+    date: "April 21, 2023",
     avatar: "/icons/google.png"
   },
   {
-    name: "Samar Jeet Yadav",
-    username: "...",
-    content: "I want to promote this type of amazing learning source. Because this is totally open resource anyone can easily go on website and learn a lot different types of course form zero to advance level...",
-    date: "Jun 21, 2024",
+    name: "Prithwi Gajanan",
+    username: "PrithwiGajanan",
+    content: "Got quick response 🎉 during my internship apply period. Sir is really very kind☺️ and a Gem 💎 for the community. And inspiration for me. ✨ #Topmate #mentorship",
+    date: "Sep 28, 2024",
     avatar: "/icons/amazon.png"
   }
 ];

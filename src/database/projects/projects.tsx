@@ -3,32 +3,28 @@ import { OurProjectsData } from "../../components/ourProjects";
 const projectsData: OurProjectsData = {
   tag: "Our Projects",
   title: "Explore Our Latest Projects and Innovations",
-  description: "Discover our diverse portfolio of projects showcasing cutting-edge technology solutions, innovative applications, and robust security implementations. Each project represents our commitment to excellence and continuous learning.",
+  description: "Discover our diverse projects showcasing all the begineer friendly opensource contributions, innovative applications. Each project represents our commitment to excellence and continuous learning.",
   items: [
     {
-      title: "Cryptography Implementation",
-      image: "/img/blogs/introduction-to-cryptography-and-cyber-security.jpg"
+      title: "Awesome GitHub Profile",
+      image: "/img/blogs/awesome-project.png"
     },
     {
-      title: "Secure Communication Protocol",
-      image: "/img/blogs/build-done-vsce.png"
+      title: "Machine Learning Repository",
+      image: "/img/blogs/machine-learning-project.png"
     },
     {
-      title: "Blockchain Development",
-      image: "/img/blogs/introduction-to-cryptography-and-cyber-security.jpg"
+      title: "Stack overflow Analysis",
+      image: "/img/blogs/Stackoverflow-analysis.png"
     },
     {
-      title: "Security Auditing Tools",
-      image: "/img/blogs/introduction-to-cryptography-and-cyber-security.jpg"
+      title: "Scrape ML Project",
+      image: "/img/blogs/Scrape-ml-project.png"
     },
     {
-      title: "Authentication Systems",
-      image: "/img/blogs/introduction-to-cryptography-and-cyber-security.jpg"
+      title: "Opensource Project",
+      image: "/img/blogs/opesource-project.png"
     },
-    {
-      title: "Network Security Solutions",
-      image: "/img/blogs/introduction-to-cryptography-and-cyber-security.jpg"
-    }
   ]
 };
 
