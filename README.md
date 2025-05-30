@@ -81,12 +81,30 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Badges
 
-[![DeepSource](https://app.deepsource.com/gh/CodeHarborHub/codeharborhub.github.io.svg/?label=active+issues&show_trend=true&token=D5-vPYsEG8PSYlzqpUGIbsiB)](https://app.deepsource.com/gh/CodeHarborHub/codeharborhub.github.io/) [![DeepSource](https://app.deepsource.com/gh/CodeHarborHub/codeharborhub.github.io.svg/?label=resolved+issues&show_trend=true&token=D5-vPYsEG8PSYlzqpUGIbsiB)](https://app.deepsource.com/gh/CodeHarborHub/codeharborhub.github.io/) [![DeepScan grade](https://deepscan.io/api/teams/24046/projects/27285/branches/870905/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=24046&pid=27285&bid=870905) [![Docker Image CI](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/docker-image.yml/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/docker-image.yml) [![Close Old Issues](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/close-old-issue.yml/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/close-old-issue.yml) [![Close Stale PRs](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/close-old-pr.yml/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/close-old-pr.yml) [![CodeQL](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/github-code-scanning/codeql) [![Comment on Issue Close](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/autocomment-iss-close.yml/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/autocomment-iss-close.yml) [![Greetings](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/greetings.yml/badge.svg)](https://github.com/CodeHarborHub/codeharborhub/actions/workflows/greetings.yml) ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/CodeHarborHub/codeharborhub) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/CodeHarborHub/codeharborhub) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/CodeHarborHub/codeharborhub) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/CodeHarborHub/codeharborhub) ![GitHub Org's stars](https://img.shields.io/github/stars/CodeHarborHub%2Fcodeharborhub) ![GitHub License](https://img.shields.io/github/license/CodeHarborHub/codeharborhub) ![GitHub forks](https://img.shields.io/github/forks/CodeHarborHub/codeharborhub) ![GitHub watchers](https://img.shields.io/github/watchers/CodeHarborHub/codeharborhub) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/CodeHarborHub/codeharborhub) ![GitHub file size in bytes](https://img.shields.io/github/size/CodeHarborHub/codeharborhub/docusaurus.config.js) ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/CodeHarborHub/codeharborhub) ![GitHub repo size](https://img.shields.io/github/repo-size/CodeHarborHub/codeharborhub.github.io) ![Issues](https://img.shields.io/github/issues/CodeHarborHub/codeharborhub.github.io?style=flat&logo=github) ![closed issues](https://img.shields.io/github/issues-closed-raw/CodeHarborHub/codeharborhub.github.io) ![Open Pull Requests](https://img.shields.io/github/issues-pr/CodeHarborHub/codeharborhub.github.io?style=flat&logo=github) ![Close Pull Requests](https://img.shields.io/github/issues-pr-closed/CodeHarborHub/codeharborhub.github.io) ![last commit](https://img.shields.io/github/last-commit/CodeHarborHub/codeharborhub.github.io)
+![GitHub commit activity (yearly)](https://img.shields.io/github/commit-activity/y/RecodeHive/recode-website)
+![GitHub commit activity (monthly)](https://img.shields.io/github/commit-activity/m/RecodeHive/recode-website)
+![GitHub commit activity (weekly)](https://img.shields.io/github/commit-activity/w/RecodeHive/recode-website)
+![GitHub commit activity (daily)](https://img.shields.io/github/commit-activity/t/RecodeHive/recode-website)
+![GitHub Org's stars](https://img.shields.io/github/stars/RecodeHive/recode-website)
+![GitHub License](https://img.shields.io/github/license/RecodeHive/recode-website)
+![GitHub forks](https://img.shields.io/github/forks/RecodeHive/recode-website)
+![GitHub watchers](https://img.shields.io/github/watchers/RecodeHive/recode-website)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RecodeHive/recode-website)
+![GitHub repo size](https://img.shields.io/github/repo-size/RecodeHive/recode-website)
+![GitHub file size](https://img.shields.io/github/size/RecodeHive/recode-website/docusaurus.config.js)
+![GitHub file/directory count](https://img.shields.io/github/directory-file-count/RecodeHive/recode-website)
+![GitHub open issues](https://img.shields.io/github/issues/RecodeHive/recode-website)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/RecodeHive/recode-website)
+![GitHub open PRs](https://img.shields.io/github/issues-pr/RecodeHive/recode-website)
+![GitHub closed PRs](https://img.shields.io/github/issues-pr-closed/RecodeHive/recode-website)
+![Last commit](https://img.shields.io/github/last-commit/RecodeHive/recode-website)
+
 
 ## Contributors
 
-![Contributors](https://opencollective.com/codeharborhub/contributors.svg?button=false&avatarHeight=40&width=1000)
-
+<a href="https://github.com/RecodeHive/recode-website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=RecodeHive/recode-website" />
+</a>
 
 
 <div align="center">
