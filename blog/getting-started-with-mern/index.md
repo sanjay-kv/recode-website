@@ -1,6 +1,6 @@
 ---
 title: "What is Google DeepMind AI?"
-authors: [dharshibalasubramaniyam, ajay-dhangar]
+authors: [dharshibalasubramaniyam, sanjay-kv]
 tags:
   - MERN Stack
   - MongoDB
