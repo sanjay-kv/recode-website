@@ -84,3 +84,66 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Force left alignment for all tabs */
+.tabs,
+[class*='tabs--'] {
+  display: flex !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Target all possible tab item variations */
+.tabs__item,
+[class*='tabs__item'],
+.tabItem_LNqP,
+[role='tab'] {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  margin-right: 1rem !important;
+  padding: 0.5rem 1rem !important;
+  border: 1px solid transparent !important;
+  border-bottom: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Active tab styles */
+.tabs__item--active,
+[class*='tabs__item--active'],
+.tabItem_LNqP[aria-selected='true'],
+[role='tab'][aria-selected='true'] {
+  border-color: var(--ifm-toc-border-color) !important;
+  border-bottom-color: var(--ifm-background-color) !important;
+  background: var(--ifm-background-color) !important;
+  color: var(--ifm-color-primary) !important;
+  font-weight: bold !important;
+}
+
+/* Hover state */
+.tabs__item:not(.tabs__item--active):hover,
+[class*='tabs__item']:not([class*='--active']):hover,
+[role='tab']:not([aria-selected='true']):hover {
+  background-color: var(--ifm-menu-color-background-active) !important;
+}
+
+/* Remove any right margin/padding that might be pushing content */
+.tabs-container,
+[class*='tabs-container'] {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure tab list takes full width */
+[role='tablist'] {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
