@@ -37,8 +37,16 @@ const blogs: Blog[] = [
     title: "What is Google DeepMind AI?",
     image: "/img/blogs/02-deepmind.png",
     description:
-      "Learn how to get started with React by creating a new app using Vite. Follow the steps to set up your development environment",
-    slug: "getting-started-with-vite",
+      "DeepMind is an auxiliary of Google that centers around man-made brainpower. It utilizes a part of AI called AI",
+    slug: "google-deepmind",
+  },
+      {
+    id: 5,
+    title: "What are backlinks for SEO",
+    image: "/img/blogs/01-seo-image.png",
+    description:
+      "An SEO backlink is created when one website links to another, and they’re extremely important for SEO. ",
+    slug: "google-backlinks",
   },
 
 

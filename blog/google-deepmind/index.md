@@ -8,7 +8,7 @@ tags:
 
 date: 2025-05-30 09:32:00
 description: Learn the basics of the MERN stack, from building an API with Express.js to creating a React app. This guide covers prerequisites, configuring MongoDB Atlas, styling, and more.
-draft: false
+# draft: false
 # canonical_url: https://codeharborhub.github.io/blog/getting-started-with-mern
 # meta:
 #   - name: "robots"
@@ -32,13 +32,9 @@ draft: false
 #   - name: "twitter:image"
 #     content: "https://codeharborhub.github.io/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
 # ---
+---
 
-
-## 🤖 What is Google DeepMind AI?
-
-**DeepMind** is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies.
-
-Acquired by Google in **2014 for over £400 million**, DeepMind is most famous for creating **AlphaGo**, the first program to defeat a world champion in the game Go.The DeepMind for Google (DMG) group applies DeepMind’s forefront examination to Google items and foundations utilized by a large number of individuals.
+**DeepMind** is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies. Acquired by Google in **2014 for over £400 million**, DeepMind is most famous for creating **AlphaGo**, the first program to defeat a world champion in the game Go.
 
 ---
 
@@ -141,12 +137,7 @@ Google’s advanced mechanics and man-made reasoning endeavors were put under th
 
 ## 📍 Final Verdict
 
-In conclusion, we hope you found this guide helpful in exploring:
-
-- The basics of **MERN stack development**
-- An in-depth look at **Google DeepMind AI** and its applications
-
-For more articles like this, check out the **Data Science section** of RecodeHive.
+In conclusion, we hope you found this guide helpful in exploring: For more articles like this, check out the **Data Science section** of RecodeHive.
 
 
 <GiscusComments/>

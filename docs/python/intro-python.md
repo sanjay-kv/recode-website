@@ -1,19 +1,14 @@
 ---
 id: intro-python
-title: Introduction of SQL 
-sidebar_label: Introduction of SQL #displays in sidebar
+title: Introduction of Python 
+sidebar_label: Introduction of Python #displays in sidebar
 sidebar_position: 1
 tags:
   [
-    html,
+    python,
     introduction of html,
     what is html,
-    why learn html,
-    how to use html,
-    html syntax,
-    html structure,
-    html elements,
-    html attributes,
+
   ]
 description: In this tutorial, you will learn about SQL, its importance, what is SQL, why learn SQL, how to use SQL, steps to start using SQL, and more.
 ---
@@ -30,10 +25,9 @@ Understanding the Syntax. Variables, data types, and operation.
 data strucutre includes List, Dict, Sets and loops and conditional statements. 
 
 
-<AdsComponent />
 
 GitHub is a web-based platform used for version control and collaboration. It allows developers to work together on projects from anywhere in the world. GitHub is built on top of Git, a distributed version control system created by Linus Torvalds in 2005.
-<AdsComponent />
+
 
 :::note
 Key Features of SQL:
@@ -109,7 +103,7 @@ The fork is a personal copy of the repo which is already present or uploaded in 
 
 :::
 
-<AdsComponent />
+
 
 ### Watch the video Tutorial
 <iframe width="880" height="480" src="https://www.youtube.com/embed/GrTV59Y84S8?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63" title="How to start with GitHub in 2024 | Beginner&#39;s Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
