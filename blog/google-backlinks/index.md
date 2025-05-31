@@ -14,7 +14,6 @@ Google’s algorithms have been evolving for many years. Still, backlinks have a
 ---
 
 
-
 # 🔍 What are SEO backlinks?
 
 An SEO backlink is created when one website links to another. They’re also called **inbound links** or **one-way links**, and they’re extremely important for SEO. 

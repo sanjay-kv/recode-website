@@ -48,9 +48,6 @@ const blogs: Blog[] = [
       "An SEO backlink is created when one website links to another, and they’re extremely important for SEO. ",
     slug: "google-backlinks",
   },
-
-
-
 ];
 
 export default blogs;

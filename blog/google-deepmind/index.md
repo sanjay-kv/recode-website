@@ -7,31 +7,31 @@ tags:
   - AI
 
 date: 2025-05-30 09:32:00
-description: Learn the basics of the MERN stack, from building an API with Express.js to creating a React app. This guide covers prerequisites, configuring MongoDB Atlas, styling, and more.
-# draft: false
-# canonical_url: https://codeharborhub.github.io/blog/getting-started-with-mern
+description: DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI.
+draft: false
+canonical_url: 
 # meta:
 #   - name: "robots"
 #     content: "index, follow"
 #   - property: "og:title"
 #     content: "What is Google DeepMind AI?"
 #   - property: "og:description"
-#     content: "Learn the basics of the MERN stack, from building an API with Express.js to creating a React app. This guide covers prerequisites, configuring MongoDB Atlas, styling, and more."
+#     content: "DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI called AI"
 #   - property: "og:type"
 #     content: "article"
 #   - property: "og:url"
-#     content: "https://codeharborhub.github.io/blog/getting-started-with-mern"
+#     content: "/blog/getting-started-with-mern"
 #   - property: "og:image"
-#     content: "https://codeharborhub.github.io/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
+#     content: "/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
 #   - name: "twitter:card"
 #     content: "summary_large_image"
 #   - name: "twitter:title"
 #     content: "A Comprehensive Guide to Get You Started with MERN Stack"
 #   - name: "twitter:description"
-#     content: "Learn the basics of the MERN stack, from building an API with Express.js to creating a React app. This guide covers prerequisites, configuring MongoDB Atlas, styling, and more."
+#     content: "DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI called AI"
 #   - name: "twitter:image"
-#     content: "https://codeharborhub.github.io/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
-# ---
+#     content: "assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
+
 ---
 
 **DeepMind** is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies. Acquired by Google in **2014 for over £400 million**, DeepMind is most famous for creating **AlphaGo**, the first program to defeat a world champion in the game Go.
