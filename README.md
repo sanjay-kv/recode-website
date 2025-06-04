@@ -54,6 +54,11 @@ flowchart LR
    ```
 
 4. **Running the Application:**
+    There is a high chance you will face this issue due to the Next.js 18 version conflict, which is global , so type the below to fix it and ignore the warnings while setup.
+
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
     Once you have installed the dependencies, you can run the application locally using:
     ```bash
