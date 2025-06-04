@@ -564,38 +564,6 @@ export default function GetStarted() {
                 </div>
               </section>
             </AnimatedSection>
-            
-            {/* Final CTA */}
-            <AnimatedSection delay={3}>
-              <div className={styles.ctaSection}>
-                <h2>Ready to Transform Your Career?</h2>
-                <p>Join our community of passionate developers and start building your future today</p>
-                <div className={styles.buttons}>
-                  <Link
-                    className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonLarge}`}
-                    to="/courses/"
-                  >
-                    Get Started for Free
-                  </Link>
-                  <Link
-                    className={`${styles.button} ${styles.buttonOutline} ${styles.buttonLarge}`}
-                    to="/pricing/"
-                  >
-                    View Pricing
-                  </Link>
-                </div>
-                
-                <div className={styles.trustedBy}>
-                  <span>Trusted by developers at</span>
-                  <div className={styles.companies}>
-                    <span>Google</span>
-                    <span>Microsoft</span>
-                    <span>Amazon</span>
-                    <span>Netflix</span>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
           </div>
         </section>
       </main>
