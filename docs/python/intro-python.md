@@ -6,7 +6,7 @@ sidebar_position: 1
 tags:
   [
     python,
-    introduction of html,
+    introduction of python,
     what is html,
 
   ]

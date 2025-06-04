@@ -26,11 +26,11 @@ const blogs: Blog[] = [
   },
   {
     id: 3,
-    title: "Getting started with Vite",
-    image: "/img/blogs/react-and-vite.jpg",
+    title: "UX Designers Future with AI",
+    image: "/img/blogs/03-ui-ux.png",
     description:
-      "Learn how to get started with React by creating a new app using Vite. Follow the steps to set up your development environment",
-    slug: "getting-started-with-vite",
+      "The impact of technology on UX design is undeniable. Automation and artificial intelligence are making it easier to identify user needs and create tailored experiences.",
+    slug: "ux-designers-ai",
   },
     {
     id: 4,
