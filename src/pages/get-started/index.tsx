@@ -228,25 +228,25 @@ const stats = [
 const learningPaths = [
   {
     title: "Web Development",
-    description: "Master full-stack web development with modern technologies",
+    description: "Master full-stack development with modern frameworks like React, Node.js, and databases. Build responsive, interactive web applications.",
     icon: "🖥️",
-    color: "#3b82f6"
+    color: "#4f46e5"
   },
   {
     title: "Data Science",
-    description: "Dive into data analysis, visualization, and machine learning",
+    description: "Learn data analysis, visualization, and machine learning with Python, Pandas, and TensorFlow. Turn data into actionable insights.",
     icon: "📊",
     color: "#8b5cf6"
   },
   {
     title: "Mobile Apps",
-    description: "Build cross-platform mobile applications with React Native",
+    description: "Create beautiful, performant cross-platform mobile applications using React Native and modern mobile development practices.",
     icon: "📱",
     color: "#10b981"
   },
   {
     title: "DevOps",
-    description: "Learn CI/CD, Docker, Kubernetes, and cloud deployment",
+    description: "Master CI/CD, Docker, Kubernetes, and cloud deployment to build scalable, reliable infrastructure and deployment pipelines.",
     icon: "⚙️",
     color: "#f59e0b"
   }
@@ -354,36 +354,81 @@ function StatCard({ value, label, index = 0 }: StatCardProps) {
   );
 }
 
-function LearningPath({ title, description, icon, color }: LearningPathProps) {
-  const iconStyle = {
-    backgroundColor: `${color}10`,
-    color: color
-  };
-
+const LearningPath = ({ title, description, icon, color, index }: LearningPathProps & { index: number }) => {
+  const isEven = index % 2 === 0;
+  const delay = index * 0.15;
+  
+  // Calculate position based on index
+  const topPosition = 100 + (index * 250); // 250px spacing between cards
+  
   return (
-    <article className={styles.learningPath}>
-      <div 
-        className={styles.pathIcon}
-        style={iconStyle}
-        aria-hidden="true"
-      >
-        {icon}
+    <motion.article
+      className={`${styles.pathCard} ${isEven ? styles.left : styles.right} group`}
+      style={{
+        '--card-color': color || '#3b82f6',
+        '--card-color-light': color ? `${color}20` : 'rgba(59, 130, 246, 0.2)',
+        position: 'absolute',
+        top: `${topPosition}px`,
+        [isEven ? 'left' : 'right']: '50%',
+        transform: isEven ? 'none' : 'translateX(50%)',
+        marginLeft: isEven ? '0' : 'auto',
+        marginRight: isEven ? 'auto' : '0',
+      } as React.CSSProperties}
+      initial={{ opacity: 0, x: isEven ? -100 : 100, y: 20 }}
+      animate={{ 
+        opacity: 1, 
+        x: 0, 
+        y: 0,
+        transition: {
+          type: "spring",
+          damping: 15,
+          stiffness: 100,
+          delay: delay
+        }
+      }}
+    >
+      <div className="flex items-start gap-4">
+        <motion.div 
+          className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl text-2xl"
+          style={{
+            background: `linear-gradient(135deg, ${color || '#3b82f6'}, ${color ? `${color}80` : '#2563eb'})`,
+            boxShadow: `0 4px 15px -5px ${color || '#3b82f6'}80`
+          }}
+          whileHover={{
+            scale: 1.1,
+            rotate: 5,
+            transition: { duration: 0.2 }
+          }}
+        >
+          {icon}
+        </motion.div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
+          <p className="text-gray-300 mb-4 leading-relaxed">{description}</p>
+          <Link 
+            to="/docs" 
+            className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors group-hover:underline"
+          >
+            Start Learning
+            <svg 
+              className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       </div>
-      <div className={styles.pathContent}>
-        <h3 className={styles.pathTitle}>{title}</h3>
-        <p className={styles.pathDescription}>{description}</p>
-      </div>
-      <div className={styles.pathArrow} aria-hidden="true">
-        →
-      </div>
-    </article>
+    </motion.article>
   );
-}
+};
 
 export default function GetStarted() {
   const { siteConfig } = useDocusaurusContext();
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <Layout
       title={`Get Started | ${siteConfig.title}`}
@@ -449,16 +494,75 @@ export default function GetStarted() {
             
             {/* Learning Paths */}
             <AnimatedSection delay={2}>
-              <div className={styles.sectionHeader}>
-                <h2>Start Your Journey</h2>
-                <p>Choose your learning path and start building real projects</p>
-              </div>
-              
-              <div className={styles.learningPaths}>
-                {learningPaths.map((path, idx) => (
-                  <LearningPath key={idx} {...path} />
-                ))}
-              </div>
+              <section className={styles.learningPaths}>
+                <div className="container">
+                  <div className="text-center mb-16">
+                    <motion.h2 
+                      className="text-3xl md:text-4xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-blue-100 text-gray-900"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ 
+                        opacity: 1, 
+                        y: 0,
+                        transition: { 
+                          duration: 0.8,
+                          ease: "easeOut"
+                        } 
+                      }}
+                      viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
+                      style={{
+                        textShadow: '0 0 10px rgba(255, 213, 0, 0.5)'
+                      }}
+                    >
+                      Start Your Journey
+                    </motion.h2>
+                  </div>
+                  
+                  <div className={styles.timelineContainer}>
+                    <div className={styles.timeline}></div>
+                    <div className={styles.pathsContainer}>
+                      {learningPaths.map((path, idx) => (
+                        <LearningPath 
+                          key={path.title}
+                          title={path.title}
+                          description={path.description}
+                          icon={path.icon}
+                          color={path.color}
+                          index={idx}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <motion.div 
+                    className="text-center mt-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    <Link
+                      to="/courses"
+                      className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-200 to-blue-300 text-gray-900 font-semibold text-lg rounded-xl hover:from-blue-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                      style={{
+                        textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
+                      }}
+                    >
+                      <span className="relative z-10">
+                        Explore All Paths
+                      </span>
+                      <svg 
+                        className="w-6 h-6 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                  </motion.div>
+                </div>
+              </section>
             </AnimatedSection>
             
             {/* Final CTA */}
