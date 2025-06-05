@@ -258,14 +258,14 @@ const Footer: React.FC = () => {
                   </span>
                 </Link>
                 <Link
-                  to="/blog/getting-started-with-microservices"
+                  to="/blog/streamline-ux-ui"
                   className="group flex items-center gap-[22px]"
                 >
                   <div className="overflow-hidden rounded">
                     <img src="/img/blog-footer-02.jpg" alt="blog" />
                   </div>
                   <span className="max-w-[180px] text-base text-gray-300 group-hover:text-[--ifm-color-primary]">
-                    Getting started with Microservices...
+                    Getting started with UI UX...
                   </span>
                 </Link>
               </div>

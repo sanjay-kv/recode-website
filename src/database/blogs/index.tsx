@@ -9,7 +9,7 @@ interface Blog {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "7 Steps to Streamline Your UX Design Process",
+    title: "Streamline Your UX Design",
     image: "/img/blogs/05-ux-streamline.png",
     description:
       "User experience design can be overwhelming because of the number of factors that influence what a product should look like and how it should function.",
@@ -18,7 +18,7 @@ const blogs: Blog[] = [
 
   {
     id: 2,
-    title: "10 Steps to Land a Job in UI/UX Design",
+    title: "Land a Job in UI/UX Design",
     image: "/img/blogs/04-ux-job-design.png",
     description:
       " Are you passionate about design and dreaming of a career in it? Or maybe you are already in the design space and looking to pivot into UI/UX? ",
@@ -34,7 +34,7 @@ const blogs: Blog[] = [
   },
     {
     id: 4,
-    title: "What is Google DeepMind AI?",
+    title: "What is Google DeepMind?",
     image: "/img/blogs/02-deepmind.png",
     description:
       "DeepMind is an auxiliary of Google that centers around man-made brainpower. It utilizes a part of AI called AI",

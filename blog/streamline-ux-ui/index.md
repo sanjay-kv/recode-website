@@ -100,7 +100,7 @@ If you’ve made it this far—thank you! 🙌
 I hope this guide helped you better understand how to **streamline your UX design process**.  
 If you found value in it, please share it with your fellow designers and friends.
 
-📩 Contact: **sowmiyavenkatesan611@gmail.com**
+📩 Contact: **sowmiyavenkatesan611@gmail.com** f
 
 Happy Designing! 🎨
 <GiscusComments/>
