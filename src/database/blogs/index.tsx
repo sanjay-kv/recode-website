@@ -9,11 +9,11 @@ interface Blog {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "Getting started with Microservices",
-    image: "/assets/images/image01-736d71e3db56657987594b3b11459b5d.png",
+    title: "7 Steps to Streamline Your UX Design Process",
+    image: "/img/blogs/05-ux-streamline.png",
     description:
-      "Microservices are an architectural style that structures an application as a collection of small, loosely coupled services.",
-    slug: "getting-started-with-microservices",
+      "User experience design can be overwhelming because of the number of factors that influence what a product should look like and how it should function.",
+    slug: "streamline-ux-ui",
   },
 
   {
