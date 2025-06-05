@@ -7,7 +7,7 @@ import './video.css';
 interface VideoData {
   id: string;
   youtubeUrl: string;
-  type: 'video' | 'shorts';
+  type: 'video' | 'live' | 'other'; // Changed type to include 'live' and 'other'
 }
 
 const getYoutubeVideoId = (url: string): string => {
@@ -32,30 +32,38 @@ const getYoutubeVideoId = (url: string): string => {
   return '';
 };
 
-const getYoutubeContentType = (url: string): 'video' | 'shorts' =>
-  url.includes('/shorts/') ? 'shorts' : 'video';
+// Updated function to determine video type
+const getYoutubeContentType = (url: string): 'video' | 'live' | 'other' => {
+  if (url.includes('youtu.be/rbi6XhWp2TU') || url.includes('youtu.be/aGyfIrxx1H8') || url.includes('youtu.be/vFS6ZU1WAPA') || url.includes('youtu.be/DWxyEl-t48g')) {
+    return 'live';
+  } else if (url.includes('/shorts/')) {
+    return 'other'; // Changed 'shorts' to 'other'
+  } else {
+    return 'video';
+  }
+};
 
+// Youtube Video URLS
 // List of both videos and shorts which will be handeled by the component
 const videoUrls: string[] = [
-    "https://youtu.be/Fl2L9bXSRy0?si=Pdvb0oBLCP4TCIwF",
-    "https://youtu.be/vuUusiD7EDM?si=4UTby9iK5hUNhNJ4",
-    "https://youtu.be/xdjZ0HXADjE?si=JkIuRgwJ8Z3qbjxi",
-    "https://youtu.be/DmYe2itxSQA?si=skfOHQcC6EI8kouM",
-    "https://youtu.be/V2nvZYe_q7g?si=SkagJNJNUqCGsPXX",
-    "https://youtu.be/7BL6eInh7qo?si=iwZmF9iWGzUly91r",
-    "https://youtu.be/oyi86CljSk4?si=FKQBbJQ1qmi1movv",
-    "https://youtu.be/akz9xHL1RQo?si=thHXvVijm4fo9N58",
-    "https://youtu.be/4JX-SIkM3uk?si=r2kvpCztaPEoCKoM",
-    "https://youtube.com/shorts/zSu-K54fI8s?si=CPriy5v8uCTV5YlW",
-    "https://youtube.com/shorts/Wj3GEuwoNWc?si=PdfmvBSYrC7vRtvc",
-    "https://youtube.com/shorts/YOY-6VCZhic?si=FSBCIhPkCLPRWTg5",
-    "https://youtube.com/shorts/QUe3MG8mrCA?si=-LPWBr6ugtYicH9d",
-    "https://youtube.com/shorts/OGx-8hVSkHI?si=yVdRjmuhI38EV51_",
-    "https://youtube.com/shorts/ETVU4yeOxB4?si=mV68Bv7q8ozmPg9v",
-    "https://youtube.com/shorts/HGLhwI5ieL0?si=Ay_E2DK43slrtRXn",
-    "https://youtube.com/shorts/WpDc9yNGDxA?si=zrrvKuu-c_ZOemYi",
-    "https://youtube.com/shorts/N-9NUXvdvcM?si=rD_uqweUQou5VAvD",
-    "https://youtube.com/shorts/sN6RtRiT8D8?si=MThSH4PMl5O1OVTN",
+    "https://youtu.be/3dnQ2lDNeGI?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/XWjx-RjmhRM?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/R7NReLBCT_8?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/sbyXpflAXkQ?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/7uKMWBFN2jQ?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/v2Pai1TY_Lg?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/P-P3L7YzlyE?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/BNKSlT8jLQ0?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/GnHNScuGKrg?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/RSR5E1bhu5Y?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/knr5gBv-c9c?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/4JX-SIkM3uk?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/V2nvZYe_q7g?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63",
+    "https://youtu.be/rbi6XhWp2TU",
+    "https://youtu.be/aGyfIrxx1H8",
+    "https://youtu.be/GTe2DJQ-enU",
+    "https://youtu.be/vFS6ZU1WAPA",
+    "https://youtu.be/DWxyEl-t48g",
 ];
 
 const VideoCard: React.FC<{
@@ -226,8 +234,8 @@ const Pagination: React.FC<{
 function BroadcastsPage(): ReactElement {
   const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState<'videos' | 'shorts'>('videos');
-  const videosPerPage = 6;
+  const [activeTab, setActiveTab] = useState<'videos' | 'live'>('videos'); // Changed 'shorts' to 'live'
+  const videosPerPage = 12;
 
   const videoData: VideoData[] = videoUrls.map((url, index) => ({
     id: String(index + 1),
@@ -236,14 +244,15 @@ function BroadcastsPage(): ReactElement {
   }));
 
   const regularVideos = videoData.filter(video => video.type === 'video');
-  const shorts = videoData.filter(video => video.type === 'shorts');
+  const liveVideos = videoData.filter(video => video.type === 'live'); // Changed 'shorts' to 'live'
+  const otherVideos = videoData.filter(video => video.type === 'other');
 
   const indexOfLastVideo = currentPage * videosPerPage;
   const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
 
   const paginatedVideos = regularVideos.slice(indexOfFirstVideo, indexOfLastVideo);
-  const paginatedShorts = shorts.slice(indexOfFirstVideo, indexOfLastVideo);
-  const totalPages = Math.ceil((activeTab === 'videos' ? regularVideos.length : shorts.length) / videosPerPage);
+  const paginatedLiveVideos = liveVideos.slice(indexOfFirstVideo, indexOfLastVideo); // Changed 'shorts' to 'live'
+  const totalPages = Math.ceil((activeTab === 'videos' ? regularVideos.length : liveVideos.length) / videosPerPage); // Changed 'shorts' to 'live'
 
   useEffect(() => {
     setCurrentPage(1);
@@ -269,10 +278,10 @@ function BroadcastsPage(): ReactElement {
             🎥 Videos
           </button>
           <button 
-            className={`tab-button ${activeTab === 'shorts' ? 'active' : ''}`}
-            onClick={() => setActiveTab('shorts')}
+            className={`tab-button ${activeTab === 'live' ? 'active' : ''}`} // Changed 'shorts' to 'live'
+            onClick={() => setActiveTab('live')}
           >
-            📱 Shorts
+            🔴 Past Live
           </button>
         </div>
 
@@ -291,11 +300,11 @@ function BroadcastsPage(): ReactElement {
           </>
         )}
 
-        {activeTab === 'shorts' && (
+        {activeTab === 'live' && ( // Changed 'shorts' to 'live'
           <>
             <VideoSection
-              title="YouTube Shorts"
-              videos={paginatedShorts}
+              title="Past Live Videos"
+              videos={paginatedLiveVideos} // Changed 'shorts' to 'live'
               onClick={handleVideoClick}
             />
             <Pagination
