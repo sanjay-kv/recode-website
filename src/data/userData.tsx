@@ -1,79 +1,70 @@
 import { User } from "./users";
 
 export const Users: User[] = [
-  // Youtube Clone
+  // ML Repository
 
   {
-    title: "You Tube Clone",
+    title: "ML Repository",
     description:
-      "Build and Deploy a Modern YouTube Clone Application in React JS with Material UI 5",
-    preview: require("./showcase/awesome-project.png"),
-    website: "https://my-youtube-ajay.vercel.app/",
-    source: "https://github.com/Ajay-Dhangar/youtube_clone",
-    tags: ["opensource", "clone", "favorite", "react"],
+      "Curated collection of machine learning projects, tutorials, and resources for enthusiasts and developers.",
+    preview: require("./showcase/machine-learning-project.png"),
+    website: "https://machine-learning-repos.vercel.app/",
+    source: "https://github.com/recodehive/machine-learning-repos",
+    tags: ["opensource", "ml", "favorite", "react"],
   },
 
 
-  //  Music App Clone
+  //  Opesource project
 
   {
-    title: "Music App",
+    title: "Opesource project",
     description:
-      "Your music, your way. Explore and enjoy a world of tunes with our Spotify-inspired app. 🎶 ",
-    preview: require("./showcase/awesome-project.png"),
-    website: "https://shivay-studio.vercel.app/",
-    source: "https://github.com/Ajay-Dhangar/music-app",
+      "OpenSource Project is a platform that provides templates and resources for developers to create and contribute to open-source projects.",
+    preview: require("./showcase/opesource-project.png"),
+    website: "https://github.com/recodehive/Opensource-practice",
+    source: "https://github.com/recodehive/Opensource-practice",
     tags: ["opensource", "clone", "templates"],
   },
 
 
 
-  // Restaurant Clone
+  // Scrape ML
 
   {
-    title: "GERIGHT",
+    title: "Scrape ML",
     description:
-      "Experience culinary excellence at Gericht Restaurant: Modern UI, showcasing The Key To Fine Dining.",
-    preview: require("./showcase/awesome-project.png"),
-    website: "https://ajay-1.vercel.app/",
-    source: "https://github.com/Ajay-Dhangar/gericht-restaurant-modern-ui",
+      "Scrape ML is a Streamlit app that allows users to scrape and analyze data from various websites, providing insights and visualizations for machine learning enthusiasts.",
+    preview: require("./showcase/Scrape-ml-project.png"),
+    website: "https://scrape-ml.streamlit.app/",
+    source: "https://github.com/recodehive/Scrape-ML",
     tags: ["opensource", "templates", "clone"],
   },
 
 
 
-  // Broadcast Web Clone
+  // StackOverflow Analysis
 
   {
-    title: "Broadcast Web",
+    title: "StackOverflow Analysis",
     description:
-      "Broadcast Web is a modern and responsive web application for broadcasting your own channel.",
-    preview: require("./showcase/awesome-project.png"),
-    website: "https://codeharborhub-broadcast-web.vercel.app/",
+      "StackOverflow Analysis is a comprehensive data analysis project that explores the vast repository of questions and answers on StackOverflow. ",
+    preview: require("./showcase/Stackoverflow-analysis.png"),
+    website: "https://github.com/recodehive/Stackoverflow-Analysis",
     source: null,
     tags: ["opensource", "product", "nextjs", "javascript"],
   },
 
-
+// Awesome GitHub Profiles"
 
   {
-    title: "Gemini AI Chabot",
+    title: "GitHub Profiles",
     description:
-      "The Gemini AI Chatbot is a modern chatbot that can help you with your queries.",
+      "Curated list of awesome GitHub profiles showcasing creativity, design, and coding skills.",
     preview: require("./showcase/awesome-project.png"),
-    website: "https://code-harbor-hub-gemini-ai-chatbot.vercel.app/",
-    source: "https://github.com/Ajay-Dhangar/gemini-ai-chatbot",
+    website: "https://dev.recodehive.com/devfolio",
+    source: "https://github.com/recodehive/awesome-github-profiles",
     tags: ["opensource", "nextjs", "typescript", "ai", "favorite"],
   },
 
-  {
-    title: "Number Guess Game",
-    description:
-      "Number Guess Game using HTML, CSS and JavaScript. Play the game and enjoy the fun.",
-    preview: require("./showcase/awesome-project.png"),
-    website: "https://ajay-dhangar.github.io/number-guess-game/",
-    source: "https://github.com/ajay-dhangar/number-guess-game",
-    tags: ["html", "css", "javascript", "game"],
-  },
 
 ];
