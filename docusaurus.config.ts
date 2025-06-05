@@ -97,16 +97,16 @@ const config: Config = {
               type: "html",
               value: '<hr style="margin: 0.3rem 0;">',
             },
-            {
-              type: "html",
-              value: `<div class="grid grid-cols-3 gap-4">
-                <a  class="border-r col-span-1" href="#" target="_self"> Interview Prep </a>
-                <div class="grid grid-cols-1 col-span-2">
-                  <a href="#" target="_self" class="nav__icons"> 🧩Technical </a> <br />
-                  <a href="#" target="_self" class="nav__icons"> 💡Behaviour </a>
-                </div>
-              </div>`,
-            },
+            // {
+            //   type: "html",
+            //   value: `<div class="grid grid-cols-3 gap-4">
+            //     <a  class="border-r col-span-1" href="#" target="_self"> Interview Prep </a>
+            //     <div class="grid grid-cols-1 col-span-2">
+            //       <a href="#" target="_self" class="nav__icons"> 🧩Technical </a> <br />
+            //       <a href="#" target="_self" class="nav__icons"> 💡Behaviour </a>
+            //     </div>
+            //   </div>`,
+            // },
           ],
         },
         {
@@ -126,7 +126,7 @@ const config: Config = {
           items: [
             {
               label: "💻GitHub Profiles",
-              to: "#",
+              to: "https://dev.recodehive.com/devfolio",
             },
             {
               label: "🎖️ GitHub Badges",
@@ -146,7 +146,7 @@ const config: Config = {
           items: [
             {
               label: "📚 E-books",
-              to: "#",
+              to: "https://learn.recodehive.com/datascience",
             },
             {
               label: "🛣️ Roadmap",

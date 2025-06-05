@@ -18,11 +18,11 @@ const blogs: Blog[] = [
 
   {
     id: 2,
-    title: "Getting started with Mern",
-    image: "/img/blogs/mern.jpg",
+    title: "10 Steps to Land a Job in UI/UX Design",
+    image: "/img/blogs/04-ux-job-design.png",
     description:
-      " Learn the basics of the MERN stack, from building an API with Express.js to creating a React app.",
-    slug: "getting-started-with-mern",
+      " Are you passionate about design and dreaming of a career in it? Or maybe you are already in the design space and looking to pivot into UI/UX? ",
+    slug: "ux-ui-design-job",
   },
   {
     id: 3,
