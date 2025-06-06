@@ -3,8 +3,8 @@ import TopMateCard from './TopMateCard';
 
 const TopMateSection = () => {
   const profileData = {
-    title: "Github Profile Review",
-    description: "Checkout my offerings and book a slot at",
+    title: "1:1 Mentorship Call",
+    description: "Book a slot, Free for Hive Community Members",
     duration: "30 mins",
     profileImage: "/sanjay.png", // Replace with your profile image
     username: "sanjaykv"
