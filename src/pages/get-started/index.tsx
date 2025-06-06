@@ -156,7 +156,7 @@ function GetStartedHeader() {
               className={`${styles.button} ${styles.buttonOutline}`}
               to="/docs/intro"
             >
-              Explore Documentation
+              Explore Docs
               <span className={styles.buttonIcon} aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
@@ -165,17 +165,6 @@ function GetStartedHeader() {
               </span>
             </Link>
           </motion.div>
-          
-          <motion.a 
-            href="#features" 
-            className={styles.scrollIndicator}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
-            <span>Scroll to explore</span>
-            <div className={styles.mouse}></div>
-          </motion.a>
         </div>
       </div>
     </header>
