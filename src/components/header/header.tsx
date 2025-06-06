@@ -141,7 +141,7 @@ const HeaderImage = () => {
       >
       {/* Actual header image element */}
       <img
-        src="/img/hero-img.png" // Image source
+        src="/img/hero-img-01.gif" // Image source
         alt="hero-img" // Alt attribute
         className="float-animation" // Additional CSS class
         data-tilt // Activate VanillaTilt effect

@@ -20,28 +20,36 @@ description: In this tutorial, you will learn how to set up your development env
 There are different emulators available for SQL Queries, but as a beginner its always good to start with Installing MYSQL Server and Workbench in your system, it helps you to understand the overall process and industry settings. This MYSQL Workbench is called the IDE (Itegrated developement enviornment).
 We will guide you to setup the IDE in your system, and navigate further executing SQL queries and creating database in the IDE. 
 
-**1. Download the Installer:**: To install download the installer.
+### **1. Download the Installer:**: To install download the installer.
 
-    - Select the version compatible with your operating system (Windows, macOS, or Linux).
-    - Click Download and follow the installation instructions.
-    - https://dev.mysql.com/downloads/workbench/
+Click the link below to download MySQL Workbench:
 
-**2. Mac:**
-  - Server Install: http://bit.ly/2PU2IZU 
+👉 [MySQL Workbench Official Download Page](https://dev.mysql.com/downloads/workbench/)
 
-  - Workbench Install: http://bit.ly/2B2xiZ2
+- ✅ Choose your OS (Windows, macOS, or Linux)
+- ✅ Follow the installation instructions
 
-**3. Linux:**
-  - Server Install: http://bit.ly/2DijNpJ
+<iframe width="853" height="480" src="https://www.youtube.com/embed/u96rVINbAUI" title="How To Install MySQL (Server and Workbench)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-  - Workbench Install: http://bit.ly/2B153d8
+---
+
+### 🍎 macOS Users  
+- 💾 [Server Installer](http://bit.ly/2PU2IZU)  
+- 💻 [Workbench Installer](http://bit.ly/2B2xiZ2)
+
+---
+
+### 🐧 Linux Users  
+- 💾 [Server Installer](http://bit.ly/2DijNpJ)  
+- 💻 [Workbench Installer](http://bit.ly/2B153d8)
+
+---
 
 
 ## Why Do You Need an IDE?
 
 This IDE helps you to execute and maintain the workflow of SQL, It acts as  a source code editor,  and a debugger. It basically help you to execute and debug any bugs for developer. Especially when comes to DBA (Database adminstration), managing huge dataset can be tiring here, it will help you with performance dashboard and quick improvement features. 
 
-<iframe width="853" height="480" src="https://www.youtube.com/embed/u96rVINbAUI" title="How To Install MySQL (Server and Workbench)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Key Features to Look for in an IDE/Text Editor
 

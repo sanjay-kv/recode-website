@@ -6,37 +6,34 @@ tags:
   - Opensource
   - AI
 date: 2025-05-30 09:32:00
-description: "DeepMind is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies."
+description: DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI.
 draft: false
-# canonical_url: https://codeharborhub.github.io/blog/getting-started-with-mern
+canonical_url: 
 # meta:
 #   - name: "robots"
 #     content: "index, follow"
 #   - property: "og:title"
 #     content: "What is Google DeepMind AI?"
 #   - property: "og:description"
-#     content: "DeepMind is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies."
+#     content: "DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI called AI"
 #   - property: "og:type"
 #     content: "article"
 #   - property: "og:url"
-#     content: "https://codeharborhub.github.io/blog/getting-started-with-mern"
+#     content: "/blog/getting-started-with-mern"
 #   - property: "og:image"
-#     content: "https://codeharborhub.github.io/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
+#     content: "/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
 #   - name: "twitter:card"
 #     content: "summary_large_image"
 #   - name: "twitter:title"
 #     content: "What is Google DeepMind AI?"
 #   - name: "twitter:description"
-#     content: "DeepMind is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies."
+#     content: "DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI called AI"
 #   - name: "twitter:image"
-#     content: "https://codeharborhub.github.io/assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
+#     content: "assets/images/mern-8a27add30515e58f789f89a4c9072818.jpg"
+
 ---
 
-## 🤖 What is Google DeepMind AI?
-
-**DeepMind** is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies.
-
-Acquired by Google in **2014 for over £400 million**, DeepMind is most famous for creating **AlphaGo**, the first program to defeat a world champion in the game Go. The DeepMind for Google (DMG) group applies DeepMind’s forefront examination to Google products and infrastructure used by millions of people.
+**DeepMind** is a leading Artificial Intelligence organization made up of researchers, engineers, and specialists focused on solving some of the world’s toughest problems through cutting-edge AI technologies. Acquired by Google in **2014 for over £400 million**, DeepMind is most famous for creating **AlphaGo**, the first program to defeat a world champion in the game Go.
 
 ---
 
@@ -139,12 +136,7 @@ Google’s advanced mechanics and man-made reasoning endeavors were put under th
 
 ## 📍 Final Verdict
 
-In conclusion, we hope you found this guide helpful in exploring:
-
-- The basics of **MERN stack development**
-- An in-depth look at **Google DeepMind AI** and its applications
-
-For more articles like this, check out the **Data Science section** of RecodeHive.
+In conclusion, we hope you found this guide helpful in exploring: For more articles like this, check out the **Data Science section** of RecodeHive.
 
 
 <GiscusComments/>

@@ -9,40 +9,45 @@ interface Blog {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "Getting started with Microservices",
-    image: "/assets/images/image01-736d71e3db56657987594b3b11459b5d.png",
+    title: "Streamline Your UX Design",
+    image: "/img/blogs/05-ux-streamline.png",
     description:
-      "Microservices are an architectural style that structures an application as a collection of small, loosely coupled services.",
-    slug: "getting-started-with-microservices",
+      "User experience design can be overwhelming because of the number of factors that influence what a product should look like and how it should function.",
+    slug: "streamline-ux-ui",
   },
 
   {
     id: 2,
-    title: "Getting started with Mern",
-    image: "/img/blogs/mern.jpg",
+    title: "Land a Job in UI/UX Design",
+    image: "/img/blogs/04-ux-job-design.png",
     description:
-      " Learn the basics of the MERN stack, from building an API with Express.js to creating a React app.",
-    slug: "getting-started-with-mern",
+      " Are you passionate about design and dreaming of a career in it? Or maybe you are already in the design space and looking to pivot into UI/UX? ",
+    slug: "ux-ui-design-job",
   },
   {
     id: 3,
-    title: "Getting started with Vite",
-    image: "/img/blogs/react-and-vite.jpg",
+    title: "UX Designers Future with AI",
+    image: "/img/blogs/03-ui-ux.png",
     description:
-      "Learn how to get started with React by creating a new app using Vite. Follow the steps to set up your development environment",
-    slug: "getting-started-with-vite",
+      "The impact of technology on UX design is undeniable. Automation and artificial intelligence are making it easier to identify user needs and create tailored experiences.",
+    slug: "ux-designers-ai",
   },
     {
     id: 4,
-    title: "What is Google DeepMind AI?",
+    title: "What is Google DeepMind?",
     image: "/img/blogs/02-deepmind.png",
     description:
-      "Learn how to get started with React by creating a new app using Vite. Follow the steps to set up your development environment",
-    slug: "getting-started-with-vite",
+      "DeepMind is an auxiliary of Google that centers around man-made brainpower. It utilizes a part of AI called AI",
+    slug: "google-deepmind",
   },
-
-
-
+      {
+    id: 5,
+    title: "What are backlinks for SEO",
+    image: "/img/blogs/01-seo-image.png",
+    description:
+      "An SEO backlink is created when one website links to another, and they’re extremely important for SEO. ",
+    slug: "google-backlinks",
+  },
 ];
 
 export default blogs;
