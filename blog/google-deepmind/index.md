@@ -5,7 +5,6 @@ tags:
   - Google Deepmind
   - Opensource
   - AI
-
 date: 2025-05-30 09:32:00
 description: DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI.
 draft: false
@@ -26,7 +25,7 @@ canonical_url:
 #   - name: "twitter:card"
 #     content: "summary_large_image"
 #   - name: "twitter:title"
-#     content: "A Comprehensive Guide to Get You Started with MERN Stack"
+#     content: "What is Google DeepMind AI?"
 #   - name: "twitter:description"
 #     content: "DeepMind is an auxiliary of Google that centers around man-made brainpower. All the more explicitly, it utilizes a part of AI called AI"
 #   - name: "twitter:image"
