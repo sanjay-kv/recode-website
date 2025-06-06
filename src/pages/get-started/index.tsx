@@ -361,39 +361,117 @@ const LearningPath = ({
   title, 
   description, 
   icon, 
-  color, 
+  color = '#3b82f6',
   index = 0, 
   isCompleted = false, 
   onToggleComplete = () => {}
 }: LearningPathProps) => {
   const isEven = index % 2 === 0;
   const delay = index * 0.15;
+  const [isHovered, setIsHovered] = React.useState(false);
   
-  // Calculate position based on index
-  const topPosition = 100 + (index * 250); // 250px spacing between cards
-  
+  // State for responsive position and layout
+  const [layout, setLayout] = React.useState({
+    isMobile: false,
+    isTablet: false,
+    isLargeTablet: false,
+    spacing: 200,
+    cardWidth: 'calc(50% - 1.5rem)'
+  });
+
+  // Update position on window resize
+  React.useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const isMobileView = width < 768;
+      const isTableView = width >= 768 && width < 960;
+      const isLargeTableView = width >= 960 && width < 1024;
+      
+      // Calculate spacing based on viewport
+      let spacing, cardWidth;
+      if (isMobileView) {
+        spacing = 160;
+        cardWidth = '100%';
+      } else if (isTableView) {
+        spacing = 180;
+        cardWidth = 'calc(50% - 1rem)';
+      } else if (isLargeTableView) {
+        spacing = 200;
+        cardWidth = 'calc(50% - 1.25rem)';
+      } else {
+        spacing = 220;
+        cardWidth = 'calc(50% - 2rem)';
+      }
+      
+      setLayout({
+        isMobile: isMobileView,
+        isTablet: isTableView || isLargeTableView,
+        isLargeTablet: isLargeTableView,
+        spacing,
+        cardWidth
+      });
+    };
+    
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(document.body);
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
+    };
+  }, [index]);
+
   return (
     <motion.article
-      className={`${styles.pathCard} ${isEven ? styles.left : styles.right} group relative`}
+      className={`${styles.pathCard} group relative overflow-hidden`}
       style={{
-        '--card-color': color || '#3b82f6',
-        '--card-color-light': color ? `${color}20` : 'rgba(59, 130, 246, 0.2)',
-        position: 'absolute',
-        top: `${topPosition}px`,
-        [isEven ? 'left' : 'right']: '50%',
-        transform: isEven ? 'none' : 'translateX(50%)',
-        marginLeft: isEven ? '0' : 'auto',
-        marginRight: isEven ? 'auto' : '0',
+        '--card-color': color,
+        '--card-color-light': `${color}20`,
+        '--card-color-dark': `${color}80`,
+        position: layout.isMobile ? 'relative' : 'absolute',
+        margin: layout.isMobile ? '0 auto 1.25rem' : '0',
+        maxWidth: '100%',
+        width: layout.isMobile ? '100%' : layout.cardWidth,
+        top: layout.isMobile ? 'auto' : `${80 + (index * layout.spacing)}px`,
+        left: layout.isMobile ? 'auto' : isEven ? '50%' : 'auto',
+        right: layout.isMobile ? 'auto' : isEven ? 'auto' : '50%',
+        transform: layout.isMobile ? 'none' : isEven ? 'none' : 'translateX(50%)',
+        marginLeft: layout.isMobile ? 'auto' : isEven ? 0 : 'auto',
+        marginRight: layout.isMobile ? 'auto' : isEven ? 'auto' : 0,
         opacity: isCompleted ? 0.9 : 1,
         filter: isCompleted ? 'saturate(0.9)' : 'none',
         transition: 'all 0.3s ease-in-out',
-        border: isCompleted ? `1px solid ${color}40` : '1px solid rgba(255, 255, 255, 0.1)'
+        border: `1px solid ${isCompleted ? `${color}40` : 'rgba(255, 255, 255, 0.1)'}`,
+        background: 'linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98))',
+        boxShadow: '0 8px 20px -5px rgba(0, 0, 0, 0.15)',
+        transformOrigin: 'center',
+        zIndex: isHovered ? 10 : 1,
+        ...(!layout.isMobile && {
+          '@media (min-width: 960px)': {
+            width: 'calc(50% - 1.5rem)'
+          },
+          '@media (min-width: 1024px)': {
+            width: 'calc(50% - 2rem)'
+          },
+          '@media (min-width: 1280px)': {
+            width: 'calc(50% - 3rem)'
+          },
+          '@media (min-width: 1440px)': {
+            width: 'calc(50% - 4rem)'
+          }
+        }),
       } as React.CSSProperties}
       initial={{ opacity: 0, x: isEven ? -100 : 100, y: 20 }}
       animate={{ 
         opacity: 1,
         x: 0, 
         y: 0,
+        scale: isHovered ? 1.02 : 1,
+        boxShadow: isHovered 
+          ? '0 20px 40px -10px rgba(0, 0, 0, 0.3)' 
+          : '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
         transition: {
           type: "spring",
           damping: 15,
@@ -401,103 +479,140 @@ const LearningPath = ({
           delay: delay
         }
       }}
+      whileHover={{
+        scale: 1.02,
+        transition: { duration: 0.2 }
+      }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="flex items-start gap-4">
-        <motion.div 
-          className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl text-2xl relative"
-          style={{
-            background: `linear-gradient(135deg, ${color || '#3b82f6'}, ${color ? `${color}80` : '#2563eb'})`,
-            boxShadow: `0 4px 15px -5px ${color || '#3b82f6'}80`,
-            opacity: isCompleted ? 0.9 : 1
-          }}
-          whileHover={{
-            scale: 1.1,
-            rotate: isCompleted ? 0 : 5,
-            transition: { duration: 0.2 }
-          }}
-        >
-          {icon}
-        </motion.div>
-        <div className="flex-1">
-          <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-          <p className="text-gray-300 mb-4 leading-relaxed">{description}</p>
+      {/* Hover overlay */}
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+        style={{
+          background: `radial-gradient(circle at 70% 30%, ${color}10 0%, transparent 70%)`
+        }}
+      />
+      
+      <div className="relative z-10">
+        <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 p-4 sm:p-5 md:p-6">
+          <motion.div 
+            className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl text-lg sm:text-xl md:text-2xl relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, ${color}, ${color}80)`,
+              boxShadow: `0 4px 15px -5px ${color}80`,
+              opacity: isCompleted ? 0.9 : 1
+            }}
+            whileHover={{
+              scale: 1.1,
+              rotate: isCompleted ? 0 : 5,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50"></div>
+            <span className="relative z-10">{icon}</span>
+          </motion.div>
           
-          <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-700/50">
-            <Link 
-              to="/docs" 
-              className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors group-hover:underline"
-            >
-              {isCompleted ? 'Continue Learning' : 'Start Learning'}
-              <svg 
-                className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-            
-            {/* Completion Toggle */}
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                onToggleComplete();
-              }}
-              className={`relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 ${
-                isCompleted 
-                  ? 'bg-green-500 focus:ring-green-500' 
-                  : 'bg-gray-600 focus:ring-blue-500'
-              }`}
-              aria-pressed={isCompleted}
-              aria-label={isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
-            >
-              <span className="sr-only">
-                {isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
-              </span>
-              <span
-                className={`${
-                  isCompleted ? 'translate-x-6' : 'translate-x-1'
-                } inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out`}
-              >
-                {isCompleted && (
-                  <svg
-                    className="w-3 h-3 text-green-500 mx-auto mt-0.5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
+          <div className="flex-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white break-words leading-tight">{title}</h3>
+              {isCompleted && (
+                <div className="ml-2 px-2 py-0.5 bg-green-500/20 text-green-400 text-xs font-medium rounded-full flex items-center whitespace-nowrap">
+                  <svg className="w-3 h-3 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                )}
-              </span>
-            </button>
+                  <span className="hidden sm:inline">Completed</span>
+                  <span className="sm:hidden">✓</span>
+                </div>
+              )}
+            </div>
+            
+            <p className="text-gray-300 mb-4 leading-relaxed">{description}</p>
+            
+            <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-700/50">
+              <Link 
+                to="/docs" 
+                className={`inline-flex items-center text-sm font-medium transition-all duration-200 ${
+                  isCompleted 
+                    ? 'text-green-400 hover:text-green-300' 
+                    : 'text-blue-400 hover:text-blue-300'
+                } group-hover:underline`}
+              >
+                {isCompleted ? 'Continue Learning' : 'Start Learning'}
+                <svg 
+                  className={`w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1 ${
+                    isCompleted ? 'text-green-400' : 'text-blue-400'
+                  }`} 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              
+              {/* Improved Completion Toggle */}
+              <motion.button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  onToggleComplete();
+                }}
+                className={`relative inline-flex items-center h-6 rounded-full w-11 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 ${
+                  isCompleted 
+                    ? 'bg-green-500 focus:ring-green-500' 
+                    : 'bg-gray-600 hover:bg-gray-500 focus:ring-blue-500'
+                }`}
+                whileTap={{ scale: 0.95 }}
+                aria-pressed={isCompleted}
+                aria-label={isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
+              >
+                <span className="sr-only">
+                  {isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
+                </span>
+                <motion.span
+                  className={`inline-block w-4 h-4 transform bg-white rounded-full transition-all duration-200 ease-in-out flex items-center justify-center ${
+                    isCompleted ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                  layout
+                >
+                  {isCompleted && (
+                    <motion.svg
+                      className="w-3 h-3 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </motion.svg>
+                  )}
+                </motion.span>
+              </motion.button>
+            </div>
           </div>
         </div>
+        
+        {/* Bottom border */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-700/50"></div>
+        
+        {/* Glow effect on hover */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-10 blur transition-opacity duration-300 -z-10"></div>
       </div>
       
-      {/* Progress bar background */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700/50 rounded-b-lg overflow-hidden">
-        <motion.div 
-          className="h-full bg-green-500"
-          initial={{ width: '0%' }}
-          animate={{ width: isCompleted ? '100%' : '0%' }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        />
-      </div>
+      {/* Subtle corner accent */}
+      <div className="absolute top-0 right-0 w-16 h-16 -mr-8 -mt-8 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full"></div>
       
-      {/* Completion badge */}
-      {isCompleted && (
-        <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
-          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-      )}
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+        backgroundSize: '60px 60px'
+      }}></div>
     </motion.article>
   );
 };
@@ -605,147 +720,149 @@ export default function GetStarted() {
                 </div>
               </div>
             </AnimatedSection>
-            
-            {/* Learning Paths */}
-            <AnimatedSection delay={2}>
-              <section className={styles.learningPaths}>
-                <div className="container">
-                  <div className="text-center mb-16">
-                    <motion.h2 
-                      className="text-3xl md:text-4xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-blue-100 text-gray-900"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ 
-                        opacity: 1, 
-                        y: 0,
-                        transition: { 
-                          duration: 0.8,
-                          ease: "easeOut"
-                        } 
-                      }}
-                      viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
-                      style={{
-                        textShadow: '0 0 10px rgba(255, 213, 0, 0.5)'
-                      }}
-                    >
-                      Start Your Journey
-                    </motion.h2>
-                  </div>
-                  
-                  <div className="relative">
-                    {/* Progress Overview */}
-                    <motion.div 
-                      className="mb-12 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-lg"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                        <div>
-                          <h3 className="text-xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-gradient-to-r from-blue-200 to-purple-200 text-gray-800 shadow-md">
-                            Your Learning Progress
-                          </h3>
-                          <p className="text-gray-300 text-sm">
-                            {completionPercentage}% Complete • {Object.values(completedPaths).filter(Boolean).length} of {learningPaths.length} paths started
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                            {completionPercentage}%
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* Progress Bar */}
-                      <div className="w-full h-3 bg-gray-700/50 rounded-full overflow-hidden">
-                        <motion.div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full relative"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${completionPercentage}%` }}
-                          transition={{ duration: 1, ease: "easeOut" }}
-                        >
-                          <motion.div 
-                            className="absolute inset-0 bg-white/20" 
-                            animate={{
-                              left: ['0%', '100%']
-                            }}
-                            transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
-                              repeatType: 'loop',
-                              ease: 'easeInOut',
-                            }}
-                            style={{
-                              width: '20%',
-                              height: '100%',
-                              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-                              transform: 'skewX(-20deg)'
-                            }}
-                          />
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                    
-                    <div className={styles.timelineContainer}>
-                      <div className={styles.timeline}>
-                        {/* Animated progress indicator on the timeline */}
-                        <motion.div 
-                          className="absolute left-0 top-0 w-1 bg-gradient-to-b from-blue-400 to-purple-500 h-0"
-                          initial={{ height: 0 }}
-                          animate={{ height: `${(completionPercentage / 100) * 100}%` }}
-                          transition={{ duration: 1.5, ease: 'easeInOut' }}
-                        />
-                      </div>
-                      <div className={styles.pathsContainer}>
-                        {learningPaths.map((path, idx) => (
-                          <LearningPath 
-                            key={path.title}
-                            title={path.title}
-                            description={path.description}
-                            icon={path.icon}
-                            color={path.color}
-                            index={idx}
-                            isCompleted={!!completedPaths[path.title]}
-                            onToggleComplete={() => togglePathCompletion(path.title)}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <motion.div 
-                    className="text-center mt-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <Link
-                      to="/courses"
-                      className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-200 to-blue-300 text-gray-900 font-semibold text-lg rounded-xl hover:from-blue-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-                      style={{
-                        textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
-                      }}
-                    >
-                      <span className="relative z-10">
-                        Explore All Paths
-                      </span>
-                      <svg 
-                        className="w-6 h-6 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
-                  </motion.div>
-                </div>
-              </section>
-            </AnimatedSection>
           </div>
         </section>
+        
+        {/* Learning Paths - Full Width Section */}
+        <AnimatedSection delay={2}>
+          <section className={styles.learningPaths} style={{ width: '100vw', marginLeft: '50%', transform: 'translateX(-50%)' }}>
+            <div className="w-full bg-gray-900 py-16">
+              <div className="container mx-auto">
+                <div className="text-center mb-16">
+                  <motion.h2 
+                    className="text-3xl md:text-4xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-blue-100 text-gray-900"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.8,
+                        ease: "easeOut"
+                      } 
+                    }}
+                    viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
+                    style={{
+                      textShadow: '0 0 10px rgba(255, 213, 0, 0.5)'
+                    }}
+                  >
+                    Start Your Journey
+                  </motion.h2>
+                </div>
+              </div>
+            </div>
+            
+            <div className="container mx-auto -mt-10 relative">
+              {/* Progress Overview */}
+              <motion.div 
+                className="mb-12 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-gradient-to-r from-blue-200 to-purple-200 text-gray-800 shadow-md">
+                      Your Learning Progress
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      {completionPercentage}% Complete • {Object.values(completedPaths).filter(Boolean).length} of {learningPaths.length} paths started
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      {completionPercentage}%
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Progress Bar */}
+                <div className="w-full h-3 bg-gray-700/50 rounded-full overflow-hidden">
+                  <motion.div 
+                    className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full relative"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${completionPercentage}%` }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  >
+                    <motion.div 
+                      className="absolute inset-0 bg-white/20" 
+                      animate={{
+                        left: ['0%', '100%']
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        repeatType: 'loop',
+                        ease: 'easeInOut',
+                      }}
+                      style={{
+                        width: '20%',
+                        height: '100%',
+                        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                        transform: 'skewX(-20deg)'
+                      }}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+              
+              <div className={styles.timelineContainer}>
+                <div className={styles.timeline}>
+                  {/* Animated progress indicator on the timeline */}
+                  <motion.div 
+                    className="absolute left-0 top-0 w-1 bg-gradient-to-b from-blue-400 to-purple-500 h-0"
+                    initial={{ height: 0 }}
+                    animate={{ height: `${(completionPercentage / 100) * 100}%` }}
+                    transition={{ duration: 1.5, ease: 'easeInOut' }}
+                  />
+                </div>
+                <div className={styles.pathsContainer}>
+                  {learningPaths.map((path, idx) => (
+                    <LearningPath 
+                      key={path.title}
+                      title={path.title}
+                      description={path.description}
+                      icon={path.icon}
+                      color={path.color}
+                      index={idx}
+                      isCompleted={!!completedPaths[path.title]}
+                      onToggleComplete={() => togglePathCompletion(path.title)}
+                    />
+                  ))}
+                </div>
+              </div>
+              
+              <motion.div 
+                className="text-center mt-12 pb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px 0px -50px 0px" }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <Link
+                  to="/courses"
+                  className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-200 to-blue-300 text-gray-900 font-semibold text-lg rounded-xl hover:from-blue-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  style={{
+                    textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
+                  }}
+                >
+                  <span className="relative z-10">
+                    Explore All Paths
+                  </span>
+                  <svg 
+                    className="w-6 h-6 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </motion.div>
+            </div>
+          </section>
+        </AnimatedSection>
       </main>
     </Layout>
   );
