@@ -96,7 +96,6 @@ This project is licensed under the [MIT License](LICENSE).
 ![GitHub watchers](https://img.shields.io/github/watchers/RecodeHive/recode-website)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RecodeHive/recode-website)
 ![GitHub repo size](https://img.shields.io/github/repo-size/RecodeHive/recode-website)
-![GitHub file size](https://img.shields.io/github/size/RecodeHive/recode-website/docusaurus.config.js)
 ![GitHub file/directory count](https://img.shields.io/github/directory-file-count/RecodeHive/recode-website)
 ![GitHub open issues](https://img.shields.io/github/issues/RecodeHive/recode-website)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/RecodeHive/recode-website)
