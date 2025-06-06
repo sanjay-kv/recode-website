@@ -642,7 +642,9 @@ export default function GetStarted() {
                     >
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                         <div>
-                          <h3 className="text-xl font-bold text-white mb-1">Your Learning Progress</h3>
+                          <h3 className="text-xl font-bold mb-4 px-6 py-3 inline-block rounded-xl bg-gradient-to-r from-blue-200 to-purple-200 text-gray-800 shadow-md">
+                            Your Learning Progress
+                          </h3>
                           <p className="text-gray-300 text-sm">
                             {completionPercentage}% Complete • {Object.values(completedPaths).filter(Boolean).length} of {learningPaths.length} paths started
                           </p>
