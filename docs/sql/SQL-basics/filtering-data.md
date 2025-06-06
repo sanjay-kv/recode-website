@@ -115,9 +115,13 @@ By following these best practices,
 :::
 
 ### 🔄 Checking Equality
-> We use the = operator to check if the two values are equal.
+
+  > We use the = operator to check if the two values are equal.
+
 > The values like text values are writtern between single quotes. 
+
 > We can also use the numeric properties , it dont need to put in the quotes. 
+
 > the = sign check if the two values are equal. 
 
     :::info

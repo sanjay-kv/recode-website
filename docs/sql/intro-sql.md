@@ -172,6 +172,7 @@ Then company started developing database management system like SQL, Postgres,My
     </Tabs>
 
 
+
 1.  Advantages: **Platform Independent?**: Yes and No — It Depends. The core SQL language (based on ANSI/ISO standards) is platform-independent, meaning the basic syntax and concepts—like SELECT, INSERT, UPDATE, and DELETE—are the same across different database systems. ❌ But, SQL Implementations Are Not Fully Platform Independent:
    
 Different Database Management Systems (DBMS)—like MySQL, PostgreSQL, Oracle, SQL Server, and SQLite—extend SQL differently. They may:

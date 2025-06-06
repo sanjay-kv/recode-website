@@ -49,9 +49,10 @@ WHERE year <> 1;
 
 
 
+
 ### 📘 Practise Example
 
-> To query data from a table, use the FROM clause followed by the table's name.
+  > To query data from a table, use the FROM clause followed by the table's name.
 
 
 For example, consider a table named `Friends`. Below is how a simple table might look:
@@ -101,6 +102,7 @@ By following these best practices,
 :::
 
 ### 🔄 Comparison Operator. 
+
 > Sometimes, comparison with = and  are not felxible enoguh like when filtering by price of a grocery itesm 
 > We can use conditions to select items having a property les s than a threshold value like chocolate items with a price less than 2$
 > We can also use the numeric properties , it dont need to put in the quotes. 
@@ -144,7 +146,7 @@ WHERE pollution_index < 100;
 ## 🧹 Selecting Unique Values with numeric
 
 We want to code a condition to select records from the pollution table where the pollution_index is less than or equal to 122.
----
+
 
     :::info
 <Tabs>

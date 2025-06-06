@@ -247,25 +247,25 @@ const Footer: React.FC = () => {
               </h4>
               <div className="flex flex-col gap-8">
                 <Link
-                  to="/blog/getting-started-with-mern"
+                  to="/blog/google-deepmind"
                   className="group flex items-center gap-[22px]"
                 >
                   <div className="overflow-hidden rounded">
-                    <img src="/img/blog-footer-01.jpg" alt="blog" />
+                    <img src="/img/blog-footer-01.png" alt="blog" />
                   </div>
                   <span className="max-w-[180px] text-base text-gray-300 group-hover:text-[--ifm-color-primary]">
-                    Getting started with the MERN stack...
+                    Explore Google DeepMind's AI
                   </span>
                 </Link>
                 <Link
-                  to="/blog/streamline-ux-ui"
+                  to="/blog/google-backlinks"
                   className="group flex items-center gap-[22px]"
                 >
                   <div className="overflow-hidden rounded">
-                    <img src="/img/blog-footer-02.jpg" alt="blog" />
+                    <img src="/img/blog-footer-02.png" alt="blog" />
                   </div>
                   <span className="max-w-[180px] text-base text-gray-300 group-hover:text-[--ifm-color-primary]">
-                    Getting started with UI UX...
+                    Google Backlinks: A Comprehensive Guide
                   </span>
                 </Link>
               </div>
