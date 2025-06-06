@@ -1288,7 +1288,7 @@
 
 /* Learning Paths Section */
 .learningPaths {
-  padding: 6rem 0;
+  /* padding: 6rem 0; */
   background: #0f172a;
   position: relative;
   overflow: hidden;
