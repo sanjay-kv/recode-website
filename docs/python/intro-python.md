@@ -98,5 +98,3 @@ Python has gained massive popularity across industries and educational instituti
 ## Conclusion
 
 Python is a powerful and versatile programming language that is easy to learn and widely used across different domains. Its simple syntax, vast libraries, and strong community support make it an excellent choice for both beginners and experienced developers.
-
-👉 Next: [Python Basics](./basics)
