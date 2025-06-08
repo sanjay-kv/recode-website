@@ -16,7 +16,7 @@ description: In this tutorial, you will learn how to set up your development env
 
 Github is a way of version control your software development using Git, Github was founded in 2008 and recently Microsoft has bought the company now Microsoft is the parent organization of Github. So what do I mean by version control? When developing software the important hurdle is merging the version as part of development or update. Github helps developers in this perspective, this allows collaboration between the developers to work simultaneously.
 
-<AdsComponent />
+< />
 
 
 ## Setting Up Your Development Environment
@@ -57,7 +57,7 @@ Let’s create a Github Account
    - 2. How much programming experience do you have?
    - 3. What do you plan to use Github for?
 
-<AdsComponent />
+< />
 
 ### Step 3: 
 
@@ -80,7 +80,7 @@ Congratulations! You've successfully set up your development environment using V
 3. Write your HTML code. For example:
 
 
-<AdsComponent />
+< />
 
 ## Conclusion
 

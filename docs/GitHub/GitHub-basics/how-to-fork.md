@@ -10,7 +10,7 @@ description: In this tutorial, you will learn about the structure of an HTML doc
 
 HTML Attributes and Values are used to provide additional information about HTML elements
 
-<AdsComponent />
+< />
 
 ## HTML Attributes
 

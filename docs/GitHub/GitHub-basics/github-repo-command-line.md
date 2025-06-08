@@ -9,7 +9,7 @@ description: In this tutorial, you will learn about the structure of an HTML doc
 
 HTML (Hypertext Markup Language) is the standard markup language for creating web pages. It provides the structure and layout of the content on the web. In this tutorial, you will learn about the syntax and structure of HTML.
 
-<AdsComponent />
+< />
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ git push -u origin main
 
 
 
-<AdsComponent />
+< />
 
 
 ### Browser Rendering
