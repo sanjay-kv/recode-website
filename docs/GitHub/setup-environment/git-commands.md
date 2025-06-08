@@ -11,7 +11,7 @@ description: In this tutorial, you will learn about the basic of git and 50 impo
 
 Git commands are handy when comes to fix any problems which you cant fix by the UI, for example consider a scenarion you need to fix the conflict in a page. Git Commands will help you to find the root cause and can explore the entire log history. At Git core it help you to keep a history of every change you made in the project files and help the user with track the changes, revert, helps to identify who made the changes. 
 
-<AdsComponent />
+< />
 
 ## Understanding Git: The Building Blocks
 
@@ -34,7 +34,7 @@ In Setting up git on Windows tutorial you learned to perform how to check the cu
 In this example, the `<h1>` tag creates a heading, and the `<p>` tag creates a paragraph. The browser interprets these tags and displays the content accordingly. HTML tags can be nested within each other to create more complex structures, such as lists, tables, forms, and more.
 
 
-<AdsComponent />
+< />
 
 ## How Web Browsers Render HTML
 
@@ -106,7 +106,7 @@ When a user requests a web page by entering a URL in the browser's address bar o
     :::
 By understanding how web browsers render HTML content, web developers can optimize their code and design to create fast and responsive web pages. Techniques such as minimizing the use of inline styles, reducing the number of DOM elements, and optimizing images can help improve the performance of web pages and provide a better user experience.
 
-<AdsComponent />
+< />
 
 ## Useful 50 Git Commands Cheatsheet
 
@@ -307,10 +307,10 @@ git push -u origin main #Push changes to remote repository and remember the bran
     :::
 By managing these resources efficiently, web developers can create engaging and interactive web pages that deliver a rich user experience. Understanding how HTML works with web browsers and how browsers render content is essential for building modern web applications that meet user expectations and performance standards.
 
-<AdsComponent />
+< />
 
 
-<AdsComponent />
+< />
 <iframe width="880" height="480" src="https://www.youtube.com/embed/jE8nqWSbUQs?list=PLrLTYhoDFx-kiuFiGQqVpYYZ56pIhUW63" title="Understanding the GitHub Flow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ## Conclusion
 
