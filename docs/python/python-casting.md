@@ -18,8 +18,7 @@ tags:
 
 # Python Casting
 
-In Python, **casting** is the process of converting a variable from one type to another.  
-Python has built-in functions for converting between data types.
+In Python, **casting** is the process of converting a variable from one type to another. Python has built-in functions for converting between data types.
 
 ---
 
@@ -43,7 +42,7 @@ Converts a value to an integer. Works with floats and numeric strings.
 x = int(1)      # 1
 y = int(2.8)    # 2
 z = int("3")    # 3
-# w = int("abc")  # ❌ Error
+# w = int("abc")  # Error
 ```
 
 
