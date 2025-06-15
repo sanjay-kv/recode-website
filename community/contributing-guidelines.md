@@ -9,7 +9,7 @@ Thank you for considering contributing to CodeHarborHub! We welcome contribution
 
 ## Getting Started
 
-To get started with contributing to Recode-Hive, please refer to our [Contributing Guidelines](CONTRIBUTING.md).
+To get started with contributing to Recode-Hive, please refer to our [Contributing Guidelines](/community/contributing-guidelines).
 
 Follow these steps:
 
@@ -61,4 +61,4 @@ flowchart LR
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](/License).

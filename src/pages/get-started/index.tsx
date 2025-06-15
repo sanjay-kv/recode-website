@@ -154,7 +154,7 @@ function GetStartedHeader() {
             </Link>
             <Link
               className={`${styles.button} ${styles.buttonOutline}`}
-              to="/docs/intro"
+              to="/docs/category/github"
             >
               Explore Docs
               <span className={styles.buttonIcon} aria-hidden="true">
@@ -520,7 +520,7 @@ const LearningPath = ({
             
             <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-700/50">
               <Link 
-                to="/docs" 
+                to="/docs/category/github" 
                 className={`inline-flex items-center text-sm font-medium transition-all duration-200 ${
                   isCompleted 
                     ? 'text-green-400 hover:text-green-300' 
