@@ -18,7 +18,7 @@ Inorder to create a project and host, the repository is a place where you add al
 
 ### How to create Github Repository
 
-**Step 1:** Go to GitHub page, by default you will be in the Home page as shown below, Step 1 requires you to click on the ``+`` Icon and from the drop down click on the ``New Repository``.
+**Step 1:** Go to GitHub page, by default you will  be the Home page as shown below, Step 1 requires you to click on the ``+`` Icon and from the drop down click on the ``New Repository``.
 
     <BrowserWindow url="https://github.com/recodehive/recode-website" bodyStyle={{padding: 0}}>    
      [![GitHub](./assets/01-issue-on-github.png)](https://github.com/recodehive/recode-website)
