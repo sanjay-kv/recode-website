@@ -58,11 +58,14 @@ export default function Home(): ReactNode {
         <div className="m-4">
           <BlogCarousel />
         </div>
-        <div className="m-4">
+        <div
+          className="m-4"
+          onClick={() => (window.location.href = "https://www.sanjaykv.com/")}
+        >
           <img
             src="/selfhero.png"
             alt="recodehive"
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl cursor-pointer"
           />
         </div>
         <div className="m-4">
