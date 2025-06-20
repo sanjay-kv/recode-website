@@ -283,6 +283,7 @@ const config: Config = {
       },
     ],
   ],
+  scripts: [],
 };
 
 export default config;
