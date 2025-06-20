@@ -20,6 +20,24 @@ const config: Config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
+  // Google Analytics
+  scripts: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-W02Z2VJYCR',
+      async: true,
+    },
+    {
+      content: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W02Z2VJYCR', {
+          debug_mode: ${process.env.NODE_ENV !== 'production' ? 'true' : 'false'}
+        });
+      `,
+    },
+  ],
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -27,7 +45,7 @@ const config: Config = {
 
   presets: [
     [
-      "classic",
+      'classic',
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
@@ -265,6 +283,7 @@ const config: Config = {
       },
     ],
   ],
+  scripts: [],
 };
 
 export default config;
