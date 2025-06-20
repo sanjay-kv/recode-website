@@ -60,7 +60,12 @@ const HeadingComponent: React.FC<HeadingComponentProps> = ({
         className="flex items-center md:items-start md:justify-start gap-6 sm:gap-10 flex-col"
       >
         {/* tag */}
-        <div className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-sm sm:text-base font-medium tracking-wide shadow-lg transform hover:scale-105 transition-transform duration-300">
+        <div
+          className="cursor-pointer px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-sm sm:text-base font-medium tracking-wide shadow-lg transform hover:scale-105 transition-transform duration-300"
+          onClick={() =>
+            (window.location.href = "https://github.com/recodehive")
+          }
+        >
           {tag}
         </div>
         {/* title */}
