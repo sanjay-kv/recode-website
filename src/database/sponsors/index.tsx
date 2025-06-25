@@ -19,11 +19,35 @@ const sponsors: Sponsor[] = [
     linkedin: "https://www.linkedin.com/in/takashi-arai-2b697b360/",
   },
   {
+    name: "Sumit Khanna",
+    image: "https://avatars.githubusercontent.com/u/29749122?v=4",
+    description: "Developer at slickspender",
+    github: "https://github.com/jjackofall",
+    twitter: "https://x.com/jjackofall",
+  },
+  {
+    name: "Prakhar Saxena",
+    image: "https://avatars.githubusercontent.com/u/111764688?v=4",
+    description: "Studying @McMaster University",
+    github: "https://www.linkedin.com/in/prakharsaxena5/",
+    linkedin: "https://www.linkedin.com/in/prakharsaxena5/",
+  },
+
+  {
+    name: "Varghese Baby",
+    image: "https://avatars.githubusercontent.com/u/68038057?v=4",
+    description: "Software Developer",
+    github: "https://github.com/varghese25",
+    linkedin: "https://www.linkedin.com/in/varghese-baby-138429175/",
+  },
+ 
+  {
     name: "Carlos Romero",
     image: "https://avatars.githubusercontent.com/u/119690391?v=4",
     description: "CS Student of La Salle",
     github: "https://github.com/carlosromerorodriguez",
     linkedin: "https://www.linkedin.com/in/carlos-romero-rdgz/",
+    isPastSponsor: true,
   },
   {
     name: "Yahya Banouk",
@@ -32,8 +56,8 @@ const sponsors: Sponsor[] = [
     github: "https://github.com/yahya-banouk",
     linkedin: "https://x.com/Yahya_Banouk",
     twitter: "https://x.com/Yahya_Banouk",
-  },
- 
+    isPastSponsor: true,
+  }, 
   {
     name: "Mike ",
     image: "https://avatars.githubusercontent.com/u/79911993?v=4",
@@ -135,7 +159,7 @@ const sponsors: Sponsor[] = [
     {
     name: "Monojit Pal",
     image: "https://avatars.githubusercontent.com/u/144504389?v=4",
-    description: "Student at St. Thomas' College of Engineering",
+    description: "Student at St. Thomas' College",
     github: "https://github.com/Monojit-Pal",
     linkedin: "https://www.linkedin.com/in/pal-monojit/",
     twitter: "https://x.com/Monojit__18",
@@ -151,7 +175,7 @@ const sponsors: Sponsor[] = [
     isPastSponsor: true,
   },
     {
-    name: "Dhrubaraj Pati",
+    name: "Renato Maynard", 
     image: "https://avatars.githubusercontent.com/u/79546214?v=4",
     description: "M.Sc. in Operations Research",
     github: "https://www.linkedin.com/in/renatomaynardetche/",
@@ -160,7 +184,7 @@ const sponsors: Sponsor[] = [
     isWeSponsor: true,
   },  
     {
-    name: "Renato Maynard",
+    name: "Dhrubaraj Pati",
     image: "https://avatars.githubusercontent.com/u/146111647?v=4",
     description: "Student at SVU",
     github: "https://github.com/codewithdhruba01",
