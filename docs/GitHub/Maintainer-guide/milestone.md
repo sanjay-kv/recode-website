@@ -49,7 +49,7 @@ Upon creation you will get a screen like this below, the explanation of each ele
 
 < />
 
-## Changing Readme and Adding more files.
+## Changing Readme and Adding more files. Change
 
 Im going to add my resume and add my name as heading to the ``readme.md`` file
 
