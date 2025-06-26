@@ -89,6 +89,21 @@
     position: relative;
 }
 
+/* SlotCounter styling */
+.landing-community .slot-counter-number {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-shadow: inherit;
+}
+
+.landing-community .slot-counter-separator {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-shadow: inherit;
+}
+
 .landing-community .landing-community__content .landing-community__stats .landing-community__stat-item .landing-community__loading {
     display: flex;
     align-items: center;

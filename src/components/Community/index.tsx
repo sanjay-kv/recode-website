@@ -1,4 +1,5 @@
 import React, { type FC, useEffect, useState, useMemo } from "react";
+import SlotCounter from 'react-slot-counter';
 import "./LandingCommunity.css";
 import { useCommunityStatsContext } from "@site/src/lib/statsProvider";
 
@@ -12,73 +13,51 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
     githubContributorsCountText, 
     githubForksCountText,
     githubReposCountText,
+    githubStarCount,
+    githubContributorsCount,
+    githubForksCount,
+    githubReposCount,
     loading,
     error
   } = useCommunityStatsContext();
   
-  const [state, setState] = useState({
-    stat0: 0,
-    stat1: 0,
-    stat2: 0,
-    stat3: 0,
-  });
-
+  
   const generateList = useMemo(() => [
     {
-      stat: githubStarCountText,
+      stat: githubStarCount,
+      statText: githubStarCountText,
       description: "Stars across all our GitHub repositories, showcasing the support and appreciation from the community.",
       href: "https://github.com/recodehive/Support",
       label: "GitHub Stars"
     },
     {
-      stat: githubReposCountText,
+      stat: githubReposCount,
+      statText: githubReposCountText,
       description: "Live public projects on RecodHive, demonstrating the power of open-source collaboration.",
       href: "https://github.com/orgs/recodehive/repositories?q=visibility%3Apublic+archived%3Afalse",
       label: "Public Repositories"
     },
     {
-      stat: githubContributorsCountText,
+      stat: githubContributorsCount,
+      statText: githubContributorsCountText,
       description: "Amazing contributors who have made our repositories better and helped build our community.",
       href: "https://github.com/orgs/recodehive/people",
       label: "Contributors"
     },
     {
-      stat: githubForksCountText,
+      stat: githubForksCount,
+      statText: githubForksCountText,
       description: "Forks of our repositories, showing how our community extends and builds upon our work.",
       href: "https://github.com/orgs/recodehive/discussions",
       label: "Community Forks"
     },
-  ], [githubStarCountText, githubReposCountText, githubContributorsCountText, githubForksCountText]);
-
-  const handleDynamicChange = (target: number, index: number) => {
-    let count = 0;
-    const increment = target / 100;
-    const interval = setInterval(() => {
-      count += increment;
-      setState(prev => ({ ...prev, [`stat${index}`]: Math.round(count) }));
-      if (count >= target) {
-        setState(prev => ({ ...prev, [`stat${index}`]: target }));
-        clearInterval(interval);
-      }
-    }, 20);
-  };
+  ], [githubStarCount, githubStarCountText, githubReposCount, githubReposCountText, githubContributorsCount, githubContributorsCountText, githubForksCount, githubForksCountText]);
 
   const handleCardClick = (href: string) => {
     if (href) {
       window.open(href, '_blank', 'noopener,noreferrer');
     }
   };
-
-  useEffect(() => {
-    if (!loading) {
-      generateList.forEach((item, index) => {
-        const numericStat = typeof item.stat === 'string' ? 
-          parseInt(item.stat.replace(/[^\d]/g, '')) || 0 : 
-          Number(item.stat);
-        handleDynamicChange(numericStat, index);
-      });
-    }
-  }, [generateList, loading]);
 
   return (
     <div className={`landing-community ${className || ""}`}>
@@ -118,7 +97,16 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
                   </div>
                 ) : (
                   <span>
-                    {item.stat}
+                    <SlotCounter 
+                      value={item.stat} 
+                      duration={2}
+                      animateOnVisible={{
+                        triggerOnce: true,
+                        rootMargin: '0px 0px -100px 0px'
+                      }}
+                      numberSlotClassName="slot-counter-number"
+                      separatorClassName="slot-counter-separator"
+                    />
                     {item.href && <span className="external-link-icon">↗</span>}
                   </span>
                 )}
