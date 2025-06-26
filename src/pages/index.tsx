@@ -81,7 +81,7 @@ export default function Home(): ReactNode {
         </div>
         <div className="m-4">
           <CommunityStatsProvider>
-            <LandingCommunity className="codeharborhub" />
+            <LandingCommunity className="recodehive" />
           </CommunityStatsProvider>
         </div>
         <div className="m-4">

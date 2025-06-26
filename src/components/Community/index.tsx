@@ -7,7 +7,15 @@ type Props = {
 };
 
 export const LandingCommunity: FC<Props> = ({ className }) => {
-  const { githubStarCountText, githubContributorsCount, githubForksCount } = useCommunityStatsContext();
+  const { 
+    githubStarCountText, 
+    githubContributorsCountText, 
+    githubForksCountText,
+    githubReposCountText,
+    loading,
+    error
+  } = useCommunityStatsContext();
+  
   const [state, setState] = useState({
     stat0: 0,
     stat1: 0,
@@ -18,28 +26,29 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
   const generateList = useMemo(() => [
     {
       stat: githubStarCountText,
-      description: "Stars on our GitHub repository, showcase the  support and contribution, we recieved from the community.",
+      description: "Stars across all our GitHub repositories, showcasing the support and appreciation from the community.",
       href: "https://github.com/recodehive",
-      // https://github.com/CodeHarborHub/codeharborhub.github.io/stargazers
+      label: "GitHub Stars"
     },
     {
-      stat: 20,
-      description: "Live projects on recodehive, demonstrating the power of open-source collaboration.",
+      stat: githubReposCountText,
+      description: "Live public projects on RecodHive, demonstrating the power of open-source collaboration.",
+      href: "https://github.com/orgs/recodehive/repositories?q=visibility%3Apublic+archived%3Afalse",
+      label: "Public Repositories"
     },
     {
-      stat: githubContributorsCount,
-      description: "List of Contributors who have made our repository better.",
-      href: "https://github.com/recodehive",
-      // https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors
+      stat: githubContributorsCountText,
+      description: "Amazing contributors who have made our repositories better and helped build our community.",
+      href: "https://github.com/orgs/recodehive/people",
+      label: "Contributors"
     },
     {
-      stat: githubForksCount,
-      description: "Forks of our repository, showing how our community extends our work.",
-      href: "https://github.com/recodehive",
-
-      //https://github.com/CodeHarborHub/codeharborhub.github.io/network/members
+      stat: githubForksCountText,
+      description: "Forks of our repositories, showing how our community extends and builds upon our work.",
+      href: "https://github.com/orgs/recodehive/discussions",
+      label: "Community Forks"
     },
-  ], [githubStarCountText, githubContributorsCount, githubForksCount]);
+  ], [githubStarCountText, githubReposCountText, githubContributorsCountText, githubForksCountText]);
 
   const handleDynamicChange = (target: number, index: number) => {
     let count = 0;
@@ -54,11 +63,22 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
     }, 20);
   };
 
+  const handleCardClick = (href: string) => {
+    if (href) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   useEffect(() => {
-    generateList.forEach((item, index) => {
-      handleDynamicChange(Number(item.stat), index);
-    });
-  }, [generateList]);
+    if (!loading) {
+      generateList.forEach((item, index) => {
+        const numericStat = typeof item.stat === 'string' ? 
+          parseInt(item.stat.replace(/[^\d]/g, '')) || 0 : 
+          Number(item.stat);
+        handleDynamicChange(numericStat, index);
+      });
+    }
+  }, [generateList, loading]);
 
   return (
     <div className={`landing-community ${className || ""}`}>
@@ -67,33 +87,62 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
           Discover the strength of our{" "}
           <span className="landing-community__highlight">amazing community</span>.
         </h2>
+        {error && (
+          <div className="landing-community__error">
+            <small>⚠️ Stats may be cached or incomplete</small>
+          </div>
+        )}
       </div>
 
       <div className="landing-community__content">
         <div className="landing-community__stats">
           {generateList.map((item, index) => (
-            <span key={index} className="landing-community__stat-item">
+            <div 
+              key={index} 
+              className={`landing-community__stat-item ${item.href ? 'clickable' : ''} ${loading ? 'loading' : ''}`}
+              onClick={() => handleCardClick(item.href)}
+              role={item.href ? "button" : "presentation"}
+              tabIndex={item.href ? 0 : -1}
+              onKeyDown={(e) => {
+                if (item.href && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  handleCardClick(item.href);
+                }
+              }}
+              title={item.href ? `Click to visit ${item.label}` : item.label}
+            >
               <div className="landing-community__stat-value">
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {`${state[`stat${index}`]}${index !== 1 ? "" : ""}`}
-                  </a>
+                {loading ? (
+                  <div className="landing-community__loading">
+                    <span className="loading-spinner">⏳</span>
+                  </div>
                 ) : (
-                  `${state[`stat${index}`]}`
+                  <span>
+                    {item.stat}
+                    {item.href && <span className="external-link-icon">↗</span>}
+                  </span>
                 )}
               </div>
               <div className="landing-community__stat-description">
                 {item.description}
               </div>
-            </span>
+            </div>
           ))}
         </div>
 
-        <div className="landing-community__info">
+        <div 
+          className="landing-community__info clickable"
+          onClick={() => handleCardClick("https://github.com/recodehive")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCardClick("https://github.com/recodehive");
+            }
+          }}
+          title="Click to visit RecodHive GitHub Organization"
+        >
           <img
             className="landing-community__image"
             src="/community.png"
@@ -101,27 +150,20 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
             loading="lazy"
           />
           <div className="landing-community__info-text">
-            Our developers are the core of Hive community. We take pride in
+            Our developers are the core of RecodHive community. We take pride in
             our{" "}
-            <a
-              href="https://github.com/recodehive"
-              //https://github.com/CodeHarborHub/codeharborhub.github.io/graphs/contributors
-              target="_blank"
-              rel="noopener noreferrer"
-              className="landing-community__link"
-            >
-              GitHub community
-            </a>{" "}
-            with over{" "}
-            <a
-              href="https://github.com/recodehive"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="landing-community__link"
-            >
-              500+ contributors
-            </a>{" "}
-            powering recodehive.
+            <span className="landing-community__link">
+              GitHub organization
+            </span>{" "}
+            with amazing{" "}
+            <span className="landing-community__link">
+              contributors and maintainers
+            </span>{" "}
+            powering RecodHive's growth.
+            <div className="external-link-indicator">
+              <span className="external-link-icon">↗</span>
+              <small>Click to explore our GitHub</small>
+            </div>
           </div>
         </div>
       </div>
