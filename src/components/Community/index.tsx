@@ -27,7 +27,7 @@ export const LandingCommunity: FC<Props> = ({ className }) => {
     {
       stat: githubStarCountText,
       description: "Stars across all our GitHub repositories, showcasing the support and appreciation from the community.",
-      href: "https://github.com/recodehive",
+      href: "https://github.com/recodehive/Support",
       label: "GitHub Stars"
     },
     {
