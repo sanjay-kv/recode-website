@@ -3,7 +3,7 @@ id: github-labels
 title: How to Create Labels on GitHub
 sidebar_label: Create Labels on GitHub
 sidebar_position: 1
-tags: [GitHub, GitHub-development, document-structure, GitHub repo,]
+tags: [GitHub, GitHub-development, document-structure, GitHub repo,Github]
 description: In this tutorial, you will learn about the how to create a GitHub repo by Online GUI interface. 
 ---
 
