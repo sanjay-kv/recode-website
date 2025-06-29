@@ -2,7 +2,7 @@
 id: setup-environment
 title: Setting up your development environment
 sidebar_label: Setting up environment
-sidebar_position: 9
+sidebar_position: 10
 tags:
   [
     html,
