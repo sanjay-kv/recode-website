@@ -9,7 +9,7 @@ description: In this tutorial, you will learn about the structure of an HTML doc
 
 
 # 📗 The Inequality Operator
-To check if a coloumns value is not equa to another we use the inequality operator. 
+To check if a coloumns value is not equal to another we use the inequality operator. 
 
 For example, consider a table named `Friends`. Below is how a simple table might look:
 

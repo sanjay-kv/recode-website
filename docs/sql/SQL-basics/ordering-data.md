@@ -32,16 +32,16 @@ For example, to sort by the `name` column:
 
 The first step in ordering table is the SELECT
 ORDER BY helps you to arrange data in readable form
-Here FROM specify the table we are selecting from ountries. 
+Here **FROM** specify the table we are selecting from ountries. 
 Here the query is ordering the number by name/. 
 
     :::info
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="Friends"
-| name            | username         |
------------------|------------------|
- Smith       | 19       |
+| name    | username |
+-----------|---------|
+ Smith     | 19      |
  Jones     | 60      |
  Wilson    | 25      |
 ```
@@ -129,7 +129,7 @@ From helps in select the name col from
 While not necessary but its a good practice to finish the sql queries with;
 
 
-By following these best practices, 
+By following these best practices, ASC is the default sort ordering method followed.
 :::
 
 ### 🔄 Arranging ORDERS BY with ASC , DESC

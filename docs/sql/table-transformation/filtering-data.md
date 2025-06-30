@@ -12,7 +12,7 @@ keywords: [html, web development, attributes, values, html attributes, html valu
 
 Welcome to the **Selecting Data** module! This foundational learning path is designed to help you master the basics of querying data, particularly focusing on how to retrieve specific information from databases effectively.
 
-### 📘 Using Coditions
+### 📘 Using Conditions
 
 In this tutorial, you'll learn how to interpret and use rows in a database table. Tables are essential to storing structured data, and each **row** in a table represents a unique **item or record**.
 > The first step in filtering is selecting the Items

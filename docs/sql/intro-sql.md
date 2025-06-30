@@ -45,7 +45,7 @@ Let's talk about history of Storing Data, It's started with physical files and s
 
 Then company started developing database management system like SQL, Postgres,MySQL.
 
-> Databases are two types, SQL(Relational, Analytical OLAP) and NOSQL(key value, Graph, Document). This NoSQL provides more flexibility over Relational as it dont have to follow schemas.
+> Databases are two types, SQL(Relational, Analytical OLAP) and NOSQL(key value, Graph, Document) mainly used for un-structured dataset. This NoSQL provides more flexibility over Relational as it dont have to follow schemas.
 
 > Schema is named collection of tables, which can contains, views, index, datatypes, operators and functions.
 :::

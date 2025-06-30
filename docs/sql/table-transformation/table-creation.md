@@ -39,9 +39,9 @@ Here the query is ordering the number by name/.
 <Tabs>
   <TabItem value="SQL Table" label="SQL Table">
 ```sql title="Friends"
-| name            | username         |
------------------|------------------|
- Smith       | 19       |
+| name     | username|
+-----------|---------|
+ Smith     | 19      |
  Jones     | 60      |
  Wilson    | 25      |
 ```
