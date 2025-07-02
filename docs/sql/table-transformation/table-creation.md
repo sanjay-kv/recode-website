@@ -13,108 +13,42 @@ Welcome to the **Selecting Data** module! This foundational learning path is des
 
 ### 📘 Creating SQL Table
 
-In this tutorial, you'll learn how to interpret and use rows in a database table. Tables are essential to storing structured data, and each **row** in a table represents a unique **item or record**.
-> Each row of a table represents a new item.
-
-> Each column of a table represents a specific attribute of the data, such as `id`, `name`, or `username`. 
-> These columns define the **type of information** stored for each item in the table.
-
-
-For example, consider a table named `Friends`. Below is how a simple table might look:
+In SQL, when creating a table, each column must have a data type that defines what kind of data it can hold. Common data types include:
+> `INTEGER` – whole numbers
+> `REAL` – decimal (floating-point) numbers
+> `TEXT` – strings of characters
 
 
-## Task: Sort a table using the `ORDER BY` clause
+>Other types like `BLOB` and `NULL` exist but are not covered in this tutorial.
+
+
+## 🛠️ Example: Creating a Table
 
 ### Lesson Overview
 
-After using `ORDER BY`, we specify the column by which we want to order the entries.  
-For example, to sort by the `name` column:
+Let’s create a simple table named Directory, which holds the floor number and company name.
 
-The first step in ordering table is the SELECT
-ORDER BY helps you to arrange data in readable form
-Here FROM specify the table we are selecting from ountries. 
-Here the query is ordering the number by name/. 
+>This CREATE TABLE statement defines a new table called Directory with two columns:
 
+>`floor` — stores the floor number as an `INTEGER`
+
+>`company` — stores the company name as `TEXT`
     :::info
 <Tabs>
-  <TabItem value="SQL Table" label="SQL Table">
-```sql title="Friends"
-| name     | username|
------------|---------|
- Smith     | 19      |
- Jones     | 60      |
- Wilson    | 25      |
-```
-  </TabItem>
 
 <TabItem value="SQL Code" label="SQL Code">
   
   ```sql title="Creating SQL Tables & db. "
 
-    -- creating orders
-SELECT * FROM patients
-ORDER BY name;
-
+CREATE TABLE Directory (
+  floor INTEGER,
+  company TEXT
+);
     ```
-
-
-
     </TabItem>
     
     <TabItem value="how-git-works" label="Output">
-| name              | age                  |
--------------------|--------------------------|
-Smith       | 19    |
-Jones       | 60        |
-Wilson       | 25   |
-    </TabItem>
-</Tabs>
-
-
-:::
-
-
-### Example Practice 
-
-> To query data from a table, use the FROM clause followed by the table's name.
-
-
-For example, consider a table named `Friends`. Below is how a simple table might look:
-
-
-
-    :::info
-<Tabs>
-  <TabItem value="SQL Table" label="SQL Table">
-```sql title="Friends"
-| name    | gdp     |
-|---------|---------|
-| Greece  | 187.46  |
-| Sweden  | 474.15  |
-| Iceland | 21.6    |
-| Germany | 3449.05 |
-
-```
-  </TabItem>
-
-<TabItem value="SQL Code" label="SQL Code">
-  
-  ```sql title="Creating SQL Tables. "
-SELECT *
-FROM countries
-ORDER BY name;
-    ```
-
-    </TabItem>
-    
-    <TabItem value="how-git-works" label="Output">
-| name    | gdp     |
-|---------|---------|
-| Germany | 3449.05 |
-| Greece  | 187.46  |
-| Iceland | 21.6    |
-| Sweden  | 474.15  |
-
+Query OK, table created successfully.
     </TabItem>
 </Tabs>
 
@@ -124,48 +58,42 @@ ORDER BY name;
 
 
 :::tip
- When requesting data with SQL staments like SELECT, we say that we are making a query.
-From helps in select the name col from
-While not necessary but its a good practice to finish the sql queries with;
+✅ Tip: SQL keywords like CREATE TABLE, INTEGER, and TEXT are not case-sensitive, but using uppercase for SQL keywords improves readability.
 
-
-By following these best practices, 
 :::
 
-### 🔄 Arranging ORDERS BY with ASC , DESC
+### 🧾 Inserting Data into a Table
 
     :::info
-    Ordering text properties like name is different when comparing to the age
-    We can order items in asseding starting with smalest value or deceding. 
-<Tabs>
-  <TabItem value="SQL Table" label="SQL Table">
-```sql title="friends"
-| name   | age |
-|--------|-----|
-| Smith  | 19  |
-| Jones  | 60  |
-| Wilson | 25  |
+    Once a table structure is created using CREATE TABLE, the next step is to insert data into it. You can insert as many rows as you want, at any time.
 
-```
-  </TabItem>
+    We’ll continue with the Directory table from earlier. Let’s insert a couple of company records.
+<Tabs>
+
 
 <TabItem value="SQL Code" label="SQL Code">
   
   ```sql title="Creating SQL Tables. "
-SELECT *
-FROM patients
-ORDER BY age ASC;
+CREATE TABLE Directory (
+  floor INTEGER,
+  company TEXT
+);
+
+INSERT INTO Directory (floor, company)
+VALUES (1, 'Acme Inc.');
+
+INSERT INTO Directory (floor, company)
+VALUES (2, 'Homeflix');
 
     ```
 
     </TabItem>
     
     <TabItem value="how-git-works" label="Output">
-| name   | age |
-|--------|-----|
-| Smith  | 19  |
-| Wilson | 25  |
-| Jones  | 60  |
+| floor | company   |
+|-------|-----------|
+| 1     | Acme Inc. |
+| 2     | Homeflix  |
 
     </TabItem>
 </Tabs>
@@ -173,68 +101,77 @@ ORDER BY age ASC;
 
 :::
 
-## 🧹 Selecting with `DESC`
+:::tip
+✅ Tip: Always match the order of columns in your INSERT INTO statement with the order of values inside VALUES().
 
-For Text value it order by Alphabetically 
-When arranging numerical value the item with smallest value in that coloumn comes first 
-
----
-
-    :::info
-<Tabs>
-  <TabItem value="SQL Table" label="SQL Table">
-```sql title="Subscribers"
-| name   | age |
-|--------|-----|
-| Smith  | 19  |
-| Jones  | 60  |
-| Wilson | 25  |
-
+🚫 Avoiding Duplicate Table Creation
+When running a CREATE TABLE command, trying to create a table that already exists will usually result in an error. To avoid this, we can use the IF NOT EXISTS clause.
+  ```sql title="Creating SQL Tables. 
+CREATE TABLE IF NOT EXISTS Directory (
+  floor INTEGER,
+  company TEXT
+);
 ```
-  </TabItem>
-
-<TabItem value="SQL Code" label="SQL Code">
-  
-  ```sql title="Creating SQL Tables. "
-SELECT *
-FROM patients
-ORDER BY age DESC;
-
-    ```
-
-    </TabItem>
-    
-    <TabItem value="how-git-works" label="Output">
-| name   | age |
-|--------|-----|
-| Jones  | 60  |
-| Wilson | 25  |
-| Smith  | 19  |
-
-
-    </TabItem>
-</Tabs>
-
-
 :::
-
-
 
 
 # ✅ What You Have Learned
 
-This module covers essential concepts related to ordering data in SQL:
+In this module, you learned the fundamentals of creating tables in SQL, including:
 
-- **ORDER BY Clause**  
-Learn how to sort query results based on one or more columns using the `ORDER BY` keyword.
+- **Defining Table Structure**  
+  How to use the `CREATE TABLE` statement to define a new table and specify columns with appropriate data types.
 
-- **Ascending Order** (ASC)  
-Understand that SQL sorts in ascending order by default, which is the same as explicitly using `ASC`.
+- **Common Data Types**  
+  The purpose of data types like `INTEGER` for numbers and `TEXT` for strings.
 
-- **Descending Order** (DESC)  
-Use the `DESC` keyword to sort results from highest to lowest or reverse alphabetical order.
+- **Inserting Data**  
+  How to add rows to a table using the `INSERT INTO` statement.
 
-- **Sort by Column Values**  
-Practice sorting by numeric or text column values to organize data meaningfully.
+- **Preventing Duplicate Tables**  
+  Using `IF NOT EXISTS` with `CREATE TABLE` to avoid errors if the table already exists.
+
+- **Best Practices**  
+  Writing SQL keywords in uppercase for readability and matching column order in `INSERT INTO` statements.
+
+
+---
+
+## 📝 Quiz: Test Your Knowledge
+
+#### 1. How can you ensure a table is only created if it doesn't already exist, to avoid errors?
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li>By adding <code>IF NOT EXISTS</code> to the <code>CREATE TABLE</code> statement:</li>
+  </ul>
+
+  ```sql
+  CREATE TABLE IF NOT EXISTS Directory (
+    floor INTEGER,
+    company TEXT
+  );
+  ```
+</details>
+#### 2. Complete the column definition for the `Tickets` table creation syntax with the appropriate column data types.
+  ```sql
+  CREATE TABLE Tickets (
+    qty _____,
+    email _____
+  );
+  ```
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li>Specify <code>qty</code> as <code>INTEGER</code> and <code>email</code> as <code>TEXT</code>:</li>
+  </ul>
+
+  ```sql
+  CREATE TABLE Tickets (
+    qty INTEGER,
+    email TEXT
+  );
+  ```
+</details>
 
 ---
