@@ -86,7 +86,7 @@ For example, consider a table named `Friends`. Below is how a simple table might
   
   ```sql title="Creating SQL Tables. "
 SELECT *
-FROM membership
+FROM friends
 WHERE type = 'pro';
     ```
 

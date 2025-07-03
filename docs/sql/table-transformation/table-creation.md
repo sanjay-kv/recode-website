@@ -174,4 +174,73 @@ In this module, you learned the fundamentals of creating tables in SQL, includin
   ```
 </details>
 
+#### 3. Which of the following code can delete all the values from the given table?
+- `DELETE FROM toys WHERE price < 10`
+- `DELETE FROM toys`
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li><code>DELETE FROM toys</code> will delete all rows from the <code>toys</code> table.</li>
+  </ul>
+
+  ```sql
+  DELETE FROM toys;
+  ```
+</details>
 ---
+#### 4. What happens if you call `UPDATE` with a `WHERE` clause that does not match any existing row?
+- SQLite will update the next closest row
+- Nothing will change
+- SQLite will automatically create a new row with the provided data
+
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li><strong>Nothing will change</strong> — If no rows match the <code>WHERE</code> clause, no rows are updated.</li>
+  </ul>
+</details>
+#### 5. Write an SQL statement to update the streams count for the song "Paradise" by "The Jets" to 130.
+| songname           | artist        | streams | certifications |
+|--------------------|---------------|---------|----------------|
+| Paradise           | The Jets      | 120     |                |
+| My Way             | Stevie J      | 100     |                |
+| Purple Sunrise     | Harry         | 90      |                |
+| California Highway | Joan & Jerry  | 85      |                |
+| My Sister Meg      | Couches       | 70      |                |
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li>Use the <code>UPDATE</code> statement with a <code>WHERE</code> clause to target the correct row:</li>
+  </ul>
+
+  ```sql
+  UPDATE Songs
+  SET streams = 130
+  WHERE songname = 'Paradise';
+  ```
+</details>
+
+#### 6. Which of the following is not a requirement for defining a SQL table’s columns?
+- Column name
+- Column constraints
+- Column data type
+
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li><strong>Column constraints</strong> — This is not a requirement for defining a column in a SQL table.</li>
+  </ul>
+</details>
+
+#### 7. Which of the following is not a valid SQL column data type?
+- REAL
+- BOOLEAN
+- TEXT
+
+<details>
+  <summary>Answer</summary>
+  <ul>
+    <li><strong>BOOLEAN</strong> — Standard SQL does not define <code>BOOLEAN</code> as a column data type. Some databases support it as an alias, but it is not part of the SQL standard.</li>
+  </ul>
+</details>
+<GiscusComments/>
