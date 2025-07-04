@@ -207,7 +207,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="https://github.com/recodehive/recode-website/issues"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Report a Bug
