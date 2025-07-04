@@ -133,6 +133,11 @@ const config: Config = {
           position: "left",
         },
         {
+          to: "/dashboard",
+          html: '<span class="nav-emoji">📊</span> Dashboard',
+          position: "left",
+        },
+        {
           to: "/our-sponsors/",
           html: '<span class="nav-emoji">💰</span> Donate',
           position: "left",
