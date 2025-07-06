@@ -28,6 +28,27 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Ensure consistent dark background and text colors */
+  --ifm-background-color: #1b1b1d;
+  --ifm-background-surface-color: #242526;
+  --ifm-color-content: #e3e3e3;
+  --ifm-color-content-secondary: rgba(255, 255, 255, 0.8);
+  
+  /* Navigation and UI elements */
+  --ifm-navbar-background-color: #242526;
+  --ifm-footer-background-color: #242526;
+  --ifm-menu-color-background-active: rgba(255, 255, 255, 0.05);
+  --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.03);
+  
+  /* Code blocks */
+  --ifm-code-background: #2d2d30;
+  --ifm-pre-background: #2d2d30;
+  --ifm-blockquote-background-color: rgba(255, 255, 255, 0.05);
+  
+  /* Links and interactive elements */
+  --ifm-link-color: #4fb3e1;
+  --ifm-link-hover-color: #25c2a0;
 }
 
 
@@ -155,4 +176,32 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+/* Ensure Tailwind dark class is synced with Docusaurus theme */
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Additional dark mode consistency fixes */
+[data-theme='dark'] .navbar__logo img {
+  filter: brightness(1.2);
+}
+
+[data-theme='dark'] .footer {
+  --ifm-footer-background-color: var(--ifm-background-surface-color);
+}
+
+/* Ensure dropdown menus work well in dark mode */
+[data-theme='dark'] .dropdown__menu {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .dropdown__link:hover {
+  background-color: var(--ifm-menu-color-background-hover);
 }

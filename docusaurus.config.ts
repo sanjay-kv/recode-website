@@ -72,6 +72,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // Set dark mode as default and ensure preferences persist
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Recode Hive",
