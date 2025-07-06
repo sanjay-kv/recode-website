@@ -1,0 +1,140 @@
+name: Python Code Quality and Linting
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - '**.py'
+      - 'requirements*.txt'
+      - 'pyproject.toml'
+      - '.flake8'
+      - '.pre-commit-config.yaml'
+      - '.github/workflows/lint.yml'
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**.py'
+      - 'requirements*.txt'
+      - 'pyproject.toml'
+      - '.flake8'
+      - '.pre-commit-config.yaml'
+      - '.github/workflows/lint.yml'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dev.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+
+    - name: Run Black (code formatter check)
+      run: |
+        black --check --diff --color .
+
+    - name: Run isort (import sorting check)
+      run: |
+        isort --check-only --diff --color .
+
+    - name: Run flake8 (linting)
+      run: |
+        flake8 .
+
+    - name: Run mypy (static type checking)
+      run: |
+        mypy .
+
+    - name: Run bandit (security linting)
+      run: |
+        bandit -r . -f json -o bandit-report.json || true
+        bandit -r . -f txt
+
+    - name: Run safety (dependency security check)
+      run: |
+        safety check --json --output safety-report.json || true
+        safety check
+
+    - name: Upload bandit results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: bandit-report-${{ matrix.python-version }}
+        path: bandit-report.json
+
+    - name: Upload safety results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: safety-report-${{ matrix.python-version }}
+        path: safety-report.json
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.11
+
+    - name: Install pre-commit
+      run: |
+        python -m pip install --upgrade pip
+        pip install pre-commit
+
+    - name: Run pre-commit on all files
+      run: |
+        pre-commit run --all-files
+
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+
+    - name: Run tests with pytest
+      run: |
+        pytest --cov=. --cov-report=xml --cov-report=html
+
+    - name: Upload coverage to Codecov
+      if: matrix.python-version == '3.11'
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
