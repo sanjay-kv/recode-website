@@ -14,10 +14,10 @@ const TopMateSection = () => {
     <div className="px-4">
       <div className=" mx-auto">
         <div className=" mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Book a Session
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Get personalized guidance and feedback through one-on-one sessions
           </p>
         </div>

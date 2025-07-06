@@ -25,7 +25,7 @@ const RoadmapCard: React.FC<RoadmapCardProps> = ({
           <li key={item.text} className="flex items-center mb-2">
             <span
               className={
-                item.status === "done" ? "line-through text-gray-500" : ""
+                item.status === "done" ? "line-through text-gray-500 dark:text-gray-400" : ""
               }
             >
               <Link to={item.link}>{item.text}</Link>

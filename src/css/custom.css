@@ -34,6 +34,7 @@
   --ifm-background-surface-color: #242526;
   --ifm-color-content: #e3e3e3;
   --ifm-color-content-secondary: rgba(255, 255, 255, 0.8);
+  --ifm-font-color-base: #e3e3e3;
   
   /* Navigation and UI elements */
   --ifm-navbar-background-color: #242526;
@@ -204,4 +205,52 @@
 
 [data-theme='dark'] .dropdown__link:hover {
   background-color: var(--ifm-menu-color-background-hover);
+}
+
+/* Ensure all text elements have proper dark mode colors */
+[data-theme='dark'] {
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] p,
+[data-theme='dark'] h1,
+[data-theme='dark'] h2, 
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6,
+[data-theme='dark'] span,
+[data-theme='dark'] div {
+  color: var(--ifm-font-color-base);
+}
+
+/* Ensure header content has proper colors in dark mode */
+[data-theme='dark'] .chh__header-content p {
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Ensure proper contrast for main content areas */
+[data-theme='dark'] main {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+/* Synchronize Tailwind dark mode with Docusaurus theme */
+[data-theme='dark'] .dark\:from-gray-900 {
+  --tw-gradient-from: #111827 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(17 24 39 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+[data-theme='dark'] .dark\:to-gray-800 {
+  --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
+}
+
+/* Apply dark mode to html when data-theme is dark */
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
 }

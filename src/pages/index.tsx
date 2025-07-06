@@ -51,7 +51,7 @@ export default function Home(): ReactNode {
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
         />
       </Head>
-      <main className="bg-gradient-to-b from-white to-white/50">
+      <main className="bg-gradient-to-b from-white to-white/50 dark:from-gray-900 dark:to-gray-800">
         <div className="m-4">
           <Header />
         </div>

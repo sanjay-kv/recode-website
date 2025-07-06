@@ -34,7 +34,7 @@ export interface SelectComponentProps {
 
 const OurProjects: React.FC<OurProjectsProps> = ({ OurProjectsData }) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-10 sm:gap-20 py-10 sm:py-20 px-4  min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="flex flex-col items-center justify-center gap-10 sm:gap-20 py-10 sm:py-20 px-4 min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <HeadingComponent
         tag={OurProjectsData.tag}
         title={OurProjectsData.title}
@@ -78,7 +78,7 @@ const HeadingComponent: React.FC<HeadingComponentProps> = ({
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-gray-600 text-base sm:text-lg text-justify h-full flex items-center md:pr-10 justify-center leading-relaxed"
+        className="text-gray-600 dark:text-gray-300 text-base sm:text-lg text-justify h-full flex items-center md:pr-10 justify-center leading-relaxed"
       >
         {description}
       </motion.div>

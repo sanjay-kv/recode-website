@@ -22,7 +22,7 @@ const TopMateCard: React.FC<TopMateCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative w-full max-w-md mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1"
+      className="relative w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1"
     >
       {/* Decorative Arrows */}
       <div className="absolute -top-4 -left-4 flex gap-2">
@@ -44,23 +44,23 @@ const TopMateCard: React.FC<TopMateCardProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-600">1:1 CALL</span>
-            <div className="flex items-center gap-1 text-gray-500">
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">1:1 CALL</span>
+            <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
               <Clock size={16} />
               <span className="text-sm">{duration}</span>
             </div>
           </div>
-          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+          <button className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors">
             <span className="sr-only">Close</span>
             ×
           </button>
         </div>
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">{title}</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
 
         {/* Description */}
-        <p className="text-gray-600 mb-6">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
 
         {/* Profile Section */}
         <div className="flex items-center justify-between">
@@ -71,7 +71,7 @@ const TopMateCard: React.FC<TopMateCardProps> = ({
               className="w-12 h-12 rounded-full object-cover border-2 border-purple-200"
             />
             <div className="flex flex-col">
-              <span className="text-sm text-gray-600">Book a slot at</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300">Book a slot at</span>
               <a
                 href={`https://topmate.io/${username}`}
                 target="_blank"

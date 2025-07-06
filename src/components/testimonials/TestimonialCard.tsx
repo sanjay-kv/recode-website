@@ -22,7 +22,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-[250px] flex flex-col justify-between"
+      className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-[250px] flex flex-col justify-between"
     >
       {/* Header with Avatar and Name */}
       <div className="flex items-center gap-4">
@@ -31,16 +31,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
-          <h3 className="font-semibold text-gray-900 text-lg">{name}</h3>
-          <p className="text-sm text-gray-500">@{username}</p>
+          <h3 className="font-semibold text-gray-900 dark:text-white text-lg">{name}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">@{username}</p>
         </div>
       </div>
 
       {/* Content */}
-      <p className="text-gray-700 line-clamp-3 my-4 flex-grow">{content}</p>
+      <p className="text-gray-700 dark:text-gray-300 line-clamp-3 my-4 flex-grow">{content}</p>
 
       {/* Footer with Hashtags and Date */}
-      <div className="flex items-center justify-between text-sm pt-2 border-t border-gray-100">
+      <div className="flex items-center justify-between text-sm pt-2 border-t border-gray-100 dark:border-gray-700">
         <div className="flex gap-2 flex-wrap">
           {content.match(/#\w+/g)?.map((hashtag, index) => (
             <span
@@ -51,7 +51,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             </span>
           ))}
         </div>
-        <span className="text-gray-400 shrink-0">{date}</span>
+        <span className="text-gray-400 dark:text-gray-500 shrink-0">{date}</span>
       </div>
     </motion.div>
   );

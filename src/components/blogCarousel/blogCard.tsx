@@ -63,7 +63,7 @@ const BlogCard = ({
           className="absolute top-0 h-full bg-gradient-to-r from-white/30 via-transparent to-white/30 pointer-events-none"
         />
 
-        <Card className="max-w-md w-full p-4  h-full border-none rounded-2xl bg-white ">
+        <Card className="max-w-md w-full p-4 h-full border-none rounded-2xl bg-white dark:bg-gray-800">
           <img
             src={imageUrl}
             alt=""
@@ -72,13 +72,13 @@ const BlogCard = ({
             className="w-full h-48 object-contain rounded-lg"
           />
           <CardContent className="p-4 space-y-2">
-            <div className="text-sm text-gray-500 ">
+            <div className="text-sm text-gray-500 dark:text-gray-400">
               {date}
             </div>
-            <h2 className="text-lg font-semibold text-gray-900 ">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               {title}
             </h2>
-            <div className="text-sm text-gray-700  line-clamp-3">
+            <div className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3">
               {content}
             </div>
           </CardContent>
