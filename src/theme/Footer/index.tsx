@@ -168,7 +168,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/careers"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Careers
