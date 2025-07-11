@@ -1,0 +1,41 @@
+[flake8]
+# Maximum line length
+max-line-length = 88
+
+# Ignore specific error codes
+ignore = 
+    E203,  # whitespace before ':'
+    E501,  # line too long (handled by black)
+    W503,  # line break before binary operator (conflicts with W504)
+    F401,  # imported but unused (handled by isort)
+
+# Exclude directories
+exclude = 
+    .git,
+    __pycache__,
+    build,
+    dist,
+    *.egg-info,
+    .venv,
+    venv,
+    .tox,
+    .pytest_cache,
+    node_modules
+
+# Select error/warning codes to check
+select = E,W,F,C
+
+# Enable complexity checking
+max-complexity = 10
+
+# File patterns to check
+filename = *.py
+
+# Show source code for each error
+show-source = True
+
+# Count errors and warnings
+count = True
+
+# Display statistics
+statistics = True

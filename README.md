@@ -70,6 +70,85 @@ flowchart LR
 
     This command will start a development server and open the application in your default web browser.
 
+## Python Backend Development Setup
+
+If you're working on Python backend components, follow these additional setup steps:
+
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package installer)
+
+### Installing Python Development Dependencies
+
+1. **Install development dependencies:**
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+
+2. **Install pre-commit hooks:**
+   ```bash
+   pre-commit install
+   ```
+
+### Running Python Code Quality Tools
+
+#### Code Formatting
+- **Format code with black:**
+  ```bash
+  black .
+  ```
+
+- **Sort imports with isort:**
+  ```bash
+  isort .
+  ```
+
+#### Linting and Type Checking
+- **Run flake8 linting:**
+  ```bash
+  flake8 .
+  ```
+
+- **Run mypy type checking:**
+  ```bash
+  mypy .
+  ```
+
+- **Run security checks:**
+  ```bash
+  bandit -r .
+  safety check
+  ```
+
+#### Running All Checks
+- **Run pre-commit on all files:**
+  ```bash
+  pre-commit run --all-files
+  ```
+
+#### Testing
+- **Run tests with pytest:**
+  ```bash
+  pytest
+  ```
+
+- **Run tests with coverage:**
+  ```bash
+  pytest --cov=. --cov-report=html
+  ```
+
+### Code Quality Standards
+
+Our Python codebase follows these standards:
+- **PEP 8** compliance enforced by flake8
+- **Code formatting** with black (88 character line length)
+- **Import sorting** with isort
+- **Static type checking** with mypy
+- **Security scanning** with bandit
+- **Pre-commit hooks** to ensure quality before commits
+
+All pull requests must pass the automated linting and testing pipeline.
+
 **If you'd like to contribute to CodeHarborHub, please follow these guidelines:**
 
 - **Fork** the repository and clone it locally.
