@@ -1,3 +1,105 @@
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--ifm-background-color);
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+  width: 250px;
+  background: var(--ifm-card-background-color);
+  border-right: 1px solid var(--ifm-toc-border-color);
+  padding: 1.5rem 0;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  color: var(--ifm-color-primary);
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--ifm-font-color-base);
+}
+
+.nav-item:hover {
+  background: var(--ifm-menu-color-background-active);
+  color: var(--ifm-color-primary);
+}
+
+.nav-item.active {
+  background: var(--ifm-menu-color-background-active);
+  border-left: 3px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.nav-icon {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Main Content */
+.dashboard-main {
+  flex: 1;
+  margin-left: 250px; /* Match sidebar width */
+  padding: 2rem;
+  max-width: calc(100% - 250px);
+}
+
+.dashboard-main.discuss-view {
+  max-width: 100%;
+}
+
+/* Discussion Section */
+.discussion-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.discussion-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.discussion-container p {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.giscus-container {
+  margin-top: 2rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 /* Dashboard Container */
 .dashboard-container {
   max-width: 1200px;
