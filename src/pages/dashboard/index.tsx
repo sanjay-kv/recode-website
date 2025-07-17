@@ -4,6 +4,8 @@ import Head from "@docusaurus/Head";
 import { motion } from "framer-motion";
 import { useCommunityStatsContext, CommunityStatsProvider } from "@site/src/lib/statsProvider";
 import SlotCounter from "react-slot-counter";
+import Giscus from "@giscus/react";
+import { useLocation, useHistory } from "@docusaurus/router";
 import "./dashboard.css";
 
 interface LeaderboardEntry {
@@ -24,7 +26,30 @@ interface DashboardStats {
   topContributors: LeaderboardEntry[];
 }
 
-const Dashboard: React.FC = () => {
+const DashboardContent: React.FC = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const [activeTab, setActiveTab] = useState<'home' | 'discuss'>('home');
+
+  useEffect(() => {
+    // Set active tab based on URL hash
+    if (location.hash === '#discuss') {
+      setActiveTab('discuss');
+    } else {
+      setActiveTab('home');
+    }
+  }, [location]);
+
+  const handleTabChange = (tab: 'home' | 'discuss') => {
+    setActiveTab(tab);
+    if (tab === 'discuss') {
+      history.push('#discuss');
+      window.scrollTo(0, 0);
+    } else {
+      history.push('#');
+    }
+  };
+
   const {
     githubStarCount,
     githubStarCountText,
@@ -132,7 +157,7 @@ const Dashboard: React.FC = () => {
               value={valueText}
               autoAnimationStart={true}
               duration={1}
-              className="dashboard-slot-counter"
+              className="dashboard-slot-counter-value"
             />
           )}
         </div>
@@ -191,143 +216,187 @@ const Dashboard: React.FC = () => {
   );
 
   return (
-    <Layout
-      title="Dashboard - RecodeHive"
-      description="Community Dashboard with Leaderboard and Statistics"
-    >
+    <Layout title="Dashboard" description="RecodeHive Community Dashboard">
       <Head>
-        <title>Dashboard - RecodeHive</title>
-        <meta
-          name="description"
-          content="Explore our community dashboard with contributor leaderboard and project statistics"
-        />
+        <title>RecodeHive | Dashboard</title>
+        <meta name="description" content="RecodeHive Community Dashboard" />
       </Head>
-
-      <div className="dashboard-container">
-        {/* Hero Section */}
-        <motion.section
-          className="dashboard-hero"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="hero-content">
-            <h1 className="dashboard-title">
-              Community <span className="highlight">Dashboard</span>
-            </h1>
-            <p className="dashboard-subtitle">
-              Track our community's growth, celebrate top contributors, and explore project statistics
-            </p>
+      <div className="dashboard-layout">
+        {/* Side Navigation */}
+        <nav className="dashboard-sidebar">
+          <div className="sidebar-logo">
+            <h2>RecodeHive</h2>
           </div>
-        </motion.section>
+          <ul className="sidebar-nav">
+            <li 
+              className={`nav-item ${activeTab === 'home' ? 'active' : ''}`}
+              onClick={() => handleTabChange('home')}
+            >
+              <span className="nav-icon">🏠</span>
+              <span className="nav-text">Home</span>
+            </li>
+            <li 
+              className={`nav-item ${activeTab === 'discuss' ? 'active' : ''}`}
+              onClick={() => handleTabChange('discuss')}
+            >
+              <span className="nav-icon">💬</span>
+              <span className="nav-text">Discuss</span>
+            </li>
+          </ul>
+        </nav>
 
-        {/* Stats Grid */}
-        <motion.section
-          className="dashboard-stats-section"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="dashboard-stats-grid">
-            <StatCard
-              icon="⭐"
-              title="Total Stars"
-              value={dashboardStats.totalStars}
-              valueText={githubStarCountText}
-              description="Stars across all repositories"
-            />
-            <StatCard
-              icon="👥"
-              title="Contributors"
-              value={dashboardStats.totalContributors}
-              valueText={githubContributorsCountText}
-              description="Amazing community members"
-            />
-            <StatCard
-              icon="📚"
-              title="Repositories"
-              value={dashboardStats.totalRepositories}
-              valueText={githubReposCountText}
-              description="Open source projects"
-            />
-            <StatCard
-              icon="🍴"
-              title="Forks"
-              value={dashboardStats.totalForks}
-              valueText={githubForksCountText}
-              description="Community contributions"
-            />
-          </div>
-        </motion.section>
-
-        {/* Leaderboard Section */}
-        <motion.section
-          className="dashboard-leaderboard-section"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="leaderboard-header">
-            <h2 className="leaderboard-title">
-              🏆 Top Contributors <span className="title-accent">Leaderboard</span>
-            </h2>
-            <p className="leaderboard-description">
-              Celebrating our most active community members who make RecodHive awesome!
-            </p>
-          </div>
-
-          <div className="leaderboard-container">
-            {error && (
-              <div className="error-message">
-                <p>⚠️ Some data may be cached or incomplete</p>
-              </div>
-            )}
-            
-            {dashboardStats.topContributors.map((entry, index) => (
-              <LeaderboardCard key={entry.rank} entry={entry} index={index} />
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Call to Action */}
-        <motion.section
-          className="dashboard-cta"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="cta-content">
-            <h3>Want to see your name here?</h3>
-            <p>Join our community and start contributing to open source projects!</p>
-            <div className="cta-buttons">
-              <a
-                href="https://github.com/recodehive"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-primary"
+        <main className={`dashboard-main ${activeTab === 'discuss' ? 'discuss-view' : ''}`}>
+          {activeTab === 'home' ? (
+            <div>
+              {/* Hero Section */}
+              <motion.section
+                className="dashboard-hero"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                Start Contributing
-              </a>
-              <a href="/community" className="cta-secondary">
-                Join Community
-              </a>
+                <div className="hero-content">
+                  <h1 className="dashboard-title">
+                    Community <span className="highlight">Dashboard</span>
+                  </h1>
+                  <p className="dashboard-subtitle">
+                    Track our community's growth, celebrate top contributors, and explore project statistics
+                  </p>
+                </div>
+              </motion.section>
+
+              {/* Stats Grid */}
+              <motion.section
+                className="dashboard-stats-section"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="dashboard-stats-grid">
+                  <StatCard
+                    icon="⭐"
+                    title="Total Stars"
+                    value={dashboardStats.totalStars}
+                    valueText={githubStarCountText}
+                    description="Stars across all repositories"
+                  />
+                  <StatCard
+                    icon="👥"
+                    title="Contributors"
+                    value={dashboardStats.totalContributors}
+                    valueText={githubContributorsCountText}
+                    description="Amazing community members"
+                  />
+                  <StatCard
+                    icon="📚"
+                    title="Repositories"
+                    value={dashboardStats.totalRepositories}
+                    valueText={githubReposCountText}
+                    description="Open source projects"
+                  />
+                  <StatCard
+                    icon="🍴"
+                    title="Forks"
+                    value={dashboardStats.totalForks}
+                    valueText={githubForksCountText}
+                    description="Community contributions"
+                  />
+                </div>
+              </motion.section>
+
+              {/* Leaderboard Section */}
+              <motion.section
+                className="dashboard-leaderboard-section"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="leaderboard-header">
+                  <h2 className="leaderboard-title">
+                    🏆 Top Contributors <span className="title-accent">Leaderboard</span>
+                  </h2>
+                  <p className="leaderboard-description">
+                    Celebrating our most active community members who make RecodHive awesome!
+                  </p>
+                </div>
+
+                <div className="leaderboard-container">
+                  {error && (
+                    <div className="error-message">
+                      <p>⚠️ Some data may be cached or incomplete</p>
+                    </div>
+                  )}
+                  
+                  {dashboardStats.topContributors.map((entry, index) => (
+                    <LeaderboardCard key={entry.rank} entry={entry} index={index} />
+                  ))}
+                </div>
+              </motion.section>
+
+              {/* Call to Action */}
+              <motion.section
+                className="dashboard-cta"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="cta-content">
+                  <h3>Want to see your name here?</h3>
+                  <p>Join our community and start contributing to open source projects!</p>
+                  <div className="cta-buttons">
+                    <a
+                      href="https://github.com/recodehive"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-primary"
+                    >
+                      Start Contributing
+                    </a>
+                    <a href="/community" className="cta-secondary">
+                      Join Community
+                    </a>
+                  </div>
+                </div>
+              </motion.section>
             </div>
-          </div>
-        </motion.section>
+          ) : (
+            <div className="discussion-container">
+              <h2>Community Discussions</h2>
+              <p>Join the conversation, ask questions, and share your thoughts with the RecodeHive community.</p>
+              <div className="giscus-container">
+                <Giscus
+                  id="discussions"
+                  repo="recodehive/recode-website"
+                  repoId="R_kgDOOgGO-g"
+                  category="Announcements"  // You can change this to your preferred category
+                  categoryId="DIC_kwDOOgGO-s4Cb6wU"  // This is a placeholder - you'll need to get the actual category ID
+                  mapping="pathname"
+                  strict="0"
+                  reactionsEnabled="1"
+                  emitMetadata="0"
+                  inputPosition="bottom"
+                  theme="preferred_color_scheme"
+                  lang="en"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          )}
+        </main>
       </div>
     </Layout>
   );
 };
 
-const DashboardWithProvider: React.FC = () => {
+const Dashboard: React.FC = () => {
   return (
     <CommunityStatsProvider>
-      <Dashboard />
+      <DashboardContent />
     </CommunityStatsProvider>
   );
 };
 
-export default DashboardWithProvider;
+export default Dashboard;
