@@ -30,6 +30,7 @@ const DashboardContent: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
   const [activeTab, setActiveTab] = useState<'home' | 'discuss'>('home');
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     // Set active tab based on URL hash
@@ -223,9 +224,18 @@ const DashboardContent: React.FC = () => {
       </Head>
       <div className="dashboard-layout">
         {/* Side Navigation */}
-        <nav className="dashboard-sidebar">
-          <div className="sidebar-logo">
-            <h2>RecodeHive</h2>
+        <nav className={`dashboard-sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+          <div className="sidebar-header">
+            <div className="sidebar-logo">
+              <h2>RecodeHive</h2>
+            </div>
+            <button 
+              className="sidebar-toggle" 
+              onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+              aria-label={isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            >
+              {isSidebarCollapsed ? '→' : '←'}
+            </button>
           </div>
           <ul className="sidebar-nav">
             <li 
@@ -243,9 +253,21 @@ const DashboardContent: React.FC = () => {
               <span className="nav-text">Discuss</span>
             </li>
           </ul>
+          <div className="sidebar-footer">
+            <button 
+              className="sidebar-toggle bottom-toggle" 
+              onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+              aria-label={isSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            >
+              {isSidebarCollapsed ? '→' : '←'}
+            </button>
+          </div>
         </nav>
 
-        <main className={`dashboard-main ${activeTab === 'discuss' ? 'discuss-view' : ''}`}>
+        <main 
+          className={`dashboard-main ${activeTab === 'discuss' ? 'discuss-view' : ''} ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}
+          onClick={() => isSidebarCollapsed && setIsSidebarCollapsed(false)}
+        >
           {activeTab === 'home' ? (
             <div>
               {/* Hero Section */}
