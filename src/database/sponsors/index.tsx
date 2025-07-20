@@ -11,6 +11,12 @@ export interface Sponsor {
 }
 
 const sponsors: Sponsor[] = [
+  {
+    name: "DevXavier",
+    image: "https://avatars.githubusercontent.com/u/192259212?v=4",
+    description: "Student ",
+    github: "https://github.com/DevXavierNieto",
+  },
     {
     name: "Takashi Arai",
     image: "https://avatars.githubusercontent.com/u/42265874?v=4",
@@ -39,6 +45,7 @@ const sponsors: Sponsor[] = [
     description: "Software Developer",
     github: "https://github.com/varghese25",
     linkedin: "https://www.linkedin.com/in/varghese-baby-138429175/",
+    isPastSponsor: true,
   },
  
   {
