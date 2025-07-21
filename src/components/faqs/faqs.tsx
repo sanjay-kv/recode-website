@@ -53,58 +53,60 @@ const FAQs: React.FC = () => {
         <div className="flex flex-col justify-center items-center gap-x-8 gap-y-12 xl:gap-28 lg:flex-row lg:justify-between">
           <div className="w-full">
             <div className="mb-8 lg:mb-16">
-              <h6 className="text-lg text-center lg:text-left font-medium text-indigo-600 mb-2">
+              <h6 className="text-lg text-center font-medium mb-2">
                 FAQs
               </h6>
-              <h2 className="text-4xl text-center lg:text-left font-bold text-gray-900 dark:text-gray-100 leading-snug">
+              <h2 className="text-4xl text-center font-bold text-gray-900 leading-snug">
                 Looking for answers?
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 text-center lg:text-left">
+              <p className="text-gray-700 text-center">
                 Find answers to the most common questions about Recode Hive.
               </p>
             </div>
-
-            {/* Accordion Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-auto">
-              {faqData.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  className="accordion h-fit border-gray-200 dark:border-gray-700 pb-4"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <button
-                    className="accordion-toggle group flex justify-between items-center text-lg font-medium text-gray-700 dark:text-gray-200 w-full transition-all duration-300 hover:text-indigo-600 dark:hover:text-indigo-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg focus:outline-none"
-                    onClick={() => toggleAccordion(index)}
-                  >
-                    {faq.question}
-                    <motion.span
-                      className="transform transition-transform duration-300"
-                      animate={{
-                        rotate: activeIndex === index ? 180 : 0,
-                      }}
-                    >
-                      <FiChevronDown size={22} />
-                    </motion.span>
-                  </button>
+            <div className="w-full flex align-center justify-center">
+              {/* Accordion Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-1 md:w-[50rem] gap-4 auto-rows-auto">
+                {faqData.map((faq, index) => (
                   <motion.div
-                    className="accordion-content overflow-hidden"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{
-                      height: activeIndex === index ? "auto" : 0,
-                      opacity: activeIndex === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    key={index}
+                    className="accordion h-fit pb-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <div 
-                      className="mt-2 text-gray-600 dark:text-gray-400 text-base [&_a]:text-indigo-600 [&_a]:hover:text-indigo-800 dark:[&_a]:text-indigo-400 dark:[&_a]:hover:text-indigo-300 [&_a]:transition-colors [&_a]:duration-200 [&_strong]:font-semibold [&_strong]:text-gray-800 dark:[&_strong]:text-gray-200"
-                      dangerouslySetInnerHTML={{ __html: faq.answer }}
-                    />
+                    <button
+                      className="accordion-toggle group flex justify-between items-center text-lg font-medium w-full transition-all duration-300  p-4 rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                      onClick={() => toggleAccordion(index)}
+                    >
+                      {faq.question}
+                      <motion.span
+                        className="transform transition-transform duration-100 "
+                        animate={{
+                          rotate: activeIndex === index ? 180 : 0,
+                        }}
+                      >
+                        <FiChevronDown size={22} />
+                      </motion.span>
+                    </button>
+                    <motion.div
+                      className="accordion-content overflow-hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{
+                        height: activeIndex === index ? "auto" : 0,
+                        opacity: activeIndex === index ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div
+                        className="mt-2 text-base [&_a]:transition-colors [&_a]:duration-200 [&_strong]:font-semibold"
+                        dangerouslySetInnerHTML={{ __html: faq.answer }}
+                      />
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
       </div>
