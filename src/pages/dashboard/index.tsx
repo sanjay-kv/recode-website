@@ -11,11 +11,16 @@ import "./dashboard.css";
 interface LeaderboardEntry {
   rank: number;
   name: string;
+  username?: string;
   avatar: string;
   contributions: number;
   repositories: number;
   achievements: string[];
   github_url: string;
+  score?: number;
+  streak?: number;
+  postManTag?: boolean;
+  web3hack?: boolean;
 }
 
 interface DashboardStats {
@@ -26,25 +31,202 @@ interface DashboardStats {
   topContributors: LeaderboardEntry[];
 }
 
+// Helper function to parse CSV data from Google Sheets
+const parseCSVToJSON = (csvText: string): any[] => {
+  const lines = csvText.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  // Get headers from first line (remove quotes)
+  const headers = lines[0].split(',').map(header => header.replace(/"/g, '').trim());
+  console.log('📋 CSV Headers found:', headers);
+  
+  // Parse data rows
+  const data: any[] = [];
+  
+  for (let i = 1; i < lines.length; i++) {
+    const values = lines[i].split(',').map(value => value.replace(/"/g, '').trim());
+    const row: any = {};
+    
+    headers.forEach((header, index) => {
+      if (values[index]) {
+        row[header] = values[index];
+      }
+    });
+    
+    // Only add rows that have meaningful data
+    if (row[headers[0]] && row[headers[0]] !== '') {
+      data.push(row);
+    }
+  }
+  
+  console.log('📊 Parsed CSV data:', data);
+  return data;
+};
+
 const DashboardContent: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
-  const [activeTab, setActiveTab] = useState<'home' | 'discuss'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'discuss' | 'leaderboard'>('home');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([]);
+  const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
+  const [leaderboardError, setLeaderboardError] = useState<string | null>(null);
 
   useEffect(() => {
     // Set active tab based on URL hash
     if (location.hash === '#discuss') {
       setActiveTab('discuss');
+    } else if (location.hash === '#leaderboard') {
+      setActiveTab('leaderboard');
     } else {
       setActiveTab('home');
     }
   }, [location]);
 
-  const handleTabChange = (tab: 'home' | 'discuss') => {
+  // Fetch leaderboard data when leaderboard tab is active
+  useEffect(() => {
+    if (activeTab === 'leaderboard') {
+      fetchLeaderboardData();
+    }
+  }, [activeTab]);
+
+  const fetchLeaderboardData = async () => {
+    setIsLoadingLeaderboard(true);
+    setLeaderboardError(null);
+    
+    try {
+      console.log('🔄 Fetching leaderboard data from API...');
+      
+      const response = await fetch('https://gssoc24-leaderboard-backend-production-dfe3.up.railway.app/OSLeaderboard');
+      
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('📊 API Response:', data);
+      
+      if (!data.leaderboard || !Array.isArray(data.leaderboard)) {
+        throw new Error('Invalid API response format');
+      }
+      
+      // Transform API data to match our LeaderboardEntry interface
+      const transformedData: LeaderboardEntry[] = data.leaderboard
+        .filter(item => item.login && item.score !== undefined) // Filter out entries without login or score
+        .map((item, index) => {
+          const score = item.score || 0;
+          const prCount = item.pr_urls ? item.pr_urls.length : 0;
+          const achievements = generateAchievements(score, prCount);
+          
+          // Add badges for special tags
+          if (item.postManTag) achievements.push("📮 Postman Badge");
+          if (item.web3hack) achievements.push("🌐 Web3 Hacker");
+          
+          return {
+            rank: index + 1,
+            name: item.login, // Using login as name since that's what's available
+            username: item.login,
+            avatar: item.avatar_url || `https://avatars.githubusercontent.com/u/${Math.floor(Math.random() * 100000)}?v=4`,
+            contributions: prCount,
+            repositories: Math.floor(prCount / 3) || 1, // Estimate repos based on PRs
+            score,
+            achievements,
+            github_url: item.url || `https://github.com/${item.login}`,
+            streak: item.streak || 0,
+            postManTag: item.postManTag || false,
+            web3hack: item.web3hack || false,
+          };
+        })
+        .sort((a, b) => b.score - a.score) // Sort by score descending
+        .map((item, index) => ({ ...item, rank: index + 1 })); // Update ranks after sorting
+      
+      console.log('✅ Successfully processed leaderboard data:', transformedData);
+      setLeaderboardData(transformedData);
+      
+    } catch (error) {
+      console.error('❌ Error fetching leaderboard data:', error);
+      setLeaderboardError(error.message);
+      
+      // Fallback demo data with similar structure
+      console.log('📝 Loading demo data as fallback...');
+      const demoData: LeaderboardEntry[] = [
+        {
+          rank: 1,
+          name: "ShivanshPlays",
+          username: "ShivanshPlays",
+          avatar: "https://avatars.githubusercontent.com/u/112249407?v=4",
+          contributions: 158,
+          repositories: 25,
+          score: 7900,
+          achievements: ["🏆 Top Contributor", "📮 Postman Badge", "🌐 Web3 Hacker"],
+          github_url: "https://github.com/ShivanshPlays",
+          streak: 9,
+          postManTag: true,
+          web3hack: true,
+        },
+        {
+          rank: 2,
+          name: "IkkiOcean",
+          username: "IkkiOcean",
+          avatar: "https://avatars.githubusercontent.com/u/76002919?v=4",
+          contributions: 145,
+          repositories: 22,
+          score: 7850,
+          achievements: ["🚀 Rising Star", "📮 Postman Badge", "🌐 Web3 Hacker"],
+          github_url: "https://github.com/IkkiOcean",
+          streak: 8,
+          postManTag: true,
+          web3hack: true,
+        },
+        {
+          rank: 3,
+          name: "Community Member",
+          username: "member3",
+          avatar: "https://avatars.githubusercontent.com/u/79542825?v=4",
+          contributions: 120,
+          repositories: 18,
+          score: 6500,
+          achievements: ["💪 Power User", "⭐ Star Contributor"],
+          github_url: "https://github.com/member3",
+          streak: 5,
+        }
+      ];
+      setLeaderboardData(demoData);
+    } finally {
+      setIsLoadingLeaderboard(false);
+    }
+  };
+
+  const generateAchievements = (score: number, contributions: number): string[] => {
+    const achievements: string[] = [];
+    
+    // Score-based achievements (GSSoC style)
+    if (score >= 5000) achievements.push("🏆 Elite Contributor");
+    if (score >= 3000) achievements.push("⭐ Master Contributor");
+    if (score >= 1000) achievements.push("🚀 Advanced Contributor");
+    if (score >= 500) achievements.push("💪 Active Contributor");
+    if (score >= 100) achievements.push("🌟 Rising Star");
+    
+    // PR count-based achievements
+    if (contributions >= 100) achievements.push("� Century Club");
+    if (contributions >= 50) achievements.push("🎯 Half Century");
+    if (contributions >= 25) achievements.push("⚡ Quick Contributor");
+    if (contributions >= 10) achievements.push("🔥 Consistent");
+    
+    // Special milestone achievements
+    if (score >= 7000) achievements.push("👑 Legend");
+    if (contributions >= 150) achievements.push("🎖️ PR Master");
+    
+    return achievements.slice(0, 3); // Limit to 3 achievements for UI
+  };
+
+  const handleTabChange = (tab: 'home' | 'discuss' | 'leaderboard') => {
     setActiveTab(tab);
     if (tab === 'discuss') {
       history.push('#discuss');
+      window.scrollTo(0, 0);
+    } else if (tab === 'leaderboard') {
+      history.push('#leaderboard');
       window.scrollTo(0, 0);
     } else {
       history.push('#');
@@ -158,7 +340,6 @@ const DashboardContent: React.FC = () => {
               value={valueText}
               autoAnimationStart={true}
               duration={1}
-              className="dashboard-slot-counter-value"
             />
           )}
         </div>
@@ -251,6 +432,13 @@ const DashboardContent: React.FC = () => {
             >
               <span className="nav-icon">💬</span>
               <span className="nav-text">Discuss</span>
+            </li>
+            <li 
+              className={`nav-item ${activeTab === 'leaderboard' ? 'active' : ''}`}
+              onClick={() => handleTabChange('leaderboard')}
+            >
+              <span className="nav-icon">🏆</span>
+              <span className="nav-text">Leaderboard</span>
             </li>
           </ul>
           <div className="sidebar-footer">
@@ -384,7 +572,7 @@ const DashboardContent: React.FC = () => {
                 </div>
               </motion.section>
             </div>
-          ) : (
+          ) : activeTab === 'discuss' ? (
             <div className="discussion-container">
               <h2>Community Discussions</h2>
               <p>Join the conversation, ask questions, and share your thoughts with the RecodeHive community.</p>
@@ -405,6 +593,187 @@ const DashboardContent: React.FC = () => {
                   loading="lazy"
                 />
               </div>
+            </div>
+          ) : (
+            /* Leaderboard Tab */
+            <div className="leaderboard-page-container">
+              <motion.div
+                className="leaderboard-page-header"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h1 className="leaderboard-page-title">
+                  🏆 Community <span className="highlight">Leaderboard</span>
+                </h1>
+                <p className="leaderboard-page-subtitle">
+                  Live rankings from GSSoC '24 API • Updated automatically
+                </p>
+                <div className="refresh-section">
+                  <button 
+                    onClick={fetchLeaderboardData}
+                    disabled={isLoadingLeaderboard}
+                    className="refresh-button"
+                  >
+                    {isLoadingLeaderboard ? '🔄 Loading...' : '🔄 Refresh Data'}
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Loading State */}
+              {isLoadingLeaderboard && (
+                <motion.div 
+                  className="loading-container"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <div className="loading-spinner-large">⏳</div>
+                  <p>Loading leaderboard data from GSSoC API...</p>
+                </motion.div>
+              )}
+
+              {/* Error State */}
+              {leaderboardError && !isLoadingLeaderboard && (
+                <motion.div 
+                  className="error-container"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                >
+                  <h3>⚠️ API Connection Issue</h3>
+                  <p>{leaderboardError}</p>
+                  <div className="error-help">
+                    <p><strong>This could be due to:</strong></p>
+                    <ul>
+                      <li>API server is temporarily down</li>
+                      <li>Network connectivity issues</li>
+                      <li>API rate limiting</li>
+                    </ul>
+                    <p>Please try refreshing in a moment!</p>
+                  </div>
+                  <button onClick={fetchLeaderboardData} className="retry-button">
+                    Try Again
+                  </button>
+                </motion.div>
+              )}
+
+              {/* Leaderboard Data */}
+              {!isLoadingLeaderboard && !leaderboardError && leaderboardData.length > 0 && (
+                <motion.div
+                  className="leaderboard-content"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                  <div className="leaderboard-stats">
+                    <div className="stat-item">
+                      <span className="stat-number">{leaderboardData.length}</span>
+                      <span className="stat-label">Participants</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-number">{leaderboardData[0]?.score || 0}</span>
+                      <span className="stat-label">Top Score</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-number">
+                        {Math.round(leaderboardData.reduce((acc, user) => acc + (user.score || 0), 0) / leaderboardData.length)}
+                      </span>
+                      <span className="stat-label">Avg Score</span>
+                    </div>
+                  </div>
+
+                  <div className="leaderboard-grid">
+                    {leaderboardData.map((entry, index) => (
+                      <motion.div
+                        key={entry.rank}
+                        className="leaderboard-item"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.5 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                      >
+                        {/* Streak Display */}
+                        {entry.streak && entry.streak > 1 && (
+                          <div className="streak-display">
+                            {entry.streak} Day Streak
+                          </div>
+                        )}
+
+                        <div className="rank-section">
+                          <div className={`rank-badge ${entry.rank <= 3 ? `rank-${entry.rank}` : 'rank-other'}`}>
+                            #{entry.rank}
+                          </div>
+                        </div>
+                        
+                        <div className="avatar-section">
+                          <img 
+                            src={entry.avatar} 
+                            alt={entry.name}
+                            className="user-avatar"
+                            loading="lazy"
+                          />
+                        </div>
+                        
+                        <div className="user-info">
+                          <h3 className="user-name">{entry.name}</h3>
+                          {entry.username && entry.username !== entry.name && (
+                            <p className="user-username">@{entry.username}</p>
+                          )}
+                          
+                          <div className="score-display">
+                            <span className="score-number">{entry.score || 0}</span>
+                            <span className="score-label">points</span>
+                          </div>
+                          
+                          <div className="user-stats">
+                            <div className="stat">
+                              <span className="stat-value">{entry.contributions}</span>
+                              <span className="stat-text">PRs</span>
+                            </div>
+                            <div className="stat">
+                              <span className="stat-value">{entry.repositories}</span>
+                              <span className="stat-text">Repos</span>
+                            </div>
+                          </div>
+                          
+                          {entry.achievements.length > 0 && (
+                            <div className="achievements">
+                              {entry.achievements.map((achievement, i) => (
+                                <span key={i} className="achievement-tag">
+                                  {achievement}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        
+                        <div className="actions-section">
+                          <a
+                            href={entry.github_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="github-link"
+                          >
+                            <span>View Profile</span>
+                            <span>🔗</span>
+                          </a>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Empty State */}
+              {!isLoadingLeaderboard && !leaderboardError && leaderboardData.length === 0 && (
+                <motion.div 
+                  className="empty-state"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <h3>📊 No data available</h3>
+                  <p>The leaderboard is empty. Check back later!</p>
+                </motion.div>
+              )}
             </div>
           )}
         </main>
