@@ -199,7 +199,7 @@ const Footer: React.FC = () => {
               <ul className="list-none pl-0">
                 <li>
                   <Link
-                    to="/community"
+                    to="/help-center"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Help Center
@@ -218,25 +218,51 @@ const Footer: React.FC = () => {
                     to="#"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Feature Request
+                    Request a Feature
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/help-tutorial"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Account Support
+                    Support Center
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/account"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Accessibility Support
+                    Manage Account
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/accessibility"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Accessibility Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy-policyy"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact-support"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Customer Support
+                  </Link>
+                </li>
+              
+              
               </ul>
             </div>
           </div>
