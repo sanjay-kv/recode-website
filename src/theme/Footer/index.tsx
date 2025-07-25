@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import TeamSidebar from '../../components/TeamSidebar';
+
 
 const Footer: React.FC = () => {
   return (
+    return (
+  <div className="flex flex-col md:flex-row gap-4 px-6">
     <footer
       className="wow fadeInUp relative z-10 pt-16 lg:pt-[100px]"
       data-wow-delay=".15s"
@@ -247,7 +251,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/privacy-policyy"
+                    to="/privacy-policy"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Privacy Policy
@@ -620,8 +624,14 @@ const Footer: React.FC = () => {
           </svg>
         </span>
       </div>
-    </footer>
-  );
+      </footer>
+  <aside className="w-full md:w-[300px] hidden md:block">
+    <TeamSidebar />
+  </aside>
+</div> // closing wrapper div
+
+);
 };
+
 
 export default Footer;
