@@ -7,6 +7,17 @@
     padding: 3rem auto;
   }
   
+  .navbar {
+    background: rgba(255, 255, 255, 0.15); /* semi-transparent background */
+    backdrop-filter: blur(10px);           /* blur effect */
+    -webkit-backdrop-filter: blur(10px);   /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* optional subtle border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);         /* optional shadow */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
   .chh__header {
     display: flex;
     flex-direction: row;
