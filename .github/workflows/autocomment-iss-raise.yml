@@ -20,5 +20,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🚀 Thanks for opening this issue! The team will review it shortly."
+              body: "Thanks for opening this issue! 🎉 We'll look into it as soon as possible, estimated time for response is 5-8 hrs. Don't raise PR unless assigned to you. In the meantime, please make sure to provide all the necessary details and context to your issue, more details with video on changes you make help easy the review and assignment easier. If you have any questions, reach out to [LinkedIn](https://www.linkedin.com/in/sanjay-k-v/). Your contributions are highly appreciated! 😊\n\n  Note: I maintain the repo issue every day twice at 8:00 am IST and 9:00 pm IST, If your issue goes stale for more than one day, you can tag and comment on this same issue by tagging sanjay-kv.  \n\n  We are here to help you on this journey of open source, consistent contributions are eligible for sponsorship, check the list of people we sponsored so far [GitHub Sponsorship](https://www.recodehive.com/our-sponsors)."
             });
+ 
