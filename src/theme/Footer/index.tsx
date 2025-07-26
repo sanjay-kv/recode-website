@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import TeamSidebar from '@site/src/components/TeamSidebar';
+import Layout from "@docusaurus/Layout";
+
 
 const Footer: React.FC = () => {
   return (
+    <div className="flex flex-col md:flex-row gap-4px-6"> 
     <footer
       className="wow fadeInUp relative z-10 pt-16 lg:pt-[100px]"
       data-wow-delay=".15s"
@@ -595,7 +599,10 @@ const Footer: React.FC = () => {
         </span>
       </div>
     </footer>
+    <aside className="w-full md:w-[300px] hidden md:block">
+        <TeamSidebar />
+      </aside>
+    </div>
   );
 };
-
 export default Footer;
