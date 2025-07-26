@@ -21,39 +21,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `## 👋 Hello & Welcome! Thank you for opening this issue! 🎉  
-                    We appreciate your time and effort in contributing to this project.
-
-                                ---
-
-                      ### ⏳ **Response Time**
-                          We aim to respond **within 5–8 hours**.  
-                          **Please avoid raising PRs unless assigned to you.**
-
-                                    ---
-
-                                  ### 📝 **What You Can Do Now**
-                                - Make sure your issue contains **all the necessary details** and **context**.
-                                  - Adding screenshots or videos of your changes will make the review and assignment **much faster**.  
-                                  - If you have any doubts, feel free to **connect with me on [LinkedIn](https://www.linkedin.com/in/sanjay-k-v/).**
-
-                                                ---
-
-                                  ### ⏰ **Issue Maintenance**
-                                      - I check and maintain issues **twice a day** at:
-                                      - **8:00 AM IST**  
-                                      - **9:00 PM IST**
-                                  - If your issue is **stale for more than one day**, tag me (`@sanjay-kv`) in the comments.
-
-                                            ---
-
-                                        ### 💖 **Sponsorship & Recognition**
-                                      Consistent contributors may become **eligible for sponsorship**.  
-                                        Check out our amazing sponsors here: [GitHub Sponsorship](https://www.recodehive.com/our-sponsors).
-
-                                                  ---
-
-                                      **Thank you for being part of this open-source journey! 🚀**  
-                                        _Your contributions truly make a difference!_ ✨
-                                                  `
-                                                  });
+               body: "👋 Hi! Thanks for opening this issue 🎉 We'll review it within 5–8 hrs. Please include all details, screenshots, or videos to speed up the review. Avoid raising PRs unless assigned. I check issues at 8:00 AM & 9:00 PM IST daily—tag @sanjay-kv if your issue is stale for more than a day. Connect via [LinkedIn](https://www.linkedin.com/in/sanjay-k-v/) if you have questions. Consistent contributors are eligible for sponsorship — see [our sponsors](https://www.recodehive.com/our-sponsors). 🚀"
+            });
