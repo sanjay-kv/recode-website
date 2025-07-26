@@ -1,3 +1,4 @@
+
 name: Auto Comment on Issue Opened
 
 on:
@@ -20,23 +21,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `
-              ## 👋 Thanks for Opening an Issue! 🎉
-
-              We appreciate your contribution. Our team will review this issue within **5–8 hours**.
-
-              **Important Notes:**
-              - 🔒 Please **do not raise a PR unless this issue is assigned to you**.
-              - 📝 Ensure you provide **all necessary details**, including screenshots or video demos if possible — this helps us review and assign issues faster.
-
-              **Need Help?**
-              - Reach out on [LinkedIn](https://www.linkedin.com/in/sanjay-k-v/).
-              - We actively maintain this repo twice a day at **8:00 AM IST** and **9:00 PM IST**.  
-                If your issue goes stale for more than 24 hours, feel free to **tag `@sanjay-kv`** in a comment.
-
-              **✨ Bonus:**  
-              Consistent contributors are eligible for **sponsorships**. Check out our amazing [sponsors here](https://www.recodehive.com/our-sponsors).  
-
-              _Thanks for being a part of our open-source journey!_ 🚀
-              `
+              body: "Thanks for opening this issue! 🎉 We'll look into it as soon as possible, estimated time for response is 5-8 hrs. Don't raise PR unless assigned to you. In the meantime, please make sure to provide all the necessary details and context to your issue, more details with video on changes you make help easy the review and assignment easier. If you have any questions, reach out to [LinkedIn](https://www.linkedin.com/in/sanjay-k-v/). Your contributions are highly appreciated! 😊\n\n  Note: I maintain the repo issue every day twice at 8:00 am IST and 9:00 pm IST, If your issue goes stale for more than one day, you can tag and comment on this same issue by tagging sanjay-kv.  \n\n  We are here to help you on this journey of open source, consistent contributions are eligible for sponsorship, check the list of people we sponsored so far [GitHub Sponsorship](https://www.recodehive.com/our-sponsors)."
             });
