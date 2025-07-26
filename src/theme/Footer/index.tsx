@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import TeamSidebar from '../../components/TeamSidebar';
+
 
 const Footer: React.FC = () => {
   return (
+    return (
+  <div className="flex flex-col md:flex-row gap-4 px-6">
     <footer
       className="wow fadeInUp relative z-10 pt-16 lg:pt-[100px]"
       data-wow-delay=".15s"
@@ -199,7 +203,7 @@ const Footer: React.FC = () => {
               <ul className="list-none pl-0">
                 <li>
                   <Link
-                    to="/community"
+                    to="/help-center"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
                     Help Center
@@ -218,25 +222,51 @@ const Footer: React.FC = () => {
                     to="#"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Feature Request
+                    Request a Feature
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/help-tutorial"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Account Support
+                    Support Center
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/account"
                     className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
                   >
-                    Accessibility Support
+                    Manage Account
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/accessibility"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Accessibility Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy-policy"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact-support"
+                    className="mb-3 inline-block text-base text-gray-300 hover:text-[--ifm-color-primary]"
+                  >
+                    Customer Support
+                  </Link>
+                </li>
+              
+              
               </ul>
             </div>
           </div>
@@ -594,8 +624,14 @@ const Footer: React.FC = () => {
           </svg>
         </span>
       </div>
-    </footer>
-  );
+      </footer>
+  <aside className="w-full md:w-[300px] hidden md:block">
+    <TeamSidebar />
+  </aside>
+</div> // closing wrapper div
+
+);
 };
+
 
 export default Footer;
